@@ -1,3 +1,7 @@
+<style>
+p { text-align: justify; }
+</style>
+
 # Oceanum Morocco Wave Hindcast Specification
 
 **February 2025**
@@ -15,9 +19,9 @@
 
 ## Dataset description
 
-The Morocco wave hindcast dataset provides a detailed account of ocean wave parameters across the Northwest African Atlantic coast, covering the waters from Western Sahara to the Strait of Gibraltar (Figure 1). The domain extends offshore to include the Canary and Madeira archipelagos, capturing their shadowing effects on wave propagation. Wave spectra are computed over a 30-year period between 1994 and present using the SWAN (Simulating WAves Nearshore) third-generation spectral wave model. The model is driven by inputs from the Oceanum Global Wave Model for spectral boundaries and reprocessed ERA5 winds (WIND_GLO_PHY_L4_MY_012_006) from Copernicus Marine Service which incorporate scatterometer observations for improved accuracy, with ocean currents from the Glorys reanalysis. Bathymetry is derived from the [GEBCO 2025](https://www.gebco.net/data_and_products/gridded_bathymetry_data/) 400 m grid. The wave data can be validated against satellite altimeters using the [Oceanum Hindcast Validation App](https://hindcast-satellite-validation-main-prod.apps.oceanum.io/), ensuring a high level of accuracy and reliability in capturing real-world conditions.
+The Morocco wave hindcast dataset provides a detailed account of ocean wave parameters across the Northwest African Atlantic coast, covering the waters from Western Sahara to the Strait of Gibraltar (Figure 1). The domain extends offshore to include the Canary and Madeira archipelagos, capturing their shadowing effects on wave propagation. Wave spectra are computed over a 30-year period between 1994 and present using the SWAN (Simulating WAves Nearshore) third-generation spectral wave model. The model is driven by inputs from the Oceanum Global Wave Model for spectral boundaries and <a href="https://data.marine.copernicus.eu/product/WIND_GLO_PHY_L4_MY_012_006/description" target="_blank">reprocessed ERA5 winds</a> from Copernicus Marine Service which incorporate scatterometer observations for improved accuracy, with ocean currents from the Glorys reanalysis. Bathymetry is derived from the <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2025</a> 400 m grid.
 
-The modelling setup employs the [ST6](https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml) source term parameterisations. Spectra are discretised into 36 directional bins and 32 frequency bins, covering a frequency range from 0.037 to 0.7102 Hz with 10% logarithmic increments. The model features a regular grid with a 5 km (0.05 degree) resolution, spanning the entire Moroccan Atlantic coast and extending offshore to capture swell propagation from the North Atlantic.
+The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 32 frequency bins, covering a frequency range from 0.037 to 0.7102 Hz with 10% logarithmic increments. The model features a regular grid with a 5 km (0.05 degree) resolution, spanning the entire Moroccan Atlantic coast and extending offshore to capture swell propagation from the North Atlantic.
 
 The dataset provides hourly estimates for an extensive array of ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions (defined from an 8-second split and from the Watershed method). These data are stored over the entire grid at native resolution. Additionally, frequency-direction wave spectra are available at 738 sites, with resolution increasing from deep ocean areas towards the coast (see Figure 1).
 
@@ -29,7 +33,7 @@ The dataset provides hourly estimates for an extensive array of ocean wave param
 
 ## Validation
 
-The wave hindcast can be validated against satellite altimeter observations using the [Oceanum Hindcast Satellite Validation App](https://hindcast-satellite-validation-main-prod.apps.oceanum.io/). This interactive tool allows users to compare modelled significant wave height against satellite altimeter measurements at any location within the model domain, providing density scatter plots, quantile comparisons, and statistical metrics.
+The wave hindcast can be validated against satellite altimeter observations using the <a href="https://hindcast-satellite-validation-main-prod.apps.oceanum.io/" target="_blank">Oceanum Hindcast Satellite Validation App</a>. This interactive tool allows users to compare modelled significant wave height against satellite altimeter measurements at any location within the model domain, providing density scatter plots, quantile comparisons, and statistical metrics.
 
 ---
 
@@ -40,32 +44,32 @@ The wave hindcast can be validated against satellite altimeter observations usin
 | Field | Value |
 |---|---|
 | **Title** | Oceanum Morocco wave hindcast |
-| **Institution** | [Oceanum](https://oceanum.io) |
-| **Access** | [Oceanum Datamesh](https://ui.datamesh.oceanum.io/) |
-| **Source** | [SWAN 41.31A](https://swanmodel.sourceforge.io/) |
-| **Source terms** | [ST6](https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml) |
+| **Institution** | <a href="https://oceanum.io" target="_blank">Oceanum</a> |
+| **Access** | <a href="https://ui.datamesh.oceanum.io/" target="_blank">Oceanum Datamesh</a> |
+| **Source** | <a href="https://swanmodel.sourceforge.io/" target="_blank">SWAN 41.31A</a> |
+| **Source terms** | <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> |
 | **Temporal coverage** | 1994-06-01 to present (updating) |
 | **Temporal resolution** | Hourly |
 | **Spatial coverage** | [19W, 22N, 6W, 38N] at 0.05 degree |
 | **Spectra output sites** | 738 |
 | **Frequency discretisation** | 32 frequencies between 0.037 - 0.7102 Hz at 10% logarithmic increments |
 | **Direction resolution** | 10 deg |
-| **Bathymetry** | [GEBCO 2025 Grid](https://www.gebco.net/data_and_products/gridded_bathymetry_data/) |
-| **Winds** | [Reprocessed ERA5 (WIND_GLO_PHY_L4_MY_012_006)](https://data.marine.copernicus.eu/product/WIND_GLO_PHY_L4_MY_012_006/description) |
-| **Currents** | [Glorys Reanalysis](https://data.marine.copernicus.eu/product/GLOBAL_MULTIYEAR_PHY_001_030/description) |
-| **Boundary** | [Oceanum Global WW3 ERA5 hourly wave spectra](https://ui.datamesh.oceanum.io/datasource/oceanum_wave_glob05_era5_v1_spec) |
+| **Bathymetry** | <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2025 Grid</a> |
+| **Winds** | <a href="https://data.marine.copernicus.eu/product/WIND_GLO_PHY_L4_MY_012_006/description" target="_blank">Reprocessed ERA5</a> |
+| **Currents** | <a href="https://data.marine.copernicus.eu/product/GLOBAL_MULTIYEAR_PHY_001_030/description" target="_blank">Glorys Reanalysis</a> |
+| **Boundary** | <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_glob05_era5_v1_spec" target="_blank">Oceanum Global WW3 ERA5 hourly wave spectra</a> |
 
 ### Linked Datamesh datasources
 
-- [Oceanum Morocco 5 km hourly wave parameters](https://ui.datamesh.oceanum.io/datasource/oceanum_wave_morocco_5km_era5_grid)
-- [Oceanum Morocco 5 km hourly wave spectra](https://ui.datamesh.oceanum.io/datasource/oceanum_wave_morocco_5km_era5_spec)
-- [Oceanum Morocco 5 km gridded wave statistics](https://ui.datamesh.oceanum.io/datasource/oceanum_wave_morocco_5km_era5_gridstats)
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_morocco_5km_era5_grid" target="_blank">Oceanum Morocco 5 km hourly wave parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_morocco_5km_era5_spec" target="_blank">Oceanum Morocco 5 km hourly wave spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_morocco_5km_era5_gridstats" target="_blank">Oceanum Morocco 5 km gridded wave statistics</a>
 
 ---
 
 ## Integrated parameters gridded output
 
-Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 2 describes long names and units of all gridded output parameters.
+Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 2 describes long names and units of all 38 gridded output parameters.
 
 **Table 2.** Gridded output parameters.
 
