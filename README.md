@@ -8,3 +8,4 @@ Collection of datamesh datasource description documents
 4. [Oceanum SW Northamerica wave hindcast](./oceanum_sw_northamerica_wave_hindcast.pdf)
 5. [Oceanum Auckland wave forecast](./oceanum_auckland_wave_forecast_specification.pdf)
 6. [Oceanum Morocco wave hindcast](./oceanum_morocco_wave_hindcast.md)
+7. [Oceanum West Africa wave hindcast](./oceanum_west_africa_wave_hindcast.md)
