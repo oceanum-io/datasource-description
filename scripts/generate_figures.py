@@ -436,6 +436,19 @@ WADDENZEE_NORA3_CONFIG = FigureConfig(
     power_norm=0.5,
 )
 
+BLACK_SEA_CONFIG = FigureConfig(
+    output_name="blacksea_figure1_hs_mean.png",
+    gridstats_id="oceanum_wave_blacksea_cfsr_v1_gridstats",
+    spec_id="oceanum_wave_blacksea_cfsr_v1_spec",
+    grid_id="oceanum_wave_blacksea_cfsr_v1_grid",
+    domain_name="Black Sea",
+    depth_contours=[50, 200, 500, 1000, 2000],
+    figsize=(12, 6),
+    cbar_shrink=0.7,
+    show_borders=True,
+    site_size=2.0,
+)
+
 TAIWAN_CONFIG = FigureConfig(
     output_name="taiwan_figure1_hs_mean.png",
     gridstats_id="oceanum_wave_twan5km_era5_gridstats",
@@ -487,6 +500,7 @@ if __name__ == "__main__":
         "baltic_nora3": BALTIC_NORA3_CONFIG,
         "waddenzee": WADDENZEE_NORA3_CONFIG,
         "taiwan": TAIWAN_CONFIG,
+        "blacksea": BLACK_SEA_CONFIG,
     }
     
     if len(sys.argv) < 2:

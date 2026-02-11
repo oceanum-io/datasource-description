@@ -28,6 +28,10 @@ Collection of Datamesh datasource description documents.
 - [Oceanum West Africa ERA5 wave hindcast](./oceanum_west_africa_wave_hindcast.md)
 - [Oceanum Western Europe ERA5 wave hindcast](./oceanum_western_europe_wave_hindcast.md)
 
+### CFSR Forced Regional Hindcasts
+
+- [Oceanum Black Sea CFSR wave hindcast](./oceanum_black_sea_wave_hindcast.md)
+
 ### NORA3 Forced Regional Hindcasts
 
 - [Oceanum Baltic Sea NORA3 wave hindcast](./oceanum_baltic_sea_wave_hindcast.pdf)
