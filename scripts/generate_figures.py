@@ -333,6 +333,19 @@ RED_SEA_CONFIG = FigureConfig(
     site_size=3.0,
 )
 
+TARANAKI_CONFIG = FigureConfig(
+    output_name="taranaki_figure1_hs_mean.png",
+    gridstats_id="oceanum_wave_nz_era5_v1_gridstats",  # Use NZ gridstats
+    spec_id="oceanum_wave_trki_era5_v1_spec",
+    grid_id="oceanum_wave_trki_era5_v1_grid",
+    domain_name="Taranaki",
+    depth_contours=[50, 100, 200, 500, 1000],
+    figsize=(8, 8),
+    cbar_shrink=0.7,
+    extent=[173.0, 175.2, -40.0, -37.8],  # Taranaki domain extent
+    site_size=1.0,
+)
+
 TAIWAN_CONFIG = FigureConfig(
     output_name="taiwan_figure1_hs_mean.png",
     gridstats_id="oceanum_wave_twan5km_era5_gridstats",
@@ -377,6 +390,7 @@ if __name__ == "__main__":
         "malay": MALAY_CONFIG,
         "bass": BASS_STRAIT_CONFIG,
         "redsea": RED_SEA_CONFIG,
+        "taranaki": TARANAKI_CONFIG,
         "taiwan": TAIWAN_CONFIG,
     }
     
