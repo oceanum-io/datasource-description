@@ -38,7 +38,7 @@ Collection of Datamesh datasource description documents.
 - [Oceanum Waddenzee NORA3 wave hindcast](./oceanum_waddenzee_nora3_wave_hindcast.md)
 - [Oceanum Western Europe NORA3 wave hindcast](./oceanum_western_europe_nora3_wave_hindcast.md)
 
-### Specialised Project Hindcasts
+### Specialised Coastal Hindcasts
 
 - [Oceanum Bluff Harbour CCAM wave hindcast](./oceanum_bluff_wave_hindcast.md)
 - [Oceanum Wellington Harbour CLIFLO wave hindcast](./oceanum_wellington_wave_hindcast.md)
