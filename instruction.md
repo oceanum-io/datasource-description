@@ -303,52 +303,227 @@ plt.savefig('figures/region_figure1_domain.png', dpi=150, bbox_inches='tight')
 
 ---
 
-## 5. Post-Creation Tasks
+## 5. Wave Forecast Documentation
 
-### 5.1 Update README
+Wave forecast documents follow a similar structure to hindcast documents but with key differences in temporal coverage, validation approach, and linked datasources.
+
+### 5.1 Key Differences from Hindcast Documents
+
+| Aspect | Hindcast | Forecast |
+|--------|----------|----------|
+| Temporal coverage | Fixed period (e.g., "Jan 1979 - Updating") | Forecast horizon + archive period |
+| Update frequency | N/A (historical) | 6-hourly (GFS) / 12-hourly (ECMWF) |
+| Validation | Direct satellite altimeter comparison | Reference to hindcast validation |
+| Forcing options | Usually single forcing | Often both GFS and ECMWF available |
+| Nowcasts | N/A | Available for most forecasts |
+
+### 5.2 Forecast Information Sources
+
+**Config files**: `/config/forecast/ontask/tasks/swan/`
+- `gfs/` - GFS-forced forecasts
+- `ec/` - ECMWF-forced forecasts
+- `amps/` - AMPS-forced forecasts (Antarctic)
+
+**Intake catalog**: `/config/catalog/intake/forecast/forecast.yml` (contains both grid and spectra)
+
+**Nowcast catalog**: `/config/catalog/intake/nowcast/nowcast.yml`
+
+Key config parameters for forecasts:
+
+| Parameter | Config Location | Description |
+|-----------|-----------------|-------------|
+| `run_length` | `env.CONFIG.kwds` | Forecast horizon (e.g., 7d) |
+| `mode` | `env.CONFIG.kwds` | Should be "forecast" |
+| `cycle_period` | Intake catalog metadata | Update frequency in hours |
+| `parchive` | Intake catalog metadata | Archive period (e.g., P30D = 30 days) |
+| `pforecast` | Intake catalog metadata | Forecast horizon (e.g., P7D = 7 days) |
+
+### 5.3 Forecast Document Template
+
+```markdown
+<style>
+p { text-align: justify; }
+img { display: block; margin-left: auto; margin-right: auto; }
+table { margin-left: auto; margin-right: auto; }
+</style>
+
+# Oceanum [Region] Wave Forecast Specification
+
+**[Month] [Year]**
+
+| | |
+|---|---|
+| **Model** | SWAN 41.31 |
+| **Forecast horizon** | [X] days |
+| **Spatial resolution** | [dx] degree (~[km] km) |
+| **Temporal resolution** | 1 hourly |
+| **Region** | [x0]E - [x1]E, [y0]N - [y1]N |
+| **Forcings** | GFS/ECMWF winds, [currents], and Oceanum spectra |
+| **Update frequency** | 6-hourly (GFS) / 12-hourly (ECMWF) |
+
+---
+
+## Dataset description
+
+[Paragraph 1: Domain overview, geographic coverage, model type, forecast horizon]
+
+[Paragraph 2: Forcing configurations - merge wind source and update frequency in one flowing sentence. Mention boundary spectra from global WW3 forced with respective wind source. Currents, bathymetry.]
+
+[Paragraph 3: Model physics, spectral discretisation, grid resolution]
+
+[Paragraph 4: Output parameters, partitions, archive period, spectra sites. Mention nowcasts are available, constructed by retaining most recent data from each forecast cycle.]
+
+<img src="./figures/[region]_figure1_hs_mean.png" alt="Figure 1" width="600">
+
+**Figure 1.** [Caption - can reference hindcast figure if same domain]
+
+---
+
+## Validation
+
+The wave model physics and calibration have been validated against satellite altimeter observations for the corresponding hindcast domain. Validation results are available through the <a href="https://hindcast-satellite-validation-main-prod.apps.oceanum.io/" target="_blank">Oceanum Hindcast Satellite Validation App</a>.
+
+---
+
+## Data description
+
+**Table 1.** Data description.
+
+| Field | Value |
+|---|---|
+| **Title** | Oceanum [Region] wave forecast |
+| **Forecast horizon** | [X] days |
+| **Update frequency** | 6-hourly (GFS) / 12-hourly (ECMWF) |
+| **Archive period** | [X] days |
+| ... | ... |
+
+### Linked Datamesh datasources
+
+**GFS-forced (6-hourly updates):**
+- [Grid link]
+- [Spectra link]
+
+**ECMWF-forced (12-hourly updates):**
+- [Grid link]
+- [Spectra link]
+
+**Nowcasts (continuous near-real-time archive):**
+- [GFS grid nowcast link]
+- [GFS spectra nowcast link]
+- [ECMWF grid nowcast link]
+- [ECMWF spectra nowcast link]
+```
+
+### 5.4 Forecast Datasource ID Patterns
+
+| Type | Pattern | Example |
+|------|---------|---------|
+| GFS grid | `oceanum_wave_gfs_[region]_grid` | `oceanum_wave_gfs_weuro_grid` |
+| GFS spectra | `oceanum_wave_gfs_[region]_spec` | `oceanum_wave_gfs_weuro_spec` |
+| ECMWF grid | `oceanum_wave_ec_[region]_grid` | `oceanum_wave_ec_weuro_grid` |
+| ECMWF spectra | `oceanum_wave_ec_[region]_spec` | `oceanum_wave_ec_weuro_spec` |
+| GFS nowcast grid | `oceanum_wave_gfs_[region]_grid_nowcast` | `oceanum_wave_gfs_weuro_grid_nowcast` |
+| GFS nowcast spectra | `oceanum_wave_gfs_[region]_spec_nowcast` | `oceanum_wave_gfs_weuro_spec_nowcast` |
+| ECMWF nowcast grid | `oceanum_wave_ec_[region]_grid_nowcast` | `oceanum_wave_ec_weuro_grid_nowcast` |
+| ECMWF nowcast spectra | `oceanum_wave_ec_[region]_spec_nowcast` | `oceanum_wave_ec_weuro_spec_nowcast` |
+
+### 5.5 Verifying Forecast Data via Datamesh
+
+```python
+from oceanum.datamesh import Connector
+conn = Connector()
+
+# Get frequency discretisation from spectra
+data = conn.query(datasource='oceanum_wave_gfs_weuro_spec', variables=['freq'])
+print('Frequencies:', data.freq.values)
+print('Number of frequencies:', len(data.freq.values))
+
+# Get number of spectra sites
+sites = conn.query(datasource='oceanum_wave_gfs_weuro_spec', variables=['lon', 'lat'])
+print('Number of sites:', len(sites.lon))
+```
+
+### 5.6 Checking for Nowcasts
+
+Search the nowcast catalog for corresponding nowcast datasources:
+```bash
+grep -n "[region].*nowcast\|nowcast.*[region]" /config/catalog/intake/nowcast/nowcast.yml
+```
+
+### 5.7 Figures for Forecasts
+
+- If the forecast domain matches a hindcast domain, reuse the hindcast figure (e.g., `weuro_figure1_hs_mean.png`)
+- If no corresponding hindcast exists, create a domain extent figure using OSM land polygons (see Section 4.2)
+
+### 5.8 Forecast Reference Document
+
+Use `oceanum_western_europe_wave_forecast.md` as the primary template for forecast documents.
+
+---
+
+## 6. Post-Creation Tasks
+
+### 6.1 Update README
 
 Add the new document to `/source/datasource-description/README.md` under the appropriate section:
 
+**Hindcasts:**
 - **Global**: Global hindcasts
 - **ERA5 Forced Regional Hindcasts**: Regional SWAN/WW3 with ERA5 winds
 - **CFSR Forced Regional Hindcasts**: Regional with CFSR winds
 - **NORA3 Forced Regional Hindcasts**: Regional with NORA3 winds
 - **Specialised Coastal Hindcasts**: Ultra-high resolution harbour/coastal models
 
-### 5.2 Update Intake Catalogs
+**Forecasts:**
+- **Wave Forecast**: Regional SWAN forecasts (GFS/ECMWF forced)
 
-Update the `details` field in both hindcast and wavespectra catalogs:
+### 6.2 Update Intake Catalogs
+
+**For hindcasts**, update the `details` field in both hindcast and wavespectra catalogs:
 
 ```yaml
 details: https://datasets.oceanum.io/oceanum_[region]_wave_hindcast.html
 ```
 
+**For forecasts**, update the `details` field in the forecast catalog (and nowcast catalog if applicable):
+
+```yaml
+details: https://datasets.oceanum.io/oceanum_[region]_wave_forecast.html
+```
+
 **Note**: Use `.html` extension (documents are rendered to HTML for web hosting).
 
-### 5.3 Naming Conventions
+### 6.3 Naming Conventions
 
+**Hindcasts:**
 - **Document filename**: `oceanum_[region]_wave_hindcast.md`
 - **Figure filename**: `figures/[region]_figure1_hs_mean.png` or `figures/[region]_figure1_domain.png`
 - **HTML URL**: `https://datasets.oceanum.io/oceanum_[region]_wave_hindcast.html`
 
+**Forecasts:**
+- **Document filename**: `oceanum_[region]_wave_forecast.md`
+- **Figure filename**: Reuse hindcast figure if same domain, or `figures/[region]_figure1_domain.png`
+- **HTML URL**: `https://datasets.oceanum.io/oceanum_[region]_wave_forecast.html`
+
 ---
 
-## 6. Reference Documents
+## 7. Reference Documents
 
 Use these existing documents as templates:
 
 | Document | Type | Notable Features |
 |----------|------|------------------|
-| `oceanum_morocco_wave_hindcast.md` | ERA5 regional | Standard structure |
-| `oceanum_western_europe_wave_hindcast.md` | ERA5 regional | Large domain, multiple countries |
-| `oceanum_western_europe_nora3_wave_hindcast.md` | NORA3 regional | Alternative forcing |
-| `oceanum_black_sea_wave_hindcast.md` | CFSR regional | Dual forcing periods (CFSv1/CFSv2) |
-| `oceanum_wellington_wave_hindcast.md` | Specialised coastal | Ultra-high resolution, observational winds |
-| `oceanum_bluff_wave_hindcast.md` | Specialised coastal | CCAM downscaled winds |
+| `oceanum_morocco_wave_hindcast.md` | ERA5 hindcast | Standard structure |
+| `oceanum_western_europe_wave_hindcast.md` | ERA5 hindcast | Large domain, multiple countries |
+| `oceanum_western_europe_nora3_wave_hindcast.md` | NORA3 hindcast | Alternative forcing |
+| `oceanum_black_sea_wave_hindcast.md` | CFSR hindcast | Dual forcing periods (CFSv1/CFSv2) |
+| `oceanum_wellington_wave_hindcast.md` | Specialised hindcast | Ultra-high resolution, observational winds |
+| `oceanum_bluff_wave_hindcast.md` | Specialised hindcast | CCAM downscaled winds |
+| `oceanum_western_europe_wave_forecast.md` | GFS/ECMWF forecast | Both forcing options, nowcasts |
 
 ---
 
-## 7. Common Datasource ID Patterns
+## 8. Common Datasource ID Patterns
 
 Datasource IDs follow predictable patterns:
 
@@ -362,7 +537,7 @@ Search the intake catalogs to confirm exact IDs before using them.
 
 ---
 
-## 8. Quality Checklist
+## 9. Quality Checklist
 
 Before finalising a document, verify:
 
@@ -390,6 +565,7 @@ Before finalising a document, verify:
 | oceanum_black_sea_wave_hindcast.md | `/config/hindcast/ontask/tasks/swan/prod/cfsr_blacksea/swan_blacksea_cfs*.yml` |
 | oceanum_wellington_wave_hindcast.md | `/config/hindcast/ontask/tasks/swan/project/welt/swan_era5_welt_cliflo.yml` |
 | oceanum_bluff_wave_hindcast.md | `/config/hindcast/ontask/tasks/swan/project/bluff/swan_ccam_bluff.yml` |
+| oceanum_western_europe_wave_forecast.md | `/config/forecast/ontask/tasks/swan/gfs/weuro/swan_gfs_weuro.yml` |
 
 ---
 
