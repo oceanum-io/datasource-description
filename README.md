@@ -13,7 +13,6 @@ Collection of Datamesh datasource description documents.
 ### ERA5 Forced Regional Hindcasts
 
 - [Oceanum Arabian Gulf ERA5 wave hindcast](./oceanum_arabian_gulf_wave_hindcast.md)
-- [Oceanum Baltic Sea ERA5 wave hindcast](./oceanum_baltic_sea_wave_hindcast.pdf)
 - [Oceanum Bass Strait ERA5 wave hindcast](./oceanum_bass_strait_wave_hindcast.pdf)
 - [Oceanum King Island ERA5 wave hindcast](./oceanum_king_island_wave_hindcast.md)
 - [Oceanum Malay Peninsula ERA5 wave hindcast](./oceanum_malay_peninsula_wave_hindcast.md)
@@ -31,7 +30,7 @@ Collection of Datamesh datasource description documents.
 
 ### NORA3 Forced Regional Hindcasts
 
-- [Oceanum Baltic Sea NORA3 wave hindcast](./oceanum_baltic_sea_nora3_wave_hindcast.md)
+- [Oceanum Baltic Sea NORA3 wave hindcast](./oceanum_baltic_sea_wave_hindcast.pdf)
 - [Oceanum Waddenzee NORA3 wave hindcast](./oceanum_waddenzee_nora3_wave_hindcast.md)
 - [Oceanum Western Europe NORA3 wave hindcast](./oceanum_western_europe_nora3_wave_hindcast.md)
 
