@@ -12,7 +12,7 @@ table { margin-left: auto; margin-right: auto; }
 |---|---|
 | **Model** | SWAN 41.31 |
 | **Period** | Feb 1979 - Updating |
-| **Spatial resolution** | 5 km (0.05 degree) |
+| **Spatial resolution** | 5 km / 1 km |
 | **Temporal resolution** | 3 hourly |
 | **Region** | 11W - 13E, 48.5N - 61N |
 | **Forcings** | ERA5 winds and Oceanum spectra |
@@ -23,13 +23,16 @@ table { margin-left: auto; margin-right: auto; }
 
 The Western Europe wave hindcast dataset provides a detailed account of ocean wave parameters across the waters of northwestern Europe (Figure 1). The domain encompasses the North Sea, Irish Sea, Celtic Sea, English Channel, and the northeastern Atlantic waters off the coasts of Ireland, the United Kingdom, France, Belgium, the Netherlands, Germany, Denmark, and Norway. This region experiences a complex wave climate influenced by Atlantic swell, extratropical cyclones, and the interaction between open ocean and semi-enclosed seas. Wave spectra are computed over a 45+ year period between 1979 and present using the SWAN (Simulating WAves Nearshore) third-generation spectral wave model. The model is driven by inputs from the <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_glob05_era5_v1_spec" target="_blank">Oceanum Global Wave Model</a> for spectral boundaries and <a href="https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5" target="_blank">ERA5 reanalysis winds</a> from the European Centre for Medium-Range Weather Forecasts. Bathymetry is derived from the <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2020</a> global bathymetric grid.
 
-The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 32 frequency bins, covering a frequency range from 0.037 to 0.71 Hz with 10% logarithmic increments. The model features a regular grid with a 5 km (0.05 degree) resolution, providing detailed wave information for the Western European coastal region.
+The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 32 frequency bins, covering a frequency range from 0.037 to 0.71 Hz with 10% logarithmic increments. The model features a multi-resolution grid system:
 
-The dataset provides 3-hourly estimates for an extensive array of ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. These data are stored over the entire grid at native resolution. Additionally, frequency-direction wave spectra are available at 16613 sites distributed across the domain (see Figure 1).
+- **Western Europe 5 km**: Parent domain covering the entire region at 0.05 degree resolution
+- **Dutch Coast 1 km**: High-resolution nest covering the Dutch North Sea coast at 0.01 degree resolution
+
+The dataset provides hourly (Dutch Coast) and 3-hourly (Western Europe) estimates for an extensive array of ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. These data are stored over the entire grid at native resolution. Additionally, frequency-direction wave spectra are available at 16613 sites (5km domain) plus 456 sites (Dutch Coast) distributed across the domain (see Figure 1).
 
 <img src="./figures/weuro_figure1_hs_mean.png" alt="Figure 1" width="600">
 
-**Figure 1.** Mean significant wave height from the Western Europe hindcast domain. The locations of 2D spectra 3-hourly output are shown by the black dots. Depth contours are shown at 50m, 100m, 200m, 500m, 1000m, and 2000m.
+**Figure 1.** Mean significant wave height from the Western Europe hindcast domain. The locations of 2D spectra output are shown by the dots (black for 5km domain, blue for Dutch Coast nest). The blue box indicates the Dutch Coast 1km nest extent. Depth contours are shown at 50m, 100m, 200m, 500m, 1000m, and 2000m.
 
 ---
 
@@ -52,8 +55,9 @@ The wave hindcast can be validated against satellite altimeter observations usin
 | **Source terms** | <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> |
 | **Temporal coverage** | 1979-02-01 to present (updating) |
 | **Temporal resolution** | 3 hourly |
-| **Spatial coverage** | [11W, 48.5N, 13E, 61N] at 0.05 degree |
-| **Spectra output sites** | 16613 |
+| **Spatial coverage (5km)** | [11W, 48.5N, 13E, 61N] at 0.05 degree |
+| **Spatial coverage (Dutch Coast 1km)** | [3E, 51.4N, 4.75E, 53.05N] at 0.01 degree |
+| **Spectra output sites** | 16613 (5km) + 456 (Dutch Coast) |
 | **Frequency discretisation** | 32 frequencies between 0.037 - 0.71 Hz at 10% logarithmic increments |
 | **Direction resolution** | 10 deg |
 | **Bathymetry** | <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2020 Grid</a> |
@@ -62,9 +66,17 @@ The wave hindcast can be validated against satellite altimeter observations usin
 
 ### Linked Datamesh datasources
 
+#### Western Europe 5 km
+
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_weuro_era5_v1_grid" target="_blank">Oceanum Western Europe 5 km 3-hourly wave parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_weuro_era5_v1_spec" target="_blank">Oceanum Western Europe 5 km 3-hourly wave spectra</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_weuro_era5_v1_gridstats" target="_blank">Oceanum Western Europe 5 km gridded wave statistics</a>
+
+#### Dutch Coast 1 km
+
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_dutch_era5_v1_grid" target="_blank">Oceanum Dutch Coast 1 km hourly wave parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_dutch_era5_v1_spec" target="_blank">Oceanum Dutch Coast 1 km hourly wave spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_dutch_era5_v1_gridstats" target="_blank">Oceanum Dutch Coast 1 km gridded wave statistics</a>
 
 ---
 

@@ -370,6 +370,15 @@ WESTERN_EUROPE_CONFIG = FigureConfig(
     cbar_shrink=0.7,
     show_borders=True,
     site_size=1.0,
+    nests=[
+        NestConfig(
+            name="Dutch Coast",
+            spec_id="oceanum_wave_dutch_era5_v1_spec",
+            grid_id="oceanum_wave_dutch_era5_v1_grid",
+            color="blue",
+            site_size=2.0,
+        ),
+    ],
 )
 
 TAIWAN_CONFIG = FigureConfig(
