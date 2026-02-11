@@ -6,11 +6,13 @@ spectra site locations, and domain bounding boxes.
 """
 
 import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 from shapely.geometry import box
 import numpy as np
 import geopandas
+import xarray as xr
 from oceanum.datamesh import Connector
 from dataclasses import dataclass, field
 from typing import Optional, List
@@ -42,6 +44,8 @@ class FigureConfig:
     site_size: float = 1.0
     site_color: str = "black"
     nests: List[NestConfig] = field(default_factory=list)
+    gridstats_zarr: Optional[str] = None  # Direct zarr path if not in Datamesh
+    power_norm: Optional[float] = None  # Power for PowerNorm colormap scaling (e.g., 0.5 for sqrt)
 
 
 def generate_figure(config: FigureConfig):
@@ -57,10 +61,14 @@ def generate_figure(config: FigureConfig):
     
     # Query gridstats for mean wave parameters
     print(f"Querying {config.domain_name} gridstats data...")
-    dset = conn.query(
-        datasource=config.gridstats_id,
-        variables=["hs_mean", "depth_mean"]
-    )
+    if config.gridstats_zarr:
+        # Load directly from zarr archive
+        dset = xr.open_zarr(config.gridstats_zarr)
+    else:
+        dset = conn.query(
+            datasource=config.gridstats_id,
+            variables=["hs_mean", "depth_mean"]
+        )
     
     # Map coordinates
     lon = dset.longitude.values if "longitude" in dset.coords else dset.lon.values
@@ -92,17 +100,22 @@ def generate_figure(config: FigureConfig):
     
     # Plot mean significant wave height
     print("Plotting mean Hs...")
-    dset.hs_mean.plot(
-        ax=ax,
-        transform=transform,
-        cmap="turbo",
-        cbar_kwargs={
+    plot_kwargs = {
+        "ax": ax,
+        "transform": transform,
+        "cmap": "turbo",
+        "cbar_kwargs": {
             "label": "Mean Significant Wave Height (m)",
             "orientation": "horizontal",
             "pad": 0.05,
             "shrink": config.cbar_shrink
         }
-    )
+    }
+    if config.power_norm is not None:
+        vmin = float(dset.hs_mean.min())
+        vmax = float(dset.hs_mean.max())
+        plot_kwargs["norm"] = mcolors.PowerNorm(gamma=config.power_norm, vmin=vmin, vmax=vmax)
+    dset.hs_mean.plot(**plot_kwargs)
     
     # Add depth contours
     print("Adding depth contours...")
@@ -407,6 +420,22 @@ BALTIC_NORA3_CONFIG = FigureConfig(
     site_size=2.0,
 )
 
+WADDENZEE_NORA3_CONFIG = FigureConfig(
+    output_name="waddenzee_nora3_figure1_hs_mean.png",
+    gridstats_id="",  # Not in Datamesh, using zarr directly
+    gridstats_zarr="gs://oceanum-data-dev/stats/gridstats_swan_nora3_waddenzee.zarr",
+    spec_id="oceanum_wave_waddenzee_nora3_v1_spec",
+    grid_id="oceanum_wave_waddenzee_nora3_v1_grid",
+    domain_name="Waddenzee",
+    depth_contours=[5, 10, 20, 50],
+    figsize=(12, 6),
+    cbar_shrink=0.5,
+    show_borders=True,
+    site_size=3.0,
+    extent=[4.5, 6.4, 52.85, 53.6],
+    power_norm=0.5,
+)
+
 TAIWAN_CONFIG = FigureConfig(
     output_name="taiwan_figure1_hs_mean.png",
     gridstats_id="oceanum_wave_twan5km_era5_gridstats",
@@ -456,6 +485,7 @@ if __name__ == "__main__":
         "weuro": WESTERN_EUROPE_CONFIG,
         "weuro_nora3": WESTERN_EUROPE_NORA3_CONFIG,
         "baltic_nora3": BALTIC_NORA3_CONFIG,
+        "waddenzee": WADDENZEE_NORA3_CONFIG,
         "taiwan": TAIWAN_CONFIG,
     }
     

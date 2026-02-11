@@ -22,3 +22,4 @@ Collection of datamesh datasource description documents
 18. [Oceanum Western Europe wave hindcast](./oceanum_western_europe_wave_hindcast.md)
 19. [Oceanum Western Europe NORA3 wave hindcast](./oceanum_western_europe_nora3_wave_hindcast.md)
 20. [Oceanum Baltic Sea NORA3 wave hindcast](./oceanum_baltic_sea_nora3_wave_hindcast.md)
+21. [Oceanum Waddenzee NORA3 wave hindcast](./oceanum_waddenzee_nora3_wave_hindcast.md)
