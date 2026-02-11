@@ -381,6 +381,19 @@ WESTERN_EUROPE_CONFIG = FigureConfig(
     ],
 )
 
+WESTERN_EUROPE_NORA3_CONFIG = FigureConfig(
+    output_name="weuro_nora3_figure1_hs_mean.png",
+    gridstats_id="oceanum_wave_weuro_nora3_v1_gridstats",
+    spec_id="oceanum_wave_weuro_nora3_v1_spec",
+    grid_id="oceanum_wave_weuro_nora3_v1_grid",
+    domain_name="Western Europe NORA3",
+    depth_contours=[50, 100, 200, 500, 1000, 2000],
+    figsize=(12, 8),
+    cbar_shrink=0.7,
+    show_borders=True,
+    site_size=1.0,
+)
+
 TAIWAN_CONFIG = FigureConfig(
     output_name="taiwan_figure1_hs_mean.png",
     gridstats_id="oceanum_wave_twan5km_era5_gridstats",
@@ -428,6 +441,7 @@ if __name__ == "__main__":
         "taranaki": TARANAKI_CONFIG,
         "useast": US_EAST_CONFIG,
         "weuro": WESTERN_EUROPE_CONFIG,
+        "weuro_nora3": WESTERN_EUROPE_NORA3_CONFIG,
         "taiwan": TAIWAN_CONFIG,
     }
     
