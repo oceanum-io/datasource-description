@@ -28,3 +28,37 @@ Let's start with the Morocco wave hindcast. These below are the config files to 
 
 - /config/hindcast/ontask/tasks/swan/prod/era5_afr/swan_era5_morocco_cmems0p25.yml
 - /config/hindcast/ontask/tasks/swan/prod/era5_afr/swan_era5_morocco_cmems0p125.yml
+
+There is also more context to be found in some intake catalogs with gridded hindcast parameters (/config/catalog/intake/hindcast/hindcast.yml) and associated hindcast spectra (/config/catalog/wavespectra/wavespectra.yml). The dataset ids for the different datasources we are going to create new documents for are not directly defined in the ontask config files, but I believe they can be guessed from the information in the config files. Once you identify the intake catalogs, there should be a good description field there you can use if helpful. But more importantly, those ids can be used to query oceanum's Datamesh to get information such as: time coverage, output variables, number of sites. Here is an example of how to access these (use the `oceanum` python virtual environment):
+
+```
+from oceanum.datamesh import Connector
+
+conn = Connector()
+
+# Get the available output variables for this gridded datasource. The variables attribute
+has the complete variables schema, so the model variable names, standard_name, long_name, and units can all be found there.
+datasource_grid = conn.get_datasource("oceanum_wave_morocco_5km_era5_grid")
+variables = datasource_grid.variables
+
+# Get the time coverage, times will be an xarray Dataset with the time variable
+times = conn.query(datasource="oceanum_wave_morocco_5km_era5_grid", variables=["time"])
+
+# Get the number of sites with spectra output, which is the size of the lon, lat data variables in the `sites` xarray Dataset
+sites = conn.query(datasource="oceanum_wave_morocco_5km_era5_spec", variables=["lon", "lat"])
+
+```
+
+Keep in mind that these dataset ids should be used to also populate the "Linked Datamesh datasources" section, noting that the ids you have put in this Morocco
+document, while a reasonable guess, are not correct.
+
+## Some more feedback
+
+- Centralise figures and tables
+- Mention in the description section that the hindcast is calibrated against the satellite
+  altimeter dataset of Ribal and Young
+- From the variables attribute you get in the *_grid datasources, infer how many watershed
+  partitions are output. You can infer these by looking at the watershed partitioned Hs variable
+  (phs0, phs1, phs2, ...) - the 0th subscript means the partition actively forced by the wind,
+  while the following ones, the different swell partitions. In the case of phs0, phs1, phs2, there
+  is one partition forced by the wind and two swell partitions.

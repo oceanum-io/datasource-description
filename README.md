@@ -12,3 +12,4 @@ Collection of datamesh datasource description documents
 8. [Oceanum Malay Peninsula wave hindcast](./oceanum_malay_peninsula_wave_hindcast.md)
 9. [Oceanum King Island wave hindcast](./oceanum_king_island_wave_hindcast.md)
 10. [Oceanum Peru wave hindcast](./oceanum_peru_wave_hindcast.md)
+11. [Oceanum Arabian Gulf wave hindcast](./oceanum_arabian_gulf_wave_hindcast.md)
