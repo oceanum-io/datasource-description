@@ -31,18 +31,10 @@ sites_ebass = conn.query(datasource="oceanum_wave_ebass_1km_era5_spec", variable
 print("Querying Portland spectra sites...")
 sites_ptlan = conn.query(datasource="oceanum_wave_ptlan_1km_era5_spec", variables=["lon", "lat"])
 
-print("Querying Grassy spectra sites...")
-sites_grassy = conn.query(datasource="oceanum_wave_grassy_100m_era5_spec", variables=["lon", "lat"])
-
-print("Querying King Island spectra sites...")
-sites_king = conn.query(datasource="oceanum_wave_king_1km_era5_spec", variables=["lon", "lat"])
-
 # Get nest geometries
 print("Getting nest geometries...")
 ds_ebass = conn.get_datasource("oceanum_wave_ebass_1km_era5_grid")
 ds_ptlan = conn.get_datasource("oceanum_wave_ptlan_1km_era5_grid")
-ds_king = conn.get_datasource("oceanum_wave_king_1km_era5_grid")
-ds_grassy = conn.get_datasource("oceanum_wave_grassy_100m_era5_grid")
 
 # Set up the figure with Cartopy projection
 fig, ax = plt.subplots(
@@ -112,31 +104,11 @@ ax.scatter(
     zorder=5
 )
 
-# Plot King Island spectra site locations
-ax.scatter(
-    sites_king.lon.values, sites_king.lat.values,
-    s=2, c="orange", marker=".",
-    transform=ccrs.PlateCarree(),
-    label=f"King Island 1km (n={len(sites_king.lon)})",
-    zorder=5
-)
-
-# Plot Grassy spectra site locations
-ax.scatter(
-    sites_grassy.lon.values, sites_grassy.lat.values,
-    s=2, c="magenta", marker=".",
-    transform=ccrs.PlateCarree(),
-    label=f"Grassy 100m (n={len(sites_grassy.lon)})",
-    zorder=5
-)
-
 # Plot nest bounding boxes
 print("Plotting nest bboxes...")
 for geom, label, color in [
     (ds_ebass.geom, "Eastern Bass Strait 1km", "blue"),
     (ds_ptlan.geom, "Portland 1km", "green"),
-    (ds_king.geom, "King Island 1km", "orange"),
-    (ds_grassy.geom, "Grassy 100m", "magenta"),
 ]:
     x, y = geom.exterior.xy
     ax.plot(x, y, color=color, linewidth=1.5, transform=ccrs.PlateCarree())

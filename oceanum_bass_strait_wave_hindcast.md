@@ -10,7 +10,7 @@ p { text-align: justify; }
 |---|---|
 | **Model** | SWAN 41.31 |
 | **Period** | Jan 1993 - Updating |
-| **Spatial resolution** | 0.05 degree (Bass Strait), 0.01 degree (nests), 0.001 degree (Grassy) |
+| **Spatial resolution** | 0.05 degree (Bass Strait), 0.01 degree (nests) |
 | **Temporal resolution** | 1 hourly |
 | **Region** | 140E - 151E, 42S - 37S |
 | **Forcings** | ERA5 winds, Glorys/TPXO9 currents, and Oceanum spectra |
@@ -25,10 +25,8 @@ The modelling setup employs the <a href="https://journals.ametsoc.org/view/journ
 
 - **Eastern Bass Strait (1 km)**: Covers the eastern Bass Strait and northern Tasmanian coast
 - **Portland (1 km)**: Covers the Portland area in western Victoria
-- **King Island (1 km)**: Covers King Island in western Bass Strait (2015-2025)
-- **Grassy (100 m)**: Ultra-high-resolution domain covering Grassy harbour on King Island (2015-2025)
 
-The dataset provides hourly estimates for an extensive array of ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions (defined from an 8-second split and from the Watershed method). These data are stored over the entire grid at native resolution. Additionally, frequency-direction wave spectra are available at 276 sites for Bass Strait, 1261 sites for Eastern Bass Strait, 384 sites for Portland, 119 sites for King Island, and 168 sites for Grassy (see Figure 1).
+The dataset provides hourly estimates for an extensive array of ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions (defined from an 8-second split and from the Watershed method). These data are stored over the entire grid at native resolution. Additionally, frequency-direction wave spectra are available at 276 sites for Bass Strait, 1261 sites for Eastern Bass Strait, and 384 sites for Portland (see Figure 1).
 
 <img src="./figures/bass_figure1_hs_mean.png" alt="Figure 1" width="600">
 
@@ -58,13 +56,9 @@ The wave hindcast can be validated against satellite altimeter observations usin
 | **Spatial coverage (Bass Strait)** | [140E, 42S, 151E, 37S] at 0.05 degree |
 | **Spatial coverage (Eastern Bass Strait)** | [145.65E, 41.25S, 148.65E, 37.75S] at 0.01 degree |
 | **Spatial coverage (Portland)** | [140.3E, 39.2S, 142.85E, 37.7S] at 0.01 degree |
-| **Spatial coverage (King Island)** | [143.6E, 40.4S, 144.4E, 39.4S] at 0.01 degree |
-| **Spatial coverage (Grassy)** | [144E, 40.12S, 144.12E, 40.04S] at 0.001 degree |
 | **Spectra output sites (Bass Strait)** | 276 |
 | **Spectra output sites (Eastern Bass Strait)** | 1261 |
 | **Spectra output sites (Portland)** | 384 |
-| **Spectra output sites (King Island)** | 119 |
-| **Spectra output sites (Grassy)** | 168 |
 | **Frequency discretisation** | 32 frequencies between 0.037 - 0.7102 Hz at 10% logarithmic increments |
 | **Direction resolution** | 10 deg |
 | **Bathymetry** | <a href="https://ecat.ga.gov.au/geonetwork/srv/eng/catalog.search#/metadata/148997" target="_blank">Australian Bathymetry and Topography 2023 250m</a> |
@@ -89,16 +83,6 @@ The wave hindcast can be validated against satellite altimeter observations usin
 
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ptlan_1km_era5_grid" target="_blank">Oceanum Portland 1 km hourly wave parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ptlan_1km_era5_spec" target="_blank">Oceanum Portland 1 km hourly wave spectra</a>
-
-#### King Island (1 km)
-
-- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_king_1km_era5_grid" target="_blank">Oceanum King Island 1 km hourly wave parameters</a>
-- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_king_1km_era5_spec" target="_blank">Oceanum King Island 1 km hourly wave spectra</a>
-
-#### Grassy (100 m)
-
-- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_grassy_100m_era5_grid" target="_blank">Oceanum Grassy 100 m hourly wave parameters</a>
-- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_grassy_100m_era5_spec" target="_blank">Oceanum Grassy 100 m hourly wave spectra</a>
 
 ---
 

@@ -10,4 +10,4 @@ Collection of datamesh datasource description documents
 6. [Oceanum Morocco wave hindcast](./oceanum_morocco_wave_hindcast.md)
 7. [Oceanum West Africa wave hindcast](./oceanum_west_africa_wave_hindcast.md)
 8. [Oceanum Malay Peninsula wave hindcast](./oceanum_malay_peninsula_wave_hindcast.md)
-9. [Oceanum Bass Strait wave hindcast](./oceanum_bass_strait_wave_hindcast.md)
+9. [Oceanum King Island wave hindcast](./oceanum_king_island_wave_hindcast.md)
