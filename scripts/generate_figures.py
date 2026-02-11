@@ -333,6 +333,35 @@ RED_SEA_CONFIG = FigureConfig(
     site_size=3.0,
 )
 
+TAIWAN_CONFIG = FigureConfig(
+    output_name="taiwan_figure1_hs_mean.png",
+    gridstats_id="oceanum_wave_twan5km_era5_gridstats",
+    spec_id="oceanum_wave_twan5km_era5_spec",
+    grid_id="oceanum_wave_twan5km_era5_grid",
+    domain_name="Taiwan 5km",
+    depth_contours=[50, 100, 500, 1000, 2000, 4000],
+    figsize=(8, 10),
+    cbar_shrink=0.7,
+    show_borders=True,
+    site_size=2.0,
+    nests=[
+        NestConfig(
+            name="Taiwan 1km",
+            spec_id="oceanum_wave_twan1km_era5_spec",
+            grid_id="oceanum_wave_twan1km_era5_grid",
+            color="blue",
+            site_size=3.0,
+        ),
+        NestConfig(
+            name="Taiwan 500m",
+            spec_id="oceanum_wave_twan500m_era5_spec",
+            grid_id="oceanum_wave_twan500m_era5_grid",
+            color="green",
+            site_size=5.0,
+        ),
+    ],
+)
+
 
 if __name__ == "__main__":
     import sys
@@ -348,6 +377,7 @@ if __name__ == "__main__":
         "malay": MALAY_CONFIG,
         "bass": BASS_STRAIT_CONFIG,
         "redsea": RED_SEA_CONFIG,
+        "taiwan": TAIWAN_CONFIG,
     }
     
     if len(sys.argv) < 2:
