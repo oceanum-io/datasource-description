@@ -346,6 +346,19 @@ TARANAKI_CONFIG = FigureConfig(
     site_size=1.0,
 )
 
+US_EAST_CONFIG = FigureConfig(
+    output_name="useast_figure1_hs_mean.png",
+    gridstats_id="oceanum_wave_useast_era5_gridstats",
+    spec_id="oceanum_wave_useast_era5_spec",
+    grid_id="oceanum_wave_useast_era5_grid",
+    domain_name="US East Coast",
+    depth_contours=[50, 100, 200, 500, 1000, 2000, 4000],
+    figsize=(8, 12),
+    cbar_shrink=0.7,
+    show_borders=True,
+    site_size=2.0,
+)
+
 TAIWAN_CONFIG = FigureConfig(
     output_name="taiwan_figure1_hs_mean.png",
     gridstats_id="oceanum_wave_twan5km_era5_gridstats",
@@ -391,6 +404,7 @@ if __name__ == "__main__":
         "bass": BASS_STRAIT_CONFIG,
         "redsea": RED_SEA_CONFIG,
         "taranaki": TARANAKI_CONFIG,
+        "useast": US_EAST_CONFIG,
         "taiwan": TAIWAN_CONFIG,
     }
     

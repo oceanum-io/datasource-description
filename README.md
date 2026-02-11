@@ -18,3 +18,4 @@ Collection of datamesh datasource description documents
 14. [Oceanum Red Sea wave hindcast](./oceanum_red_sea_wave_hindcast.md)
 15. [Oceanum Taiwan wave hindcast](./oceanum_taiwan_wave_hindcast.md)
 16. [Oceanum Taranaki wave hindcast](./oceanum_taranaki_wave_hindcast.md)
+17. [Oceanum US East Coast wave hindcast](./oceanum_us_east_coast_wave_hindcast.md)
