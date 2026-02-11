@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Generate Figure 1 for the King Island Wave Hindcast document.
-Shows mean significant wave height (from parent Bass Strait gridstats) with depth contours,
-spectra site locations for King Island and Grassy, and the Grassy nest bounding box.
+Generate Figure 1 for the Peru Wave Hindcast document.
+Shows mean significant wave height with depth contours,
+spectra site locations for Chancay, and the Chancay nest bounding box.
 """
 
 import matplotlib.pyplot as plt
@@ -14,24 +14,21 @@ from oceanum.datamesh import Connector
 # Initialize Datamesh connector
 conn = Connector()
 
-# Query gridstats for mean wave parameters (King Island native resolution)
-print("Querying King Island gridstats data...")
+# Query gridstats for mean wave parameters (Lima parent domain)
+print("Querying Lima gridstats data...")
 dset = conn.query(
-    datasource="oceanum_wave_king_1km_era5_gridstats",
+    datasource="oceanum_wave_lima_era5_gridstats",
     variables=["hs_mean", "depth_mean"]
 )
 
-# Query sites for spectra locations
-print("Querying King Island spectra sites...")
-sites_king = conn.query(datasource="oceanum_wave_king_1km_era5_spec", variables=["lon", "lat"])
-
-print("Querying Grassy spectra sites...")
-sites_grassy = conn.query(datasource="oceanum_wave_grassy_100m_era5_spec", variables=["lon", "lat"])
+# Query sites for spectra locations (only Chancay has spectra)
+print("Querying Chancay spectra sites...")
+sites_chancay = conn.query(datasource="oceanum_wave_chancay_era5_spec", variables=["lon", "lat"])
 
 # Get nest geometries
 print("Getting nest geometries...")
-ds_king = conn.get_datasource("oceanum_wave_king_1km_era5_grid")
-ds_grassy = conn.get_datasource("oceanum_wave_grassy_100m_era5_grid")
+ds_lima = conn.get_datasource("oceanum_wave_lima_era5_grid")
+ds_chancay = conn.get_datasource("oceanum_wave_chancay_era5_grid")
 
 # Set up the figure with Cartopy projection
 fig, ax = plt.subplots(
@@ -63,7 +60,7 @@ lat = dset.latitude.values if "latitude" in dset.coords else dset.lat.values
 lon2d, lat2d = np.meshgrid(lon, lat)
 
 # Plot depth contours
-contour_levels = [20, 50, 100, 200]
+contour_levels = [50, 100, 200, 500, 1000, 2000]
 cs = ax.contour(
     lon2d, lat2d, depth,
     levels=contour_levels,
@@ -73,40 +70,31 @@ cs = ax.contour(
 )
 ax.clabel(cs, inline=True, fontsize=8, fmt="%d m")
 
-# Plot King Island spectra site locations
+# Plot Chancay spectra site locations
 print("Plotting spectra sites...")
 ax.scatter(
-    sites_king.lon.values, sites_king.lat.values,
-    s=5, c="black", marker=".",
+    sites_chancay.lon.values, sites_chancay.lat.values,
+    s=8, c="blue", marker=".",
     transform=ccrs.PlateCarree(),
-    label=f"King Island 1km (n={len(sites_king.lon)})",
-    zorder=5
-)
-
-# Plot Grassy spectra site locations
-ax.scatter(
-    sites_grassy.lon.values, sites_grassy.lat.values,
-    s=5, c="blue", marker=".",
-    transform=ccrs.PlateCarree(),
-    label=f"Grassy 100m (n={len(sites_grassy.lon)})",
+    label=f"Chancay 400m (n={len(sites_chancay.lon)})",
     zorder=5
 )
 
 # Plot nest bounding boxes
 print("Plotting nest bboxes...")
-# King Island bbox
-king_x, king_y = ds_king.geom.exterior.xy
-ax.plot(king_x, king_y, color="black", linewidth=2, transform=ccrs.PlateCarree(), label="King Island 1km domain")
+# Lima parent bbox (black)
+lima_x, lima_y = ds_lima.geom.exterior.xy
+ax.plot(lima_x, lima_y, color="black", linewidth=2, transform=ccrs.PlateCarree(), label="Lima 5km domain")
 
-# Grassy bbox
-grassy_x, grassy_y = ds_grassy.geom.exterior.xy
-ax.plot(grassy_x, grassy_y, color="blue", linewidth=2, transform=ccrs.PlateCarree(), label="Grassy 100m nest")
+# Chancay child bbox (blue)
+chancay_x, chancay_y = ds_chancay.geom.exterior.xy
+ax.plot(chancay_x, chancay_y, color="blue", linewidth=2, transform=ccrs.PlateCarree(), label="Chancay 400m nest")
 
 # Add land features
 ax.add_feature(cfeature.LAND, facecolor="lightgray", edgecolor="black", linewidth=0.5)
 
-# Set extent to match King Island domain exactly
-ax.set_extent([143.6, 144.4, -40.4, -39.4], crs=ccrs.PlateCarree())
+# Set extent to match Lima domain
+ax.set_extent([-79.0, -76.0, -13.0, -10.0], crs=ccrs.PlateCarree())
 
 # Add gridlines
 gl = ax.gridlines(draw_labels=True, linewidth=0.5, color="gray", alpha=0.5, linestyle="--")
@@ -117,7 +105,7 @@ gl.right_labels = False
 ax.legend(loc="lower left", fontsize=8)
 
 # Save figure
-output_path = "/source/datasource-description/figures/kingisland_figure1_hs_mean.png"
+output_path = "/source/datasource-description/figures/peru_figure1_hs_mean.png"
 print(f"Saving figure to {output_path}...")
 plt.savefig(output_path, dpi=300, bbox_inches="tight", facecolor="white")
 plt.close()
