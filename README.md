@@ -8,7 +8,7 @@ Collection of Datamesh datasource description documents.
 
 ### Global
 
-- [Oceanum Global ERA5 wave hindcast](./oceanum_global_wave_hindcast_specification.pdf)
+- [Oceanum Global ERA5 wave hindcast](./oceanum_global_wave_hindcast.md)
 
 ### ERA5 Forced Regional Hindcasts
 
