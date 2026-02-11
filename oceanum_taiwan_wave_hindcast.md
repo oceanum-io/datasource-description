@@ -4,7 +4,7 @@ img { display: block; margin-left: auto; margin-right: auto; }
 table { margin-left: auto; margin-right: auto; }
 </style>
 
-# Oceanum Taiwan Wave Hindcast Specification
+# Oceanum Taiwan ERA5 Wave Hindcast Specification
 
 **February 2025**
 
@@ -51,7 +51,7 @@ The wave hindcast can be validated against satellite altimeter observations usin
 
 | Field | Value |
 |---|---|
-| **Title** | Oceanum Taiwan wave hindcast |
+| **Title** | Oceanum Taiwan ERA5 wave hindcast |
 | **Institution** | <a href="https://oceanum.io" target="_blank">Oceanum</a> |
 | **Access** | <a href="https://ui.datamesh.oceanum.io/" target="_blank">Oceanum Datamesh</a> |
 | **Source** | <a href="https://swanmodel.sourceforge.io/" target="_blank">SWAN 41.31A</a> |

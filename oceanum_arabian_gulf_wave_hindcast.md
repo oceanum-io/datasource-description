@@ -1,8 +1,10 @@
 <style>
 p { text-align: justify; }
+img { display: block; margin-left: auto; margin-right: auto; }
+table { margin-left: auto; margin-right: auto; }
 </style>
 
-# Oceanum Arabian Gulf Wave Hindcast Specification
+# Oceanum Arabian Gulf ERA5 Wave Hindcast Specification
 
 **February 2025**
 
@@ -43,7 +45,7 @@ The wave hindcast can be validated against satellite altimeter observations usin
 
 | Field | Value |
 |---|---|
-| **Title** | Oceanum Arabian Gulf wave hindcast |
+| **Title** | Oceanum Arabian Gulf ERA5 wave hindcast |
 | **Institution** | <a href="https://oceanum.io" target="_blank">Oceanum</a> |
 | **Access** | <a href="https://ui.datamesh.oceanum.io/" target="_blank">Oceanum Datamesh</a> |
 | **Source** | <a href="https://swanmodel.sourceforge.io/" target="_blank">SWAN 41.31A</a> |
@@ -69,7 +71,7 @@ The wave hindcast can be validated against satellite altimeter observations usin
 
 ## Integrated parameters gridded output
 
-Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 2 describes long names and units of the 28 gridded output parameters.
+Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 2 describes long names and units of the 28 gridded output parameters, including one wind-forced partition and one swell partition from the Watershed method.
 
 **Table 2.** Gridded output parameters.
 

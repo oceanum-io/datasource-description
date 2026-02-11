@@ -4,14 +4,14 @@ img { display: block; margin-left: auto; margin-right: auto; }
 table { margin-left: auto; margin-right: auto; }
 </style>
 
-# Oceanum US East Coast Wave Hindcast Specification
+# Oceanum US East Coast ERA5 Wave Hindcast Specification
 
 **February 2025**
 
 | | |
 |---|---|
 | **Model** | SWAN 41.31 |
-| **Period** | Jan 1993 - Updating |
+| **Period** | Jan 1993 - Dec 2024 |
 | **Spatial resolution** | 5 km (0.05 degree) |
 | **Temporal resolution** | 1 hourly |
 | **Region** | 77.5W - 63W, 35.5N - 46N |
@@ -45,12 +45,12 @@ The wave hindcast can be validated against satellite altimeter observations usin
 
 | Field | Value |
 |---|---|
-| **Title** | Oceanum US East Coast wave hindcast |
+| **Title** | Oceanum US East Coast ERA5 wave hindcast |
 | **Institution** | <a href="https://oceanum.io" target="_blank">Oceanum</a> |
 | **Access** | <a href="https://ui.datamesh.oceanum.io/" target="_blank">Oceanum Datamesh</a> |
 | **Source** | <a href="https://swanmodel.sourceforge.io/" target="_blank">SWAN 41.31A</a> |
 | **Source terms** | <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> |
-| **Temporal coverage** | 1993-01-01 to present (updating) |
+| **Temporal coverage** | 1993-01-01 to 2024-12-01 |
 | **Temporal resolution** | 1 hourly |
 | **Spatial coverage** | [77.5W, 35.5N, 63W, 46N] at 0.05 degree |
 | **Spectra output sites** | 1105 |

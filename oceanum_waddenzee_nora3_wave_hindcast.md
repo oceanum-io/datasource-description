@@ -11,7 +11,7 @@ table { margin-left: auto; margin-right: auto; }
 | | |
 |---|---|
 | **Model** | SWAN 41.31 |
-| **Period** | Jan 1993 - Updating |
+| **Period** | Jan 1993 - Jan 2025 |
 | **Spatial resolution** | 500 m (0.008° x 0.005°) |
 | **Temporal resolution** | 1 hourly |
 | **Region** | 4.5E - 6.4E, 52.85N - 53.6N |
@@ -61,7 +61,7 @@ The wave hindcast has been validated against in-situ wave observations from buoy
 | **Access** | <a href="https://ui.datamesh.oceanum.io/" target="_blank">Oceanum Datamesh</a> |
 | **Source** | <a href="https://swanmodel.sourceforge.io/" target="_blank">SWAN 41.31A</a> |
 | **Source terms** | <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> |
-| **Temporal coverage** | 1993-01-01 to present (updating) |
+| **Temporal coverage** | 1993-01-01 to 2025-01-01 |
 | **Temporal resolution** | 1 hourly |
 | **Spatial coverage** | [4.5E, 52.85N, 6.4E, 53.6N] at 0.008° x 0.005° |
 | **Spectra output sites** | 710 |

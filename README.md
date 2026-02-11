@@ -1,25 +1,42 @@
-# Oceanum datasource description
+# Oceanum Datasource Description
 
-Collection of datamesh datasource description documents
+Collection of Datamesh datasource description documents.
 
-1. [Oceanum Global wave hindcast](./oceanum_global_wave_hindcast_specification.pdf)
-2. [Oceanum Baltic Sea wave hindcast](./oceanum_baltic_sea_wave_hindcast.pdf)
-3. [Oceanum Bass Strait wave hindcast](./oceanum_bass_strait_wave_hindcast.pdf)
-4. [Oceanum SW Northamerica wave hindcast](./oceanum_sw_northamerica_wave_hindcast.pdf)
-5. [Oceanum Auckland wave forecast](./oceanum_auckland_wave_forecast_specification.pdf)
-6. [Oceanum Morocco wave hindcast](./oceanum_morocco_wave_hindcast.md)
-7. [Oceanum West Africa wave hindcast](./oceanum_west_africa_wave_hindcast.md)
-8. [Oceanum Malay Peninsula wave hindcast](./oceanum_malay_peninsula_wave_hindcast.md)
-9. [Oceanum King Island wave hindcast](./oceanum_king_island_wave_hindcast.md)
-10. [Oceanum Peru wave hindcast](./oceanum_peru_wave_hindcast.md)
-11. [Oceanum Arabian Gulf wave hindcast](./oceanum_arabian_gulf_wave_hindcast.md)
-12. [Oceanum Mediterranean wave hindcast](./oceanum_mediterranean_wave_hindcast.md)
-13. [Oceanum New Zealand wave hindcast](./oceanum_new_zealand_wave_hindcast.md)
-14. [Oceanum Red Sea wave hindcast](./oceanum_red_sea_wave_hindcast.md)
-15. [Oceanum Taiwan wave hindcast](./oceanum_taiwan_wave_hindcast.md)
-16. [Oceanum Taranaki wave hindcast](./oceanum_taranaki_wave_hindcast.md)
-17. [Oceanum US East Coast wave hindcast](./oceanum_us_east_coast_wave_hindcast.md)
-18. [Oceanum Western Europe wave hindcast](./oceanum_western_europe_wave_hindcast.md)
-19. [Oceanum Western Europe NORA3 wave hindcast](./oceanum_western_europe_nora3_wave_hindcast.md)
-20. [Oceanum Baltic Sea NORA3 wave hindcast](./oceanum_baltic_sea_nora3_wave_hindcast.md)
-21. [Oceanum Waddenzee NORA3 wave hindcast](./oceanum_waddenzee_nora3_wave_hindcast.md)
+---
+
+## Wave Hindcast
+
+### Global
+
+- [Oceanum Global ERA5 wave hindcast](./oceanum_global_wave_hindcast_specification.pdf)
+
+### ERA5 Forced Regional Hindcasts
+
+- [Oceanum Arabian Gulf ERA5 wave hindcast](./oceanum_arabian_gulf_wave_hindcast.md)
+- [Oceanum Baltic Sea ERA5 wave hindcast](./oceanum_baltic_sea_wave_hindcast.pdf)
+- [Oceanum Bass Strait ERA5 wave hindcast](./oceanum_bass_strait_wave_hindcast.pdf)
+- [Oceanum King Island ERA5 wave hindcast](./oceanum_king_island_wave_hindcast.md)
+- [Oceanum Malay Peninsula ERA5 wave hindcast](./oceanum_malay_peninsula_wave_hindcast.md)
+- [Oceanum Mediterranean ERA5 wave hindcast](./oceanum_mediterranean_wave_hindcast.md)
+- [Oceanum Morocco ERA5 wave hindcast](./oceanum_morocco_wave_hindcast.md)
+- [Oceanum New Zealand ERA5 wave hindcast](./oceanum_new_zealand_wave_hindcast.md)
+- [Oceanum Peru ERA5 wave hindcast](./oceanum_peru_wave_hindcast.md)
+- [Oceanum Red Sea ERA5 wave hindcast](./oceanum_red_sea_wave_hindcast.md)
+- [Oceanum SW North America ERA5 wave hindcast](./oceanum_sw_northamerica_wave_hindcast.pdf)
+- [Oceanum Taiwan ERA5 wave hindcast](./oceanum_taiwan_wave_hindcast.md)
+- [Oceanum Taranaki ERA5 wave hindcast](./oceanum_taranaki_wave_hindcast.md)
+- [Oceanum US East Coast ERA5 wave hindcast](./oceanum_us_east_coast_wave_hindcast.md)
+- [Oceanum West Africa ERA5 wave hindcast](./oceanum_west_africa_wave_hindcast.md)
+- [Oceanum Western Europe ERA5 wave hindcast](./oceanum_western_europe_wave_hindcast.md)
+
+### NORA3 Forced Regional Hindcasts
+
+- [Oceanum Baltic Sea NORA3 wave hindcast](./oceanum_baltic_sea_nora3_wave_hindcast.md)
+- [Oceanum Waddenzee NORA3 wave hindcast](./oceanum_waddenzee_nora3_wave_hindcast.md)
+- [Oceanum Western Europe NORA3 wave hindcast](./oceanum_western_europe_nora3_wave_hindcast.md)
+
+---
+
+## Wave Forecast
+
+- [Oceanum Auckland wave forecast](./oceanum_auckland_wave_forecast_specification.pdf)
