@@ -394,6 +394,19 @@ WESTERN_EUROPE_NORA3_CONFIG = FigureConfig(
     site_size=1.0,
 )
 
+BALTIC_NORA3_CONFIG = FigureConfig(
+    output_name="baltic_nora3_figure1_hs_mean.png",
+    gridstats_id="oceanum_wave_baltic_nora3_gridstats",
+    spec_id="oceanum_wave_baltic_nora3_spec",
+    grid_id="oceanum_wave_baltic_nora3_grid",
+    domain_name="Baltic Sea NORA3",
+    depth_contours=[20, 50, 100, 200],
+    figsize=(10, 10),
+    cbar_shrink=0.7,
+    show_borders=True,
+    site_size=2.0,
+)
+
 TAIWAN_CONFIG = FigureConfig(
     output_name="taiwan_figure1_hs_mean.png",
     gridstats_id="oceanum_wave_twan5km_era5_gridstats",
@@ -442,6 +455,7 @@ if __name__ == "__main__":
         "useast": US_EAST_CONFIG,
         "weuro": WESTERN_EUROPE_CONFIG,
         "weuro_nora3": WESTERN_EUROPE_NORA3_CONFIG,
+        "baltic_nora3": BALTIC_NORA3_CONFIG,
         "taiwan": TAIWAN_CONFIG,
     }
     
