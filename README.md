@@ -50,9 +50,11 @@ Collection of Datamesh datasource description documents.
 ### GFS/ECMWF Forced Regional Forecasts
 
 - [Oceanum Northwest Cape wave forecast](./oceanum_northwest_cape_wave_forecast.md)
+- [Oceanum Western Europe wave forecast](./oceanum_western_europe_wave_forecast.md)
 
 ### GFS Forced Regional Forecasts
 
+- [Oceanum Auckland wave forecast](./oceanum_auckland_wave_forecast_specification.pdf)
 - [Oceanum New Zealand GFS wave forecast](./oceanum_new_zealand_wave_forecast.md)
 
 ### ECMWF Forced Regional Forecasts
@@ -62,8 +64,3 @@ Collection of Datamesh datasource description documents.
 - [Oceanum Gabon ECMWF wave forecast](./oceanum_gabon_wave_forecast.md)
 - [Oceanum Nigeria ECMWF wave forecast](./oceanum_nigeria_wave_forecast.md)
 - [Oceanum US East Coast ECMWF wave forecast](./oceanum_us_east_coast_wave_forecast.md)
-- [Oceanum Western Europe wave forecast](./oceanum_western_europe_wave_forecast.md)
-
-### Legacy Documents
-
-- [Oceanum Auckland wave forecast](./oceanum_auckland_wave_forecast_specification.pdf)
