@@ -21,7 +21,7 @@ p { text-align: justify; }
 
 The Arabian Gulf wave hindcast dataset provides a detailed account of ocean wave parameters across the Arabian Gulf (also known as the Persian Gulf) and the Gulf of Oman (Figure 1). This semi-enclosed sea is characterised by shallow depths, complex coastlines, and strong seasonal wind patterns including the Shamal winds. Wave spectra are computed over a 30+ year period between 1994 and present using the SWAN (Simulating WAves Nearshore) third-generation spectral wave model. The model is driven by inputs from the Oceanum Global Wave Model for spectral boundaries and <a href="https://data.marine.copernicus.eu/product/WIND_GLO_PHY_L4_MY_012_006/description" target="_blank">reprocessed ERA5 winds</a> from Copernicus Marine Service which incorporate scatterometer observations for improved accuracy. Wave-current interactions are included through coupling with ocean currents from <a href="https://data.marine.copernicus.eu/product/GLOBAL_MULTIYEAR_PHY_001_030/description" target="_blank">Glorys reanalysis</a>. Bathymetry is derived from the <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2025</a> global bathymetric grid.
 
-The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 36 frequency bins, covering a frequency range from 0.037 to 0.9427 Hz with 10% logarithmic increments. The model features a regular grid with a 5 km (0.05 degree) resolution, spanning the entire Arabian Gulf from the Strait of Hormuz to the head of the Gulf, and extending into the Gulf of Oman to capture swell propagation from the Arabian Sea.
+The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 36 frequency bins, covering a frequency range from 0.037 to 1.04 Hz with 10% logarithmic increments. The model features a regular grid with a 5 km (0.05 degree) resolution, spanning the entire Arabian Gulf from the Strait of Hormuz to the head of the Gulf, and extending into the Gulf of Oman to capture swell propagation from the Arabian Sea.
 
 The dataset provides hourly estimates for an extensive array of ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions (defined from an 8-second split and from the Watershed method). These data are stored over the entire grid at native resolution. Additionally, frequency-direction wave spectra are available at 302 sites distributed across the domain (see Figure 1).
 
@@ -52,7 +52,7 @@ The wave hindcast can be validated against satellite altimeter observations usin
 | **Temporal resolution** | Hourly |
 | **Spatial coverage** | [47.5E, 22.5N, 60.5E, 31N] at 0.05 degree |
 | **Spectra output sites** | 302 |
-| **Frequency discretisation** | 36 frequencies between 0.037 - 0.9427 Hz at 10% logarithmic increments |
+| **Frequency discretisation** | 36 frequencies between 0.037 - 1.04 Hz at 10% logarithmic increments |
 | **Direction resolution** | 10 deg |
 | **Bathymetry** | <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2025 Grid</a> |
 | **Winds** | <a href="https://data.marine.copernicus.eu/product/WIND_GLO_PHY_L4_MY_012_006/description" target="_blank">Reprocessed ERA5</a> |

@@ -23,7 +23,7 @@ table { margin-left: auto; margin-right: auto; }
 
 The New Zealand wave hindcast dataset provides a detailed account of ocean wave parameters across the entire New Zealand Exclusive Economic Zone (Figure 1). The domain encompasses both the North and South Islands, capturing the diverse wave climate from the exposed west coast facing the Tasman Sea to the more sheltered east coast. Wave spectra are computed over a 45+ year period between 1979 and present using the SWAN (Simulating WAves Nearshore) third-generation spectral wave model. The model is driven by inputs from the Oceanum Global Wave Model for spectral boundaries and <a href="https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5" target="_blank">ERA5 reanalysis winds</a> from the European Centre for Medium-Range Weather Forecasts. The hindcast is calibrated against the satellite altimeter dataset of <a href="https://www.nature.com/articles/s41597-019-0083-9" target="_blank">Ribal and Young (2019)</a>. Bathymetry is derived from the <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2020</a> global bathymetric grid.
 
-The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 31 frequency bins, covering a frequency range from 0.037 to 0.6 Hz with 10% logarithmic increments. The model features a regular grid with a 5 km (0.05 degree) resolution, spanning the entire New Zealand region from the Chatham Rise to the Tasman Sea.
+The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 32 frequency bins, covering a frequency range from 0.037 to 0.71 Hz with 10% logarithmic increments. The model features a regular grid with a 5 km (0.05 degree) resolution, spanning the entire New Zealand region from the Chatham Rise to the Tasman Sea.
 
 The dataset provides 3-hourly estimates for an extensive array of ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. These data are stored over the entire grid at native resolution. Additionally, frequency-direction wave spectra are available at 10699 sites distributed across the domain (see Figure 1).
 
@@ -54,7 +54,7 @@ The wave hindcast can be validated against satellite altimeter observations usin
 | **Temporal resolution** | 3 hourly |
 | **Spatial coverage** | [165E, 48S, 180E, 34S] at 0.05 degree |
 | **Spectra output sites** | 10699 |
-| **Frequency discretisation** | 31 frequencies between 0.037 - 0.6 Hz at 10% logarithmic increments |
+| **Frequency discretisation** | 32 frequencies between 0.037 - 0.71 Hz at 10% logarithmic increments |
 | **Direction resolution** | 10 deg |
 | **Bathymetry** | <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2020 Grid</a> |
 | **Winds** | <a href="https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5" target="_blank">ERA5 Reanalysis</a> |

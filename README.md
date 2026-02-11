@@ -15,3 +15,4 @@ Collection of datamesh datasource description documents
 11. [Oceanum Arabian Gulf wave hindcast](./oceanum_arabian_gulf_wave_hindcast.md)
 12. [Oceanum Mediterranean wave hindcast](./oceanum_mediterranean_wave_hindcast.md)
 13. [Oceanum New Zealand wave hindcast](./oceanum_new_zealand_wave_hindcast.md)
+14. [Oceanum Red Sea wave hindcast](./oceanum_red_sea_wave_hindcast.md)

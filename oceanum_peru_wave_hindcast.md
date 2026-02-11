@@ -21,7 +21,7 @@ p { text-align: justify; }
 
 The Peru wave hindcast dataset provides a detailed account of ocean wave parameters along the central Peruvian coast, covering the Lima metropolitan region and the port of Chancay (Figure 1). Wave spectra are computed over a 45+ year period between 1979 and present using the SWAN (Simulating WAves Nearshore) third-generation spectral wave model. The model is driven by inputs from the Oceanum Global Wave Model for spectral boundaries and <a href="https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5" target="_blank">ERA5 reanalysis winds</a> from the European Centre for Medium-Range Weather Forecasts. Bathymetry is derived from the <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/gebco_2024/" target="_blank">GEBCO 2024</a> global bathymetric grid.
 
-The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 32 frequency bins, covering a frequency range from 0.037 to 0.5765 Hz with 10% logarithmic increments. The parent domain features a regular grid with 5 km (0.05 degree) resolution covering the central Peruvian coast from approximately 10°S to 13°S. A higher-resolution nested domain provides detailed wave information for the Chancay port area:
+The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 32 frequency bins, covering a frequency range from 0.037 to 0.71 Hz with 10% logarithmic increments. The parent domain features a regular grid with 5 km (0.05 degree) resolution covering the central Peruvian coast from approximately 10°S to 13°S. A higher-resolution nested domain provides detailed wave information for the Chancay port area:
 
 - **Chancay (400 m)**: High-resolution domain covering the Chancay port and surrounding coastal waters
 
@@ -55,7 +55,7 @@ The wave hindcast can be validated against satellite altimeter observations usin
 | **Spatial coverage (Lima)** | [79W, 13S, 76W, 10S] at 0.05 degree |
 | **Spatial coverage (Chancay)** | [77.8W, 11.9S, 77.1W, 11.2S] at 0.004 degree |
 | **Spectra output sites (Chancay)** | 74 |
-| **Frequency discretisation** | 32 frequencies between 0.037 - 0.5765 Hz at 10% logarithmic increments |
+| **Frequency discretisation** | 32 frequencies between 0.037 - 0.71 Hz at 10% logarithmic increments |
 | **Direction resolution** | 10 deg |
 | **Bathymetry** | <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/gebco_2024/" target="_blank">GEBCO 2024</a> |
 | **Winds** | <a href="https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5" target="_blank">ERA5 Reanalysis</a> |

@@ -4,7 +4,7 @@ img { display: block; margin-left: auto; margin-right: auto; }
 table { margin-left: auto; margin-right: auto; }
 </style>
 
-# Oceanum Mediterranean Wave Hindcast Specification
+# Oceanum Red Sea Wave Hindcast Specification
 
 **February 2025**
 
@@ -12,24 +12,24 @@ table { margin-left: auto; margin-right: auto; }
 |---|---|
 | **Model** | SWAN 41.31 |
 | **Period** | Feb 1979 - Updating |
-| **Spatial resolution** | 0.1 degree (~10 km) |
-| **Temporal resolution** | 3 hourly |
-| **Region** | 5.5W - 36.2E, 30.3N - 45.85N |
+| **Spatial resolution** | 0.05 degree (~5 km) |
+| **Temporal resolution** | 1 hourly |
+| **Region** | 32.5E - 56E, 10N - 30N |
 | **Forcings** | ERA5 winds and Oceanum spectra |
 
 ---
 
 ## Dataset description
 
-The Mediterranean wave hindcast dataset provides a detailed account of ocean wave parameters across the entire Mediterranean Sea basin (Figure 1). This semi-enclosed sea is characterised by complex bathymetry, numerous islands, and regional wind patterns including the Mistral, Sirocco, and Bora. Wave spectra are computed over a 45+ year period between 1979 and present using the SWAN (Simulating WAves Nearshore) third-generation spectral wave model. The model is driven by inputs from the Oceanum Global Wave Model for spectral boundaries and <a href="https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5" target="_blank">ERA5 reanalysis winds</a> from the European Centre for Medium-Range Weather Forecasts. The hindcast is calibrated against the satellite altimeter dataset of <a href="https://www.nature.com/articles/s41597-019-0083-9" target="_blank">Ribal and Young (2019)</a>. Bathymetry is derived from the <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2020</a> global bathymetric grid.
+The Red Sea wave hindcast dataset provides a detailed account of ocean wave parameters across the Red Sea, Gulf of Aden, and Arabian Sea (Figure 1). The domain encompasses the entire Red Sea from the Gulf of Suez and Gulf of Aqaba in the north to the Bab el-Mandeb strait in the south, extending eastward through the Gulf of Aden to the Arabian Sea. Wave spectra are computed over a 45+ year period between 1979 and present using the SWAN (Simulating WAves Nearshore) third-generation spectral wave model. The model is driven by inputs from the Oceanum Global Wave Model for spectral boundaries and <a href="https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5" target="_blank">ERA5 reanalysis winds</a> from the European Centre for Medium-Range Weather Forecasts. The hindcast is calibrated against the satellite altimeter dataset of <a href="https://www.nature.com/articles/s41597-019-0083-9" target="_blank">Ribal and Young (2019)</a>. Bathymetry is derived from the <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2023</a> global bathymetric grid.
 
-The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 37 frequency bins, covering a frequency range from 0.049 to 1.52 Hz with 10% logarithmic increments. The model features a regular grid with a 10 km (0.1 degree) resolution, spanning the entire Mediterranean Sea from the Strait of Gibraltar to the Levantine Basin.
+The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 36 frequency bins, covering a frequency range from 0.037 to 1.04 Hz with 10% logarithmic increments. The model features a regular grid with a 5 km (0.05 degree) resolution, spanning the entire Red Sea and Gulf of Aden region.
 
-The dataset provides 3-hourly estimates for an extensive array of ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. These data are stored over the entire grid at native resolution. Additionally, frequency-direction wave spectra are available at 2584 sites distributed across the domain (see Figure 1).
+The dataset provides hourly estimates for an extensive array of ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. These data are stored over the entire grid at native resolution. Additionally, frequency-direction wave spectra are available at 1026 sites distributed across the domain (see Figure 1).
 
-<img src="./figures/mediterranean_figure1_hs_mean.png" alt="Figure 1" width="700">
+<img src="./figures/redsea_figure1_hs_mean.png" alt="Figure 1" width="500">
 
-**Figure 1.** Mean significant wave height from the Mediterranean hindcast domain. The locations of 2D spectra hourly output are shown by the black dots. Depth contours are shown at 100m, 500m, 1000m, and 2000m.
+**Figure 1.** Mean significant wave height from the Red Sea hindcast domain. The locations of 2D spectra hourly output are shown by the black dots. Depth contours are shown at 50m, 200m, 500m, 1000m, and 2000m.
 
 ---
 
@@ -45,32 +45,32 @@ The wave hindcast can be validated against satellite altimeter observations usin
 
 | Field | Value |
 |---|---|
-| **Title** | Oceanum Mediterranean wave hindcast |
+| **Title** | Oceanum Red Sea wave hindcast |
 | **Institution** | <a href="https://oceanum.io" target="_blank">Oceanum</a> |
 | **Access** | <a href="https://ui.datamesh.oceanum.io/" target="_blank">Oceanum Datamesh</a> |
 | **Source** | <a href="https://swanmodel.sourceforge.io/" target="_blank">SWAN 41.31A</a> |
 | **Source terms** | <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> |
 | **Temporal coverage** | 1979-02-01 to present (updating) |
-| **Temporal resolution** | 3 hourly |
-| **Spatial coverage** | [5.5W, 30.3N, 36.2E, 45.85N] at 0.1 degree |
-| **Spectra output sites** | 2584 |
-| **Frequency discretisation** | 37 frequencies between 0.049 - 1.52 Hz at 10% logarithmic increments |
+| **Temporal resolution** | 1 hourly |
+| **Spatial coverage** | [32.5E, 10N, 56E, 30N] at 0.05 degree |
+| **Spectra output sites** | 1026 |
+| **Frequency discretisation** | 36 frequencies between 0.037 - 1.04 Hz at 10% logarithmic increments |
 | **Direction resolution** | 10 deg |
-| **Bathymetry** | <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2020 Grid</a> |
+| **Bathymetry** | <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2023 Grid</a> |
 | **Winds** | <a href="https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5" target="_blank">ERA5 Reanalysis</a> |
 | **Boundary** | <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_glob05_era5_v1_spec" target="_blank">Oceanum Global WW3 ERA5 hourly wave spectra</a> |
 
 ### Linked Datamesh datasources
 
-- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_mediterranean_era5_v1_grid" target="_blank">Oceanum Mediterranean 10 km 3-hourly wave parameters</a>
-- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_mediterranean_era5_v1_spec" target="_blank">Oceanum Mediterranean 10 km 3-hourly wave spectra</a>
-- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_mediterranean_era5_v1_gridstats" target="_blank">Oceanum Mediterranean 10 km gridded wave statistics</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_redsea_era5_grid" target="_blank">Oceanum Red Sea 5 km hourly wave parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_redsea_era5_spec" target="_blank">Oceanum Red Sea 5 km hourly wave spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_redsea_era5_gridstats" target="_blank">Oceanum Red Sea 5 km gridded wave statistics</a>
 
 ---
 
 ## Integrated parameters gridded output
 
-Integrated wave parameters are stored 3-hourly over the domain at the native model resolution. Table 2 describes long names and units of the 39 gridded output parameters, including one wind-forced partition and three swell partitions from the Watershed method.
+Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 2 describes long names and units of the 37 gridded output parameters, including one wind-forced partition and three swell partitions from the Watershed method.
 
 **Table 2.** Gridded output parameters.
 
@@ -105,7 +105,6 @@ Integrated wave parameters are stored 3-hourly over the domain at the native mod
 | pwlen1 | mean wavelength of primary swell waves (partition 1) | m |
 | pwlen2 | mean wavelength of secondary swell waves (partition 2) | m |
 | pwlen3 | mean wavelength of tertiary swell waves (partition 3) | m |
-| qb | fraction of breaking waves | - |
 | tm01 | mean absolute wave period of wind and swell waves from the first frequency moment | s |
 | tm02 | mean absolute wave period of wind and swell waves from the second frequency moment | s |
 | tps | smooth relative peak wave period of wind and swell waves | s |

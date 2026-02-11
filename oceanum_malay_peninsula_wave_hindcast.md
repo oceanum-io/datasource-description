@@ -21,7 +21,7 @@ p { text-align: justify; }
 
 The Malay Peninsula wave hindcast dataset provides a detailed account of ocean wave parameters across the waters surrounding the Malay Peninsula, including the Strait of Malacca, South China Sea, and Andaman Sea regions (Figure 1). Wave spectra are computed over a 45+ year period between 1979 and present using the SWAN (Simulating WAves Nearshore) third-generation spectral wave model. The model is driven by inputs from the Oceanum Global Wave Model for spectral boundaries and <a href="https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5" target="_blank">ERA5 reanalysis winds</a> from the European Centre for Medium-Range Weather Forecasts. Bathymetry is derived from the <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2025</a> grid.
 
-The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 43 frequency bins, covering a frequency range from 0.037 to 0.9545 Hz with 10% logarithmic increments. The model features a regular grid with 5 km (0.05 degree) resolution, capturing complex wave dynamics in this strategically important maritime region, including the interaction between monsoon-driven wind waves, Indian Ocean swell, and South China Sea wave systems.
+The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 43 frequency bins, covering a frequency range from 0.037 to 2.03 Hz with 10% logarithmic increments. The model features a regular grid with 5 km (0.05 degree) resolution, capturing complex wave dynamics in this strategically important maritime region, including the interaction between monsoon-driven wind waves, Indian Ocean swell, and South China Sea wave systems.
 
 The dataset provides hourly estimates for an extensive array of ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions (defined from an 8-second split and from the Watershed method). These data are stored over the entire grid at native resolution. Additionally, frequency-direction wave spectra are available at 425 sites, with resolution increasing from deep ocean areas towards the coast (see Figure 1).
 
@@ -52,7 +52,7 @@ The wave hindcast can be validated against satellite altimeter observations usin
 | **Temporal resolution** | Hourly |
 | **Spatial coverage** | [99E, 4N, 104.5E, 8.5N] at 0.05 degree |
 | **Spectra output sites** | 425 |
-| **Frequency discretisation** | 43 frequencies between 0.037 - 0.9545 Hz at 10% logarithmic increments |
+| **Frequency discretisation** | 43 frequencies between 0.037 - 2.03 Hz at 10% logarithmic increments |
 | **Direction resolution** | 10 deg |
 | **Bathymetry** | <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2025 Grid</a> |
 | **Winds** | <a href="https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5" target="_blank">ERA5 Reanalysis</a> |

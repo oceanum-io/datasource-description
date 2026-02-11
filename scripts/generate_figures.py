@@ -320,6 +320,19 @@ BASS_STRAIT_CONFIG = FigureConfig(
     site_size=2.0,
 )
 
+RED_SEA_CONFIG = FigureConfig(
+    output_name="redsea_figure1_hs_mean.png",
+    gridstats_id="oceanum_wave_redsea_era5_gridstats",
+    spec_id="oceanum_wave_redsea_era5_spec",
+    grid_id="oceanum_wave_redsea_era5_grid",
+    domain_name="Red Sea",
+    depth_contours=[50, 200, 500, 1000, 2000],
+    figsize=(8, 12),
+    cbar_shrink=0.7,
+    show_borders=True,
+    site_size=3.0,
+)
+
 
 if __name__ == "__main__":
     import sys
@@ -334,6 +347,7 @@ if __name__ == "__main__":
         "morocco": MOROCCO_CONFIG,
         "malay": MALAY_CONFIG,
         "bass": BASS_STRAIT_CONFIG,
+        "redsea": RED_SEA_CONFIG,
     }
     
     if len(sys.argv) < 2:
