@@ -47,7 +47,7 @@ Collection of Datamesh datasource description documents.
 
 ## Wave Forecast
 
-### Global
+### GFS/ECMWF Forced Global Forecasts
 
 - [Oceanum Global wave forecast](./oceanum_global_wave_forecast.md)
 
