@@ -1,10 +1,18 @@
+---
+title: Oceanum Gabon ECMWF Wave Forecast
+---
+
 <style>
 p { text-align: justify; }
 img { display: block; margin-left: auto; margin-right: auto; }
 table { margin-left: auto; margin-right: auto; }
 </style>
 
-# Oceanum Gabon Wave Forecast Specification
+<img src="./assets/oceanum-secondary-logo-marine-rgb-900px-w-72ppi.png" alt="Oceanum Logo" width="300">
+
+<br><br>
+
+# Oceanum Gabon ECMWF Wave Forecast
 
 **February 2025**
 

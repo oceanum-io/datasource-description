@@ -1,8 +1,16 @@
+---
+title: Oceanum Morocco ERA5 Wave Hindcast
+---
+
 <style>
 p { text-align: justify; }
 </style>
 
-# Oceanum Morocco Wave Hindcast Specification
+<img src="./assets/oceanum-secondary-logo-marine-rgb-900px-w-72ppi.png" alt="Oceanum Logo" width="300">
+
+<br><br>
+
+# Oceanum Morocco ERA5 Wave Hindcast
 
 **February 2025**
 

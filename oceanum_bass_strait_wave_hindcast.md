@@ -1,8 +1,16 @@
+---
+title: Oceanum Bass Strait ERA5 Wave Hindcast
+---
+
 <style>
 p { text-align: justify; }
 </style>
 
-# Oceanum Bass Strait Wave Hindcast Specification
+<img src="./assets/oceanum-secondary-logo-marine-rgb-900px-w-72ppi.png" alt="Oceanum Logo" width="300">
+
+<br><br>
+
+# Oceanum Bass Strait ERA5 Wave Hindcast
 
 **February 2025**
 
