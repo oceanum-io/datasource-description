@@ -110,7 +110,7 @@ Figure 4 shows the temporal evolution of validation statistics computed monthly 
 
 #### Wave Spectra
 
-- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_nz5km_era5_spec" target="_blank">Oceanum New Zealand 5 km ERA5 wave hindcast spectra</a> - Parent domain spectra
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_nz1km_par5km_era5_spec" target="_blank">Oceanum New Zealand 5 km ERA5 wave hindcast spectra</a> - Parent domain spectra
 
 **1 km Nested Domain Spectra:**
 
