@@ -1,10 +1,14 @@
+---
+title: Oceanum Global ERA5 Wave Hindcast
+---
+
 <style>
 p { text-align: justify; }
 img { display: block; margin-left: auto; margin-right: auto; }
 table { margin-left: auto; margin-right: auto; }
 </style>
 
-# Oceanum Global Wave Hindcast Specification
+# Oceanum Global ERA5 Wave Hindcast
 
 **February 2025**
 

@@ -1,3 +1,7 @@
+---
+title: Oceanum Global Wave Forecast
+---
+
 <style>
 p { text-align: justify; }
 img { display: block; margin-left: auto; margin-right: auto; }
@@ -8,7 +12,7 @@ table { margin-left: auto; margin-right: auto; }
 
 <br><br>
 
-# Oceanum Global Wave Forecast Specification
+# Oceanum Global Wave Forecast
 
 **February 2025**
 
