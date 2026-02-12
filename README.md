@@ -25,6 +25,7 @@ Collection of Datamesh datasource description documents.
 - [Oceanum Mediterranean ERA5 Wave Hindcast](./oceanum_mediterranean_wave_hindcast.md)
 - [Oceanum Morocco ERA5 Wave Hindcast](./oceanum_morocco_wave_hindcast.md)
 - [Oceanum New Zealand ERA5 Wave Hindcast](./oceanum_new_zealand_wave_hindcast.md)
+- [Oceanum New Zealand 1km Multiscale ERA5 Wave Hindcast](./oceanum_new_zealand_1km_wave_hindcast.md)
 - [Oceanum Peru ERA5 Wave Hindcast](./oceanum_peru_wave_hindcast.md)
 - [Oceanum Red Sea ERA5 Wave Hindcast](./oceanum_red_sea_wave_hindcast.md)
 - [Oceanum SW North America ERA5 Wave Hindcast](./oceanum_sw_northamerica_wave_hindcast.pdf)
