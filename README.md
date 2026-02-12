@@ -1,3 +1,9 @@
+<p align="center">
+<img src="./assets/oceanum-secondary-logo-marine-rgb-900px-w-72ppi.png" alt="Oceanum Logo" width="300">
+</p>
+
+<br><br>
+
 # Oceanum Datasource Description
 
 Collection of Datamesh datasource description documents.
