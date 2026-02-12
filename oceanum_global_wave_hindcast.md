@@ -29,6 +29,8 @@ The modelling setup employs the ST4 source term parameterisations with calibrate
 
 The dataset provides 3-hourly estimates for key ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-sea partition and up to four swell partitions. Frequency-direction wave spectra are available at 26,962 strategically selected sites worldwide (black dots in Figure 1).
 
+The global hindcast is well suited for deep water wave climate analysis anywhere on the planet. A key application is providing directional spectral boundary conditions for downscaling regional and coastal wave models. The spectra output network is designed with variable density, ranging from 2 degrees in deep water to 0.5 degrees near coastlines, ensuring appropriate resolution for boundary forcing across diverse modelling applications. The spectral data is optimised for very fast access (seconds to a few minutes), enabling efficient operational and research workflows.
+
 <img src="./figures/glob05_figure1_hs_mean.png" alt="Figure 1" width="800">
 
 **Figure 1.** Mean significant wave height (Hs) over the global domain from the Oceanum ERA5 wave hindcast (1979-2020). Black dots indicate spectra output locations.
