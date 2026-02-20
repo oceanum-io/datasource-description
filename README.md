@@ -75,3 +75,14 @@ Collection of Datamesh datasource description documents.
 - [Oceanum Gabon ECMWF Wave Forecast](./oceanum_gabon_wave_forecast.md)
 - [Oceanum Nigeria ECMWF Wave Forecast](./oceanum_nigeria_wave_forecast.md)
 - [Oceanum US East Coast ECMWF Wave Forecast](./oceanum_us_east_coast_wave_forecast.md)
+
+---
+
+## Atmospheric Hindcast
+
+### CCAM Regional Hindcasts
+
+- [Oceanum Central New Zealand CCAM Atmospheric Hindcast](./oceanum_central_nz_ccam_hindcast.md)
+- [Oceanum Marlborough Sounds CCAM Atmospheric Hindcast](./oceanum_marlborough_sounds_ccam_hindcast.md)
+- [Oceanum Southland New Zealand CCAM Atmospheric Hindcast](./oceanum_southland_nz_ccam_hindcast.md)
+- [Oceanum Taranaki New Zealand CCAM Atmospheric Hindcast](./oceanum_taranaki_nz_ccam_hindcast.md)
