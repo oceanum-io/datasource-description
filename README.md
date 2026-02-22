@@ -18,7 +18,7 @@ Collection of Datamesh datasource description documents.
 
 ### ERA5 Forced Regional Hindcasts
 
-- [Oceanum Arabian Gulf ERA5 Wave Hindcast](./oceanum_arabian_gulf_wave_hindcast.md)
+- [Oceanum Arabian/Persian Gulf ERA5 Wave Hindcast](./oceanum_arabian_persian_gulf_wave_hindcast.md)
 - [Oceanum Bass Strait ERA5 Wave Hindcast](./oceanum_bass_strait_wave_hindcast.pdf)
 - [Oceanum King Island ERA5 Wave Hindcast](./oceanum_king_island_wave_hindcast.md)
 - [Oceanum Malay Peninsula ERA5 Wave Hindcast](./oceanum_malay_peninsula_wave_hindcast.md)
