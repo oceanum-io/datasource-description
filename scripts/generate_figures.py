@@ -46,6 +46,9 @@ class FigureConfig:
     nests: List[NestConfig] = field(default_factory=list)
     gridstats_zarr: Optional[str] = None  # Direct zarr path if not in Datamesh
     power_norm: Optional[float] = None  # Power for PowerNorm colormap scaling (e.g., 0.5 for sqrt)
+    depth_id: Optional[str] = None  # Separate datasource for depth when not in gridstats
+    depth_variable: str = "depth"   # Variable name in the depth datasource
+    depth_negate: bool = False       # Set True when depth source uses negative-down convention (e.g. GEBCO elevation)
 
 
 def generate_figure(config: FigureConfig):
@@ -62,21 +65,38 @@ def generate_figure(config: FigureConfig):
     # Query gridstats for mean wave parameters
     print(f"Querying {config.domain_name} gridstats data...")
     if config.gridstats_zarr:
-        # Load directly from zarr archive
         dset = xr.open_zarr(config.gridstats_zarr)
     else:
-        dset = conn.query(
-            datasource=config.gridstats_id,
-            variables=["hs_mean", "depth_mean"]
-        )
-    
+        dset = conn.query(datasource=config.gridstats_id, variables=["hs_mean"])
+
     # Map coordinates
     lon = dset.longitude.values if "longitude" in dset.coords else dset.lon.values
     lat = dset.latitude.values if "latitude" in dset.coords else dset.lat.values
     lon2d, lat2d = np.meshgrid(lon, lat)
-    
+
     x0, x1 = float(lon[0]), float(lon[-1])
     y0, y1 = float(lat[0]), float(lat[-1])
+
+    # Depth: prefer gridstats depth_mean, fall back to depth_id datasource, else skip contours
+    depth_data = None
+    depth_lon2d, depth_lat2d = lon2d, lat2d
+    if "depth_mean" in dset:
+        depth_data = dset.depth_mean.values
+    elif config.depth_id:
+        print(f"Querying depth from {config.depth_id}...")
+        ddset = conn.query(
+            datasource=config.depth_id,
+            variables=[config.depth_variable],
+            geofilter={"type": "bbox", "geom": [x0, y0, x1, y1]},
+        )
+        d_lon = ddset.longitude.values if "longitude" in ddset.coords else ddset.lon.values
+        d_lat = ddset.latitude.values if "latitude" in ddset.coords else ddset.lat.values
+        depth_lon2d, depth_lat2d = np.meshgrid(d_lon, d_lat)
+        depth_data = ddset[config.depth_variable].values
+        if config.depth_negate:
+            depth_data = -depth_data
+    else:
+        print("No depth source available — skipping depth contours.")
     
     # Query sites for spectra locations (if available for main domain)
     sites = None
@@ -118,16 +138,16 @@ def generate_figure(config: FigureConfig):
     dset.hs_mean.plot(**plot_kwargs)
     
     # Add depth contours
-    print("Adding depth contours...")
-    depth = dset.depth_mean.values
-    cs = ax.contour(
-        lon2d, lat2d, depth,
-        levels=config.depth_contours,
-        colors="0.4",
-        linewidths=0.5,
-        transform=transform
-    )
-    ax.clabel(cs, inline=True, fontsize=7, fmt="%d m")
+    if depth_data is not None:
+        print("Adding depth contours...")
+        cs = ax.contour(
+            depth_lon2d, depth_lat2d, depth_data,
+            levels=config.depth_contours,
+            colors="0.4",
+            linewidths=0.5,
+            transform=transform
+        )
+        ax.clabel(cs, inline=True, fontsize=7, fmt="%d m")
     
     # Plot spectra site locations for main domain (if available)
     if sites is not None:
@@ -178,7 +198,7 @@ def generate_figure(config: FigureConfig):
     gl = ax.gridlines(draw_labels=["left", "bottom"], linewidth=0.5, color="gray", alpha=0.5, linestyle="--")
     
     # Add legend
-    ax.legend(loc="lower left", fontsize=8)
+    ax.legend(loc="lower right", fontsize=8)
     
     # Save figure
     output_path = f"/source/datasource-description/figures/{config.output_name}"
@@ -436,6 +456,33 @@ WADDENZEE_NORA3_CONFIG = FigureConfig(
     power_norm=0.5,
 )
 
+NZ_ERA5_CONFIG = FigureConfig(
+    output_name="nz_era5_figure1_hs_mean.png",
+    gridstats_id="oceanum_wave_nzpar_era5_gridstats",
+    spec_id="oceanum_wave_nzpar_era5_spec",
+    grid_id="oceanum_wave_nzpar_era5_grid",
+    depth_id="gebco_2025",
+    depth_variable="elevation",
+    depth_negate=True,
+    domain_name="New Zealand (5 km parent)",
+    depth_contours=[100, 500, 1000, 2000],
+    figsize=(10, 12),
+    cbar_shrink=0.6,
+    site_size=0.5,
+    site_color="black",
+    nests=[
+        NestConfig(name="Hawke Bay",        spec_id="oceanum_wave_hbay_era5_spec",   grid_id="oceanum_wave_hbay_era5_grid",   color="blue", site_size=2.0),
+        NestConfig(name="Taranaki",         spec_id="oceanum_wave_trki_era5_spec",   grid_id="oceanum_wave_trki_era5_grid",   color="blue", site_size=2.0),
+        NestConfig(name="Central NZ",       spec_id="oceanum_wave_cnz_era5_spec",    grid_id="oceanum_wave_cnz_era5_grid",    color="blue", site_size=2.0),
+        NestConfig(name="Southland",        spec_id="oceanum_wave_sland_era5_spec",  grid_id="oceanum_wave_sland_era5_grid",  color="blue", site_size=2.0),
+        NestConfig(name="Otago",            spec_id="oceanum_wave_otago_era5_spec",  grid_id="oceanum_wave_otago_era5_grid",  color="blue", site_size=2.0),
+        NestConfig(name="Tauranga",         spec_id="oceanum_wave_taura_era5_spec",  grid_id="oceanum_wave_taura_era5_grid",  color="blue", site_size=2.0),
+        NestConfig(name="Auckland",         spec_id="oceanum_wave_auckl_era5_spec",  grid_id="oceanum_wave_auckl_era5_grid",  color="blue", site_size=2.0),
+        NestConfig(name="Waikato",          spec_id="oceanum_wave_waika_era5_spec",  grid_id="oceanum_wave_waika_era5_grid",  color="blue", site_size=2.0),
+        NestConfig(name="Christchurch",     spec_id="oceanum_wave_christ_era5_spec", grid_id="oceanum_wave_christ_era5_grid", color="blue", site_size=2.0),
+    ],
+)
+
 BLACK_SEA_CONFIG = FigureConfig(
     output_name="blacksea_figure1_hs_mean.png",
     gridstats_id="oceanum_wave_blacksea_cfsr_v1_gridstats",
@@ -484,6 +531,7 @@ if __name__ == "__main__":
     
     configs = {
         "nz": NZ_CONFIG,
+        "nz_era5": NZ_ERA5_CONFIG,
         "mediterranean": MEDITERRANEAN_CONFIG,
         "gulf": GULF_CONFIG,
         "peru": PERU_CONFIG,
