@@ -164,4 +164,20 @@ Integrated wave parameters are stored hourly over each domain at the native mode
 
 ---
 
+## Spectra output
+
+Frequency-direction wave spectra are stored hourly at selected sites across all domains. Spectra are discretised into 36 directional bins (10 degree resolution) and 32 frequency bins (0.037 - 0.71 Hz at 10% logarithmic increments).
+
+**Table 4.** Spectra output parameters.
+
+| Variable | Long Name | Units |
+|---|---|---|
+| efth | sea surface wave variance spectral density | m² s / deg |
+| lat | latitude | degrees_north |
+| lon | longitude | degrees_east |
+| freq | frequency | Hz |
+| dir | direction | degree |
+
+---
+
 www.oceanum.science
