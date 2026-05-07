@@ -217,4 +217,32 @@ Frequency-direction wave spectra are stored hourly at selected sites across all 
 
 ---
 
+## Gridded wave statistics
+
+Gridded wave statistics are available for the parent domain and all nine nested domains. Statistics are computed over the full hindcast period and include long-term means, seasonal means, extremes, quantiles, and return period values. Table 5 describes the output variables.
+
+**Table 5.** Gridded wave statistics output parameters.
+
+| Variable | Long Name | Units | Dimensions |
+|---|---|---|---|
+| depth_mean | mean water depth | m | latitude, longitude |
+| dpm_mean | mean peak wave direction | degree | latitude, longitude |
+| dpm_modal_direction | modal peak wave direction | degree | latitude, longitude |
+| dpm_modal_direction_season | seasonal modal peak wave direction | degree | season, latitude, longitude |
+| hs_max | maximum significant wave height | m | latitude, longitude |
+| hs_mean | mean significant wave height | m | latitude, longitude |
+| hs_mean_season | seasonal mean significant wave height | m | season, latitude, longitude |
+| hs_pcount | percentage of valid significant wave height values | % | latitude, longitude |
+| hs_quantile | significant wave height quantiles | m | quantile, latitude, longitude |
+| hs_rpv | significant wave height return period values | m | period, latitude, longitude |
+| tp_max | maximum peak wave period | s | latitude, longitude |
+| tp_mean | mean peak wave period | s | latitude, longitude |
+| tp_mean_season | seasonal mean peak wave period | s | season, latitude, longitude |
+| tp_quantile | peak wave period quantiles | s | quantile, latitude, longitude |
+| wspd_mean | mean wind speed | m/s | latitude, longitude |
+| xwnd_mean | mean eastward component of wind velocity | m/s | latitude, longitude |
+| ywnd_mean | mean northward component of wind velocity | m/s | latitude, longitude |
+
+---
+
 www.oceanum.science
