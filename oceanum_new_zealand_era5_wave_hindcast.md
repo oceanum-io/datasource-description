@@ -105,25 +105,50 @@ Additional interactive validation against satellite altimeter observations is av
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_nzpar_era5_spec" target="_blank">Oceanum New Zealand 5 km hourly wave spectra</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_nzpar_era5_gridstats" target="_blank">Oceanum New Zealand 5 km gridded wave statistics</a>
 
-**Nested domains (1 km):**
+**Hawke Bay (1 km):**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_hbay_era5_grid" target="_blank">Oceanum Hawke Bay 1 km hourly wave parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_hbay_era5_spec" target="_blank">Oceanum Hawke Bay 1 km hourly wave spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_hbay_era5_gridstats" target="_blank">Oceanum Hawke Bay 1 km gridded wave statistics</a>
+
+**Taranaki (1 km):**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_trki_era5_grid" target="_blank">Oceanum Taranaki 1 km hourly wave parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_trki_era5_spec" target="_blank">Oceanum Taranaki 1 km hourly wave spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_trki_era5_gridstats" target="_blank">Oceanum Taranaki 1 km gridded wave statistics</a>
+
+**Central New Zealand (1 km):**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_cnz_era5_grid" target="_blank">Oceanum Central New Zealand 1 km hourly wave parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_cnz_era5_spec" target="_blank">Oceanum Central New Zealand 1 km hourly wave spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_cnz_era5_gridstats" target="_blank">Oceanum Central New Zealand 1 km gridded wave statistics</a>
+
+**Southland (1 km):**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_sland_era5_grid" target="_blank">Oceanum Southland 1 km hourly wave parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_sland_era5_spec" target="_blank">Oceanum Southland 1 km hourly wave spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_sland_era5_gridstats" target="_blank">Oceanum Southland 1 km gridded wave statistics</a>
+
+**Otago (1 km):**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_otago_era5_grid" target="_blank">Oceanum Otago 1 km hourly wave parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_otago_era5_spec" target="_blank">Oceanum Otago 1 km hourly wave spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_otago_era5_gridstats" target="_blank">Oceanum Otago 1 km gridded wave statistics</a>
+
+**Tauranga (1 km):**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_taura_era5_grid" target="_blank">Oceanum Tauranga 1 km hourly wave parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_taura_era5_spec" target="_blank">Oceanum Tauranga 1 km hourly wave spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_taura_era5_gridstats" target="_blank">Oceanum Tauranga 1 km gridded wave statistics</a>
+
+**Auckland (1 km):**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_auckl_era5_grid" target="_blank">Oceanum Auckland 1 km hourly wave parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_auckl_era5_spec" target="_blank">Oceanum Auckland 1 km hourly wave spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_auckl_era5_gridstats" target="_blank">Oceanum Auckland 1 km gridded wave statistics</a>
+
+**Waikato (1 km):**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_waika_era5_grid" target="_blank">Oceanum Waikato 1 km hourly wave parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_waika_era5_spec" target="_blank">Oceanum Waikato 1 km hourly wave spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_waika_era5_gridstats" target="_blank">Oceanum Waikato 1 km gridded wave statistics</a>
+
+**Christchurch (1 km):**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_christ_era5_grid" target="_blank">Oceanum Christchurch 1 km hourly wave parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_christ_era5_spec" target="_blank">Oceanum Christchurch 1 km hourly wave spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_christ_era5_gridstats" target="_blank">Oceanum Christchurch 1 km gridded wave statistics</a>
 
 ---
 
