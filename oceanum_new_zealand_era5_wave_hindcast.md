@@ -45,7 +45,19 @@ The dataset provides hourly estimates for 38 ocean wave parameters (Table 2) inc
 
 ## Validation
 
-The wave hindcast can be validated against satellite altimeter observations using the <a href="https://hindcast-satellite-validation-main-prod.apps.oceanum.io/" target="_blank">Oceanum Hindcast Satellite Validation App</a>. This interactive tool allows users to compare modelled significant wave height against satellite altimeter measurements at any location within the model domain, providing density scatter plots, quantile comparisons, and statistical metrics.
+The wave hindcast has been validated against satellite altimeter observations from the dataset of <a href="https://www.nature.com/articles/s41597-019-0083-9" target="_blank">Ribal and Young (2019)</a>. Figure 2 shows a density scatter plot comparing modelled significant wave height against satellite altimeter measurements across the parent domain, with quantile-quantile comparison shown by the black dots. The model demonstrates good agreement with observations, with a bias of -0.04 m, RMSD of 0.35 m, scatter index of 0.12, and R² of 0.92 over 6,042,003 collocated observations.
+
+<img src="./figures/newzealand/scatter.png" alt="Figure 2" width="500">
+
+**Figure 2.** Density scatter plot comparing modelled significant wave height against satellite altimeter observations for the New Zealand ERA5 wave hindcast parent domain. Black dots show quantile-quantile comparison. Statistics shown include bias, RMSD, scatter index (SI), linear regression, and R².
+
+Figure 3 shows the spatial distribution of validation statistics computed against all available satellite passes across the domain, giving an indication of regional model performance.
+
+<img src="./figures/newzealand/gridstats.png" alt="Figure 3" width="600">
+
+**Figure 3.** Spatial validation statistics against satellite altimeter observations. Top row (left to right): observed mean significant wave height, number of collocated observations, and bias. Bottom row: modelled mean significant wave height, RMSD, and scatter index.
+
+Additional interactive validation against satellite altimeter observations is available through the <a href="https://hindcast-satellite-validation-main-prod.apps.oceanum.io/" target="_blank">Oceanum Hindcast Satellite Validation App</a>, which provides density scatter plots, quantile comparisons, and statistical metrics at any location within the model domain.
 
 ---
 
