@@ -14,7 +14,7 @@ table { margin-left: auto; margin-right: auto; }
 
 # Oceanum New Zealand GFS Wave Forecast
 
-**February 2025**
+**May 2026**
 
 | | |
 |---|---|
@@ -30,7 +30,7 @@ table { margin-left: auto; margin-right: auto; }
 
 ## Dataset description
 
-The New Zealand wave forecast dataset provides operational wave predictions across New Zealand's coastal waters and the surrounding Southwest Pacific Ocean (Figure 1). The forecast system comprises a hierarchy of nested domains: a regional 5 km parent grid covering all of New Zealand, with higher-resolution child grids for Auckland (1 km), Eastern Auckland (200 m), Taranaki (1 km), and Port Taranaki (25 m). Wave forecasts are produced using the SWAN (Simulating WAves Nearshore) third-generation spectral wave model, with a 7-day forecast horizon updated every 6 hours (00, 06, 12, 18 UTC).
+The New Zealand wave forecast dataset provides operational wave predictions across New Zealand's coastal waters and the surrounding Southwest Pacific Ocean (Figure 1). The forecast system comprises a hierarchy of nested domains: a regional 5 km parent grid covering all of New Zealand, with higher-resolution child grids for Auckland (1 km), Eastern Auckland (200 m), Taranaki (1 km), Port Taranaki (25 m), Otago (1 km), and Dunedin (250 m). Wave forecasts are produced using the SWAN (Simulating WAves Nearshore) third-generation spectral wave model, with a 7-day forecast horizon updated every 6 hours (00, 06, 12, 18 UTC).
 
 Wind forcing is provided by <a href="https://www.ncep.noaa.gov/products/gfs/" target="_blank">NOAA GFS</a> global atmospheric model. Spectral boundary conditions are supplied by the Oceanum Global WW3 wave model forced with GFS winds. Bathymetry is derived from the <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2021</a> global bathymetric grid.
 
@@ -38,9 +38,9 @@ The modelling setup employs the <a href="https://journals.ametsoc.org/view/journ
 
 The dataset provides hourly forecast estimates for key ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. Forecasts are archived for 30 days, and frequency-direction wave spectra are available at selected sites across all domains. Nowcast datasets are also available, constructed by retaining the most recent data from each forecast cycle to provide a continuous near-real-time historical record.
 
-<img src="./figures/nz_figure1_hs_mean.png" alt="Figure 1" width="600">
+<img src="./figures/nz_gfs_figure1_hs_mean.png" alt="Figure 1" width="600">
 
-**Figure 1.** Mean significant wave height from the New Zealand hindcast domain (used for forecast validation). The locations of 2D spectra hourly output are shown by the black dots.
+**Figure 1.** Mean significant wave height from the New Zealand ERA5 hindcast parent domain (used for forecast validation). The bounding boxes of all forecast nested domains are outlined in black. Spectra output site locations are shown by black dots (parent domain) and black dots (nested domains). Depth contours are shown at 100 m, 500 m, 1000 m, and 2000 m.
 
 ---
 
@@ -73,39 +73,57 @@ The wave model physics and calibration have been validated against satellite alt
 
 ### Nested domains
 
-| Domain | Resolution | Coverage | Spectra sites |
-|--------|------------|----------|---------------|
-| New Zealand | 0.05° (~5 km) | 165E-180E, 48S-34S | 2390 |
-| Auckland | 0.01° (~1 km) | Auckland region | 552 |
-| Eastern Auckland | 0.002° (~200 m) | Eastern Auckland coast | - |
-| Taranaki | 0.01° (~1 km) | Taranaki Bight | 22 |
-| Port Taranaki | 0.00025° (~25 m) | Port Taranaki | - |
+| Domain | Resolution | Bounds | Spectra sites |
+|--------|------------|--------|---------------|
+| New Zealand | 0.05° (~5 km) | 165–180°E, 48–34°S | 2390 |
+| Auckland | 0.01° (~1 km) | 173.60–176.00°E, 37.25–35.75°S | 552 |
+| Eastern Auckland | 0.002° (~200 m) | 174.60–175.25°E, 36.95–36.55°S | - |
+| Taranaki | 0.01° (~1 km) | 173.00–175.10°E, 40.00–37.70°S | 22 |
+| Port Taranaki | 0.00025° (~25 m) | 174.000–174.070°E, 39.07–39.03°S | - |
+| Otago | 0.01° (~1 km) | 169.50–171.40°E, 46.95–45.35°S | - |
+| Dunedin | 0.0025° (~250 m) | 170.50–170.90°E, 46.00–45.65°S | - |
 
 ### Linked Datamesh datasources
 
 **New Zealand 5km:**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_nz_grid" target="_blank">Oceanum New Zealand GFS wave forecast parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_nz_spec" target="_blank">Oceanum New Zealand GFS wave forecast spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_nz_grid_nowcast" target="_blank">Oceanum New Zealand GFS wave nowcast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_nz_spec_nowcast" target="_blank">Oceanum New Zealand GFS wave nowcast spectra</a>
 
 **Auckland 1km:**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_akl1km_grid" target="_blank">Oceanum Auckland 1km GFS wave forecast parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_akl1km_spec" target="_blank">Oceanum Auckland 1km GFS wave forecast spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_akl1km_grid_nowcast" target="_blank">Oceanum Auckland 1km GFS wave nowcast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_akl1km_spec_nowcast" target="_blank">Oceanum Auckland 1km GFS wave nowcast spectra</a>
 
 **Eastern Auckland 200m:**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_eakl_grid" target="_blank">Oceanum Eastern Auckland 200m GFS wave forecast parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_eakl_spec" target="_blank">Oceanum Eastern Auckland 200m GFS wave forecast spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_eakl_grid_nowcast" target="_blank">Oceanum Eastern Auckland 200m GFS wave nowcast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_eakl_spec_nowcast" target="_blank">Oceanum Eastern Auckland 200m GFS wave nowcast spectra</a>
 
 **Taranaki 1km:**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_trki_grid" target="_blank">Oceanum Taranaki GFS wave forecast parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_trki_spec" target="_blank">Oceanum Taranaki GFS wave forecast spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_trki_grid_nowcast" target="_blank">Oceanum Taranaki GFS wave nowcast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_trki_spec_nowcast" target="_blank">Oceanum Taranaki GFS wave nowcast spectra</a>
 
 **Port Taranaki 25m:**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_trkiport_grid" target="_blank">Oceanum Port Taranaki GFS wave forecast parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_trkiport_spec" target="_blank">Oceanum Port Taranaki GFS wave forecast spectra</a>
 
-**Nowcasts (continuous near-real-time archive):**
-- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_nz_grid_nowcast" target="_blank">Oceanum New Zealand GFS wave nowcast parameters</a>
-- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_nz_spec_nowcast" target="_blank">Oceanum New Zealand GFS wave nowcast spectra</a>
+**Otago 1km:**
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_otg1km_grid" target="_blank">Oceanum Otago 1km GFS wave forecast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_otg1km_spec" target="_blank">Oceanum Otago 1km GFS wave forecast spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_otg1km_grid_nowcast" target="_blank">Oceanum Otago 1km GFS wave nowcast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_otg1km_spec_nowcast" target="_blank">Oceanum Otago 1km GFS wave nowcast spectra</a>
+
+**Dunedin 250m:**
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_dnd250m_grid" target="_blank">Oceanum Dunedin 250m GFS wave forecast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_dnd250m_spec" target="_blank">Oceanum Dunedin 250m GFS wave forecast spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_dnd250m_grid_nowcast" target="_blank">Oceanum Dunedin 250m GFS wave nowcast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_dnd250m_spec_nowcast" target="_blank">Oceanum Dunedin 250m GFS wave nowcast spectra</a>
 
 ---
 

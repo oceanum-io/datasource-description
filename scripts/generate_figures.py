@@ -22,8 +22,8 @@ from typing import Optional, List
 class NestConfig:
     """Configuration for a nested domain."""
     name: str
-    spec_id: str
     grid_id: str
+    spec_id: Optional[str] = None  # Optional - set None to show only bbox without spectra sites
     color: str = "blue"
     site_size: float = 3.0
     linewidth: float = 1.5
@@ -168,17 +168,17 @@ def generate_figure(config: FigureConfig):
     
     # Plot nested domains if any
     for nest in config.nests:
-        print(f"Querying {nest.name} spectra sites...")
-        nest_sites = conn.query(datasource=nest.spec_id, variables=["lon", "lat"])
-        
-        ax.scatter(
-            nest_sites.lon.values, nest_sites.lat.values,
-            s=nest.site_size, c=nest.color, marker=".",
-            transform=transform,
-            label=f"{nest.name} (n={len(nest_sites.lon)})",
-            zorder=5
-        )
-        
+        if nest.spec_id:
+            print(f"Querying {nest.name} spectra sites...")
+            nest_sites = conn.query(datasource=nest.spec_id, variables=["lon", "lat"])
+            ax.scatter(
+                nest_sites.lon.values, nest_sites.lat.values,
+                s=nest.site_size, c=nest.color, marker=".",
+                transform=transform,
+                label=f"{nest.name} (n={len(nest_sites.lon)})",
+                zorder=5
+            )
+
         print(f"Plotting {nest.name} bbox...")
         nest_ds = conn.get_datasource(nest.grid_id)
         nest_x, nest_y = nest_ds.geom.exterior.xy
@@ -265,8 +265,8 @@ PERU_CONFIG = FigureConfig(
     nests=[
         NestConfig(
             name="Chancay 400m",
-            spec_id="oceanum_wave_chancay_era5_spec",
             grid_id="oceanum_wave_chancay_era5_grid",
+            spec_id="oceanum_wave_chancay_era5_spec",
             color="blue",
             site_size=8.0,
         )
@@ -287,8 +287,8 @@ KING_ISLAND_CONFIG = FigureConfig(
     nests=[
         NestConfig(
             name="Grassy 100m",
-            spec_id="oceanum_wave_grassy_100m_era5_spec",
             grid_id="oceanum_wave_grassy_100m_era5_grid",
+            spec_id="oceanum_wave_grassy_100m_era5_spec",
             color="blue",
             site_size=5.0,
         )
@@ -310,8 +310,8 @@ WEST_AFRICA_CONFIG = FigureConfig(
     nests=[
         NestConfig(
             name="Nigeria 1km",
-            spec_id="oceanum_wave_nga_era5_spec",
             grid_id="oceanum_wave_nga_era5_grid",
+            spec_id="oceanum_wave_nga_era5_spec",
             color="blue",
             site_size=3.0,
         )
@@ -407,8 +407,8 @@ WESTERN_EUROPE_CONFIG = FigureConfig(
     nests=[
         NestConfig(
             name="Dutch Coast",
-            spec_id="oceanum_wave_dutch_era5_v1_spec",
             grid_id="oceanum_wave_dutch_era5_v1_grid",
+            spec_id="oceanum_wave_dutch_era5_v1_spec",
             color="blue",
             site_size=2.0,
         ),
@@ -472,15 +472,39 @@ NZ_ERA5_CONFIG = FigureConfig(
     site_size=0.5,
     site_color="black",
     nests=[
-        NestConfig(name="Hawke Bay",        spec_id="oceanum_wave_hbay_era5_spec",   grid_id="oceanum_wave_hbay_era5_grid",   color="black", site_size=0.5, linewidth=1.5),
-        NestConfig(name="Taranaki",         spec_id="oceanum_wave_trki_era5_spec",   grid_id="oceanum_wave_trki_era5_grid",   color="black", site_size=0.5, linewidth=1.5),
-        NestConfig(name="Central NZ",       spec_id="oceanum_wave_cnz_era5_spec",    grid_id="oceanum_wave_cnz_era5_grid",    color="black", site_size=0.5, linewidth=1.5),
-        NestConfig(name="Southland",        spec_id="oceanum_wave_sland_era5_spec",  grid_id="oceanum_wave_sland_era5_grid",  color="black", site_size=0.5, linewidth=1.5),
-        NestConfig(name="Otago",            spec_id="oceanum_wave_otago_era5_spec",  grid_id="oceanum_wave_otago_era5_grid",  color="black", site_size=0.5, linewidth=1.5),
-        NestConfig(name="Tauranga",         spec_id="oceanum_wave_taura_era5_spec",  grid_id="oceanum_wave_taura_era5_grid",  color="black", site_size=0.5, linewidth=1.5),
-        NestConfig(name="Auckland",         spec_id="oceanum_wave_auckl_era5_spec",  grid_id="oceanum_wave_auckl_era5_grid",  color="black", site_size=0.5, linewidth=1.5),
-        NestConfig(name="Waikato",          spec_id="oceanum_wave_waika_era5_spec",  grid_id="oceanum_wave_waika_era5_grid",  color="black", site_size=0.5, linewidth=1.5),
-        NestConfig(name="Christchurch",     spec_id="oceanum_wave_christ_era5_spec", grid_id="oceanum_wave_christ_era5_grid", color="black", site_size=0.5, linewidth=1.5),
+        NestConfig(name="Hawke Bay",        grid_id="oceanum_wave_hbay_era5_grid",   spec_id="oceanum_wave_hbay_era5_spec",   color="black", site_size=0.5, linewidth=1.5),
+        NestConfig(name="Taranaki",         grid_id="oceanum_wave_trki_era5_grid",   spec_id="oceanum_wave_trki_era5_spec",   color="black", site_size=0.5, linewidth=1.5),
+        NestConfig(name="Central NZ",       grid_id="oceanum_wave_cnz_era5_grid",    spec_id="oceanum_wave_cnz_era5_spec",    color="black", site_size=0.5, linewidth=1.5),
+        NestConfig(name="Southland",        grid_id="oceanum_wave_sland_era5_grid",  spec_id="oceanum_wave_sland_era5_spec",  color="black", site_size=0.5, linewidth=1.5),
+        NestConfig(name="Otago",            grid_id="oceanum_wave_otago_era5_grid",  spec_id="oceanum_wave_otago_era5_spec",  color="black", site_size=0.5, linewidth=1.5),
+        NestConfig(name="Tauranga",         grid_id="oceanum_wave_taura_era5_grid",  spec_id="oceanum_wave_taura_era5_spec",  color="black", site_size=0.5, linewidth=1.5),
+        NestConfig(name="Auckland",         grid_id="oceanum_wave_auckl_era5_grid",  spec_id="oceanum_wave_auckl_era5_spec",  color="black", site_size=0.5, linewidth=1.5),
+        NestConfig(name="Waikato",          grid_id="oceanum_wave_waika_era5_grid",  spec_id="oceanum_wave_waika_era5_spec",  color="black", site_size=0.5, linewidth=1.5),
+        NestConfig(name="Christchurch",     grid_id="oceanum_wave_christ_era5_grid", spec_id="oceanum_wave_christ_era5_spec", color="black", site_size=0.5, linewidth=1.5),
+    ],
+)
+
+NZ_GFS_CONFIG = FigureConfig(
+    output_name="nz_gfs_figure1_hs_mean.png",
+    gridstats_id="oceanum_wave_nzpar_era5_gridstats",
+    spec_id="oceanum_wave_gfs_nz_spec",
+    grid_id="oceanum_wave_gfs_nz_grid",
+    depth_id="gebco_2025",
+    depth_variable="elevation",
+    depth_negate=True,
+    domain_name="New Zealand (5 km parent)",
+    depth_contours=[100, 500, 1000, 2000],
+    figsize=(10, 12),
+    cbar_shrink=0.6,
+    site_size=0.5,
+    site_color="black",
+    nests=[
+        NestConfig(name="Auckland 1km",      grid_id="oceanum_wave_gfs_akl1km_grid",  spec_id="oceanum_wave_gfs_akl1km_spec",  color="black", site_size=0.5, linewidth=1.5),
+        NestConfig(name="Eastern Auckland",  grid_id="oceanum_wave_gfs_eakl_grid",    spec_id="oceanum_wave_gfs_eakl_spec",    color="black", site_size=0.5, linewidth=1.5),
+        NestConfig(name="Taranaki 1km",      grid_id="oceanum_wave_gfs_trki_grid",    spec_id="oceanum_wave_gfs_trki_spec",    color="black", site_size=0.5, linewidth=1.5),
+        NestConfig(name="Port Taranaki",     grid_id="oceanum_wave_gfs_trkiport_grid", spec_id="oceanum_wave_gfs_trkiport_spec", color="black", site_size=0.5, linewidth=1.5),
+        NestConfig(name="Otago 1km",         grid_id="oceanum_wave_gfs_otg1km_grid",  spec_id="oceanum_wave_gfs_otg1km_spec",  color="black", site_size=0.5, linewidth=1.5),
+        NestConfig(name="Dunedin 250m",      grid_id="oceanum_wave_gfs_dnd250m_grid", spec_id="oceanum_wave_gfs_dnd250m_spec", color="black", site_size=0.5, linewidth=1.5),
     ],
 )
 
@@ -511,15 +535,15 @@ TAIWAN_CONFIG = FigureConfig(
     nests=[
         NestConfig(
             name="Taiwan 1km",
-            spec_id="oceanum_wave_twan1km_era5_spec",
             grid_id="oceanum_wave_twan1km_era5_grid",
+            spec_id="oceanum_wave_twan1km_era5_spec",
             color="blue",
             site_size=3.0,
         ),
         NestConfig(
             name="Taiwan 500m",
-            spec_id="oceanum_wave_twan500m_era5_spec",
             grid_id="oceanum_wave_twan500m_era5_grid",
+            spec_id="oceanum_wave_twan500m_era5_spec",
             color="green",
             site_size=5.0,
         ),
@@ -533,6 +557,7 @@ if __name__ == "__main__":
     configs = {
         "nz": NZ_CONFIG,
         "nz_era5": NZ_ERA5_CONFIG,
+        "nz_gfs": NZ_GFS_CONFIG,
         "mediterranean": MEDITERRANEAN_CONFIG,
         "gulf": GULF_CONFIG,
         "peru": PERU_CONFIG,
