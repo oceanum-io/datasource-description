@@ -53,7 +53,7 @@ The wave hindcast has been validated against satellite altimeter observations fr
 
 Figure 3 shows the spatial distribution of validation statistics computed against all available satellite passes across the domain, giving an indication of regional model performance.
 
-<img src="./figures/newzealand/gridstats.png" alt="Figure 3" width="600">
+<img src="./figures/newzealand/gridstats.png" alt="Figure 3" width="750">
 
 **Figure 3.** Spatial validation statistics against satellite altimeter observations. Top row (left to right): observed mean significant wave height, number of collocated observations, and bias. Bottom row: modelled mean significant wave height, RMSD, and scatter index.
 
