@@ -33,9 +33,9 @@ class NestConfig:
 class FigureConfig:
     """Configuration for generating a hindcast figure."""
     output_name: str
-    gridstats_id: str
     grid_id: str
     domain_name: str
+    gridstats_id: Optional[str] = None  # None = domain-only plot (no Hs background)
     spec_id: Optional[str] = None  # Optional - some domains only have spectra in nests
     depth_contours: List[int] = field(default_factory=lambda: [100, 500, 1000, 2000])
     figsize: tuple = (10, 10)
@@ -62,28 +62,39 @@ def generate_figure(config: FigureConfig):
         Configuration object specifying domains, output path, and plot options.
     """
     conn = Connector()
-    
-    # Query gridstats for mean wave parameters
-    print(f"Querying {config.domain_name} gridstats data...")
-    if config.gridstats_zarr:
-        dset = xr.open_zarr(config.gridstats_zarr)
+
+    # Get domain geometry first to determine extent
+    print("Getting domain geometry...")
+    ds = conn.get_datasource(config.grid_id)
+
+    domain_only = config.gridstats_id is None and config.gridstats_zarr is None
+
+    if not domain_only:
+        # Query gridstats for mean wave parameters
+        print(f"Querying {config.domain_name} gridstats data...")
+        if config.gridstats_zarr:
+            dset = xr.open_zarr(config.gridstats_zarr)
+        else:
+            dset = conn.query(datasource=config.gridstats_id, variables=["hs_mean"])
+
+        # Map coordinates
+        lon = dset.longitude.values if "longitude" in dset.coords else dset.lon.values
+        lat = dset.latitude.values if "latitude" in dset.coords else dset.lat.values
+        lon2d, lat2d = np.meshgrid(lon, lat)
+        x0, x1 = float(lon[0]), float(lon[-1])
+        y0, y1 = float(lat[0]), float(lat[-1])
     else:
-        dset = conn.query(datasource=config.gridstats_id, variables=["hs_mean"])
+        # Derive extent from domain geometry
+        bounds = ds.geom.bounds
+        x0, y0, x1, y1 = bounds
 
-    # Map coordinates
-    lon = dset.longitude.values if "longitude" in dset.coords else dset.lon.values
-    lat = dset.latitude.values if "latitude" in dset.coords else dset.lat.values
-    lon2d, lat2d = np.meshgrid(lon, lat)
-
-    x0, x1 = float(lon[0]), float(lon[-1])
-    y0, y1 = float(lat[0]), float(lat[-1])
-
-    # Depth: prefer gridstats depth_mean, fall back to depth_id datasource, else skip contours
+    # Depth data (for contours)
     depth_data = None
-    depth_lon2d, depth_lat2d = lon2d, lat2d
-    if "depth_mean" in dset:
+    depth_lon2d, depth_lat2d = None, None
+    if not domain_only and "depth_mean" in dset:
         depth_data = dset.depth_mean.values
-    elif config.depth_id:
+        depth_lon2d, depth_lat2d = lon2d, lat2d
+    if depth_data is None and config.depth_id:
         print(f"Querying depth from {config.depth_id}...")
         ddset = conn.query(
             datasource=config.depth_id,
@@ -96,48 +107,48 @@ def generate_figure(config: FigureConfig):
         depth_data = ddset[config.depth_variable].values
         if config.depth_negate:
             depth_data = -depth_data
-    else:
+    elif depth_data is None and not domain_only:
         print("No depth source available — skipping depth contours.")
-    
+
     # Query sites for spectra locations (if available for main domain)
     sites = None
     if config.spec_id:
         print(f"Querying {config.domain_name} spectra sites...")
         sites = conn.query(datasource=config.spec_id, variables=["lon", "lat"])
-    
-    # Get domain geometry
-    print("Getting domain geometry...")
-    ds = conn.get_datasource(config.grid_id)
-    
+
     # Set up projection
     projection = ccrs.PlateCarree()
     transform = ccrs.PlateCarree()
-    
+
     # Set up the figure
     fig, ax = plt.subplots(
         figsize=config.figsize,
         subplot_kw={"projection": projection}
     )
-    
-    # Plot mean significant wave height
-    print("Plotting mean Hs...")
-    plot_kwargs = {
-        "ax": ax,
-        "transform": transform,
-        "cmap": "turbo",
-        "cbar_kwargs": {
-            "label": "Mean Significant Wave Height (m)",
-            "orientation": "horizontal",
-            "pad": 0.05,
-            "shrink": config.cbar_shrink
+
+    if domain_only:
+        # Plain ocean background
+        ax.add_feature(cfeature.OCEAN, facecolor="#d0e8f5")
+    else:
+        # Plot mean significant wave height
+        print("Plotting mean Hs...")
+        plot_kwargs = {
+            "ax": ax,
+            "transform": transform,
+            "cmap": "turbo",
+            "cbar_kwargs": {
+                "label": "Mean Significant Wave Height (m)",
+                "orientation": "horizontal",
+                "pad": 0.05,
+                "shrink": config.cbar_shrink
+            }
         }
-    }
-    if config.power_norm is not None:
-        vmin = float(dset.hs_mean.min())
-        vmax = float(dset.hs_mean.max())
-        plot_kwargs["norm"] = mcolors.PowerNorm(gamma=config.power_norm, vmin=vmin, vmax=vmax)
-    dset.hs_mean.plot(**plot_kwargs)
-    
+        if config.power_norm is not None:
+            vmin = float(dset.hs_mean.min())
+            vmax = float(dset.hs_mean.max())
+            plot_kwargs["norm"] = mcolors.PowerNorm(gamma=config.power_norm, vmin=vmin, vmax=vmax)
+        dset.hs_mean.plot(**plot_kwargs)
+
     # Add depth contours
     if depth_data is not None:
         print("Adding depth contours...")
@@ -508,6 +519,27 @@ NZ_GFS_CONFIG = FigureConfig(
     ],
 )
 
+SWWA_GFS_CONFIG = FigureConfig(
+    output_name="swwa_figure1_domain.png",
+    gridstats_id=None,
+    spec_id="oceanum_wave_gfs_swwa5km_spec_nowcast",
+    grid_id="oceanum_wave_gfs_swwa5km_grid",
+    depth_id="gebco_2025",
+    depth_variable="elevation",
+    depth_negate=True,
+    domain_name="Southwest Western Australia (5 km parent)",
+    depth_contours=[200, 1000, 2000, 4000],
+    figsize=(8, 12),
+    cbar_shrink=0.6,
+    extent=[112.0, 116.5, -34.0, -27.0],
+    site_size=1.0,
+    site_color="black",
+    nests=[
+        NestConfig(name="Abrolhos Islands 500m", grid_id="oceanum_wave_gfs_abrol500m_grid", spec_id="oceanum_wave_gfs_abrol500m_spec_nowcast", color="black", site_size=3.0, linewidth=1.5),
+        NestConfig(name="Perth 500m",            grid_id="oceanum_wave_gfs_perth500m_grid", spec_id="oceanum_wave_gfs_perth500m_spec_nowcast", color="black", site_size=3.0, linewidth=1.5),
+    ],
+)
+
 BLACK_SEA_CONFIG = FigureConfig(
     output_name="blacksea_figure1_hs_mean.png",
     gridstats_id="oceanum_wave_blacksea_cfsr_v1_gridstats",
@@ -575,6 +607,7 @@ if __name__ == "__main__":
         "waddenzee": WADDENZEE_NORA3_CONFIG,
         "taiwan": TAIWAN_CONFIG,
         "blacksea": BLACK_SEA_CONFIG,
+        "swwa": SWWA_GFS_CONFIG,
     }
     
     if len(sys.argv) < 2:

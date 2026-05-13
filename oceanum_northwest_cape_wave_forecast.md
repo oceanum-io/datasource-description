@@ -79,6 +79,14 @@ The wave model physics and calibration follow the same approach validated agains
 | **Currents** | <a href="https://data.marine.copernicus.eu/" target="_blank">Mercator Global Ocean Analysis</a> + <a href="https://www.tpxo.net/" target="_blank">TPXO9 Atlas</a> |
 | **Boundary** | Oceanum Global WW3 wave forecast (GFS or ECMWF forced) |
 
+### Nested domains
+
+| Domain | Resolution | Bounds | Spectra sites |
+|--------|------------|--------|---------------|
+| Northwest Cape | 0.05° (~5 km) | 112–117.5°E, 27–20°S | - |
+| Gascoyne | 0.005° (~500 m) | 113–113.9°E, 25.3–24°S | - |
+| Cape Cuvier | 0.0005° (~50 m) | 113.36–113.435°E, 24.25–24.2°S | 1 |
+
 ### Linked Datamesh datasources
 
 #### GFS-forced (6-hourly updates)
@@ -156,6 +164,22 @@ Integrated wave parameters are stored hourly over the domain at the native model
 | tpsswe | peak period of swell waves above 8 seconds period | s |
 | uwnd | eastward wind component at 10m | m/s |
 | vwnd | northward wind component at 10m | m/s |
+
+---
+
+## Spectra output
+
+Frequency-direction wave spectra are stored hourly at 1 selected site in the Cape Cuvier 50 m domain. Spectra are discretised into 36 directional bins (10 degree resolution) and 32 frequency bins (0.037 - 0.71 Hz at 10% logarithmic increments).
+
+**Table 3.** Spectra output parameters.
+
+| Variable | Long Name | Units |
+|---|---|---|
+| efth | sea surface wave variance spectral density | m² s / deg |
+| lat | latitude | degrees_north |
+| lon | longitude | degrees_east |
+| freq | frequency | Hz |
+| dir | direction | degree |
 
 ---
 
