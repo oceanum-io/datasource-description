@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_02fce6e3a163589580d47598c72ee655 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_02fce6e3a163589580d47598c72ee655" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_02fce6e3a163589580d47598c72ee655 = L.map(
+                "map_02fce6e3a163589580d47598c72ee655",
+                {
+                    center: [20.0, 10.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 2,
+  "zoomControl": true,
+  "preferCanvas": true,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d0e9087a3c1bbb65bc1c6e136d761faf = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_d0e9087a3c1bbb65bc1c6e136d761faf.addTo(map_02fce6e3a163589580d47598c72ee655);
+        
+    
+    (function() {
+        var map = map_02fce6e3a163589580d47598c72ee655;
+
+        // ── Global domains: visual indicator only, no mouse events ──────────
+        L.geoJSON({"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[-180.0, -77.5], [180.0, -77.5], [180.0, 77.5], [-180.0, 77.5], [-180.0, -77.5]]]}, "properties": {"name": "Global ERA5"}}]}, {
+            interactive: false,
+            style: function() {
+                return {
+                    fillColor: "#999", fillOpacity: 0.04,
+                    color: "#999", weight: 1.0, dashArray: "6 4",
+                };
+            }
+        }).addTo(map);
+
+        // ── Regional domains: hover + click ──────────────────────────────────
+        var regional = L.geoJSON({"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[47.5, 22.5], [60.5, 22.5], [60.5, 31.0], [47.5, 31.0], [47.5, 22.5]]]}, "properties": {"name": "Arabian/Persian Gulf ERA5", "url": "https://datasets.oceanum.io/oceanum_arabian_persian_gulf_wave_hindcast.html", "color": "#1f77b4"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[143.0, -40.5], [152.0, -40.5], [152.0, -36.0], [143.0, -36.0], [143.0, -40.5]]]}, "properties": {"name": "Bass Strait ERA5", "url": "https://datasets.oceanum.io/oceanum_bass_strait_wave_hindcast.html", "color": "#ff7f0e"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[143.6, -40.4], [144.4, -40.4], [144.4, -39.4], [143.6, -39.4], [143.6, -40.4]]]}, "properties": {"name": "King Island ERA5", "url": "https://datasets.oceanum.io/oceanum_king_island_wave_hindcast.html", "color": "#2ca02c"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[99.0, 4.0], [104.5, 4.0], [104.5, 8.5], [99.0, 8.5], [99.0, 4.0]]]}, "properties": {"name": "Malay Peninsula ERA5", "url": "https://datasets.oceanum.io/oceanum_malay_peninsula_wave_hindcast.html", "color": "#d62728"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[-5.5, 30.3], [36.2, 30.3], [36.2, 45.9], [-5.5, 45.9], [-5.5, 30.3]]]}, "properties": {"name": "Mediterranean ERA5", "url": "https://datasets.oceanum.io/oceanum_mediterranean_wave_hindcast.html", "color": "#9467bd"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[-19.0, 22.0], [-6.0, 22.0], [-6.0, 38.0], [-19.0, 38.0], [-19.0, 22.0]]]}, "properties": {"name": "Morocco ERA5", "url": "https://datasets.oceanum.io/oceanum_morocco_wave_hindcast.html", "color": "#8c564b"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[165.0, -48.0], [180.0, -48.0], [180.0, -34.0], [165.0, -34.0], [165.0, -48.0]]]}, "properties": {"name": "New Zealand ERA5", "url": "https://datasets.oceanum.io/oceanum_new_zealand_era5_wave_hindcast.html", "color": "#e377c2"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[-79.0, -13.0], [-76.0, -13.0], [-76.0, -10.0], [-79.0, -10.0], [-79.0, -13.0]]]}, "properties": {"name": "Peru ERA5", "url": "https://datasets.oceanum.io/oceanum_peru_wave_hindcast.html", "color": "#7f7f7f"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[32.5, 10.0], [56.0, 10.0], [56.0, 30.0], [32.5, 30.0], [32.5, 10.0]]]}, "properties": {"name": "Red Sea ERA5", "url": "https://datasets.oceanum.io/oceanum_red_sea_wave_hindcast.html", "color": "#bcbd22"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[-130.0, 25.0], [-117.0, 25.0], [-117.0, 40.0], [-130.0, 40.0], [-130.0, 25.0]]]}, "properties": {"name": "SW North America ERA5", "url": "https://datasets.oceanum.io/oceanum_sw_northamerica_wave_hindcast.html", "color": "#17becf"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[116.5, 21.0], [123.0, 21.0], [123.0, 26.5], [116.5, 26.5], [116.5, 21.0]]]}, "properties": {"name": "Taiwan ERA5", "url": "https://datasets.oceanum.io/oceanum_taiwan_wave_hindcast.html", "color": "#aec7e8"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[-77.5, 35.5], [-63.0, 35.5], [-63.0, 46.0], [-77.5, 46.0], [-77.5, 35.5]]]}, "properties": {"name": "US East Coast ERA5", "url": "https://datasets.oceanum.io/oceanum_us_east_coast_wave_hindcast.html", "color": "#ffbb78"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[2.5, -2.0], [10.0, -2.0], [10.0, 6.5], [2.5, 6.5], [2.5, -2.0]]]}, "properties": {"name": "West Africa ERA5", "url": "https://datasets.oceanum.io/oceanum_west_africa_wave_hindcast.html", "color": "#98df8a"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[-11.0, 48.5], [13.0, 48.5], [13.0, 61.0], [-11.0, 61.0], [-11.0, 48.5]]]}, "properties": {"name": "Western Europe ERA5", "url": "https://datasets.oceanum.io/oceanum_western_europe_wave_hindcast.html", "color": "#ff9896"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[27.3, 40.8], [41.9, 40.8], [41.9, 46.7], [27.3, 46.7], [27.3, 40.8]]]}, "properties": {"name": "Black Sea CFSR", "url": "https://datasets.oceanum.io/oceanum_black_sea_wave_hindcast.html", "color": "#c5b0d5"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[8.0, 53.0], [30.0, 53.0], [30.0, 66.0], [8.0, 66.0], [8.0, 53.0]]]}, "properties": {"name": "Baltic Sea NORA3", "url": "https://datasets.oceanum.io/oceanum_baltic_sea_wave_hindcast.html", "color": "#c49c94"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[4.5, 52.85], [6.4, 52.85], [6.4, 53.6], [4.5, 53.6], [4.5, 52.85]]]}, "properties": {"name": "Waddenzee NORA3", "url": "https://datasets.oceanum.io/oceanum_waddenzee_nora3_wave_hindcast.html", "color": "#f7b6d2"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[-10.6, 48.9], [12.6, 48.9], [12.6, 60.6], [-10.6, 60.6], [-10.6, 48.9]]]}, "properties": {"name": "Western Europe NORA3", "url": "https://datasets.oceanum.io/oceanum_western_europe_nora3_wave_hindcast.html", "color": "#c7c7c7"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[168.29, -46.67], [168.53, -46.67], [168.53, -46.53], [168.29, -46.53], [168.29, -46.67]]]}, "properties": {"name": "Bluff Harbour", "url": "https://datasets.oceanum.io/oceanum_bluff_wave_hindcast.html", "color": "#dbdb8d"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[174.75, -41.4], [174.92, -41.4], [174.92, -41.22], [174.75, -41.22], [174.75, -41.4]]]}, "properties": {"name": "Wellington", "url": "https://datasets.oceanum.io/oceanum_wellington_wave_hindcast.html", "color": "#9edae5"}}]}, {
+            style: function(feature) {
+                return {
+                    fillColor:   feature.properties.color,
+                    fillOpacity: 0.18,
+                    color:       feature.properties.color,
+                    weight:      2.0,
+                };
+            },
+            onEachFeature: function(feature, lyr) {
+                var p = feature.properties;
+                lyr.bindTooltip(
+                    '<div style="font-family:Poppins,sans-serif;font-size:13px;'
+                    + 'font-weight:600;color:#0b2d40;line-height:1.4">'
+                    + p.name
+                    + '<div style="font-size:10px;font-weight:400;color:#666;'
+                    + 'margin-top:2px">Click to open dataset ↗</div></div>',
+                    {sticky: true, opacity: 1}
+                );
+                lyr.on({
+                    mouseover: function() {
+                        lyr.setStyle({fillOpacity: 0.38, weight: 3.5});
+                        lyr.bringToFront();
+                    },
+                    mouseout: function() { regional.resetStyle(lyr); },
+                    click:    function() { window.open(p.url, "_blank"); },
+                });
+            }
+        }).addTo(map);
+    })();
+    
+</script>
+</html>

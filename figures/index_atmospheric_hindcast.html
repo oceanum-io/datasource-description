@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c6a04df60cd2fd81360878c72aff3f3d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c6a04df60cd2fd81360878c72aff3f3d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c6a04df60cd2fd81360878c72aff3f3d = L.map(
+                "map_c6a04df60cd2fd81360878c72aff3f3d",
+                {
+                    center: [-43.0, 173.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": true,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_627f9c275e61501169d06a42279f10a5 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_627f9c275e61501169d06a42279f10a5.addTo(map_c6a04df60cd2fd81360878c72aff3f3d);
+        
+    
+    (function() {
+        var map = map_c6a04df60cd2fd81360878c72aff3f3d;
+
+        // ── Global domains: visual indicator only, no mouse events ──────────
+        L.geoJSON({"type": "FeatureCollection", "features": []}, {
+            interactive: false,
+            style: function() {
+                return {
+                    fillColor: "#999", fillOpacity: 0.04,
+                    color: "#999", weight: 1.0, dashArray: "6 4",
+                };
+            }
+        }).addTo(map);
+
+        // ── Regional domains: hover + click ──────────────────────────────────
+        var regional = L.geoJSON({"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[172.08, -42.22], [175.92, -42.22], [175.92, -38.38], [172.08, -38.38], [172.08, -42.22]]]}, "properties": {"name": "Central NZ", "url": "https://datasets.oceanum.io/oceanum_central_nz_ccam_hindcast.html", "color": "#1f77b4"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[172.99, -40.15], [175.23, -40.15], [175.23, -38.43], [172.99, -38.43], [172.99, -40.15]]]}, "properties": {"name": "Marlborough Sounds", "url": "https://datasets.oceanum.io/oceanum_marlborough_sounds_ccam_hindcast.html", "color": "#ff7f0e"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[166.0, -48.44], [170.23, -48.44], [170.23, -45.56], [166.0, -45.56], [166.0, -48.44]]]}, "properties": {"name": "Southland NZ", "url": "https://datasets.oceanum.io/oceanum_southland_nz_ccam_hindcast.html", "color": "#2ca02c"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[173.23, -41.65], [174.75, -41.65], [174.75, -40.5], [173.23, -40.5], [173.23, -41.65]]]}, "properties": {"name": "Taranaki NZ", "url": "https://datasets.oceanum.io/oceanum_taranaki_nz_ccam_hindcast.html", "color": "#d62728"}}]}, {
+            style: function(feature) {
+                return {
+                    fillColor:   feature.properties.color,
+                    fillOpacity: 0.18,
+                    color:       feature.properties.color,
+                    weight:      2.0,
+                };
+            },
+            onEachFeature: function(feature, lyr) {
+                var p = feature.properties;
+                lyr.bindTooltip(
+                    '<div style="font-family:Poppins,sans-serif;font-size:13px;'
+                    + 'font-weight:600;color:#0b2d40;line-height:1.4">'
+                    + p.name
+                    + '<div style="font-size:10px;font-weight:400;color:#666;'
+                    + 'margin-top:2px">Click to open dataset ↗</div></div>',
+                    {sticky: true, opacity: 1}
+                );
+                lyr.on({
+                    mouseover: function() {
+                        lyr.setStyle({fillOpacity: 0.38, weight: 3.5});
+                        lyr.bringToFront();
+                    },
+                    mouseout: function() { regional.resetStyle(lyr); },
+                    click:    function() { window.open(p.url, "_blank"); },
+                });
+            }
+        }).addTo(map);
+    })();
+    
+</script>
+</html>

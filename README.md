@@ -12,7 +12,7 @@ Collection of Datamesh datasource description documents.
 
 ## Wave Hindcast
 
-<img src="./figures/index_wave_hindcast.png" alt="Wave Hindcast Domains">
+<iframe src="./figures/index_wave_hindcast.html" width="100%" height="480" style="border:none;border-radius:8px"></iframe>
 
 ### Global
 
@@ -54,7 +54,7 @@ Collection of Datamesh datasource description documents.
 
 ## Wave Forecast
 
-<img src="./figures/index_wave_forecast.png" alt="Wave Forecast Domains">
+<iframe src="./figures/index_wave_forecast.html" width="100%" height="480" style="border:none;border-radius:8px"></iframe>
 
 ### GFS/ECMWF Forced Global Forecasts
 
@@ -83,7 +83,7 @@ Collection of Datamesh datasource description documents.
 
 ## Atmospheric Hindcast
 
-<img src="./figures/index_atmospheric_hindcast.png" alt="Atmospheric Hindcast Domains">
+<iframe src="./figures/index_atmospheric_hindcast.html" width="100%" height="480" style="border:none;border-radius:8px"></iframe>
 
 ### CCAM Regional Hindcasts
 
