@@ -12,6 +12,8 @@ Collection of Datamesh datasource description documents.
 
 ## Wave Hindcast
 
+<img src="./figures/index_wave_hindcast.png" alt="Wave Hindcast Domains">
+
 ### Global
 
 - [Oceanum Global ERA5 Wave Hindcast](./oceanum_global_wave_hindcast.md)
@@ -52,6 +54,8 @@ Collection of Datamesh datasource description documents.
 
 ## Wave Forecast
 
+<img src="./figures/index_wave_forecast.png" alt="Wave Forecast Domains">
+
 ### GFS/ECMWF Forced Global Forecasts
 
 - [Oceanum Global Wave Forecast](./oceanum_global_wave_forecast.md)
@@ -78,6 +82,8 @@ Collection of Datamesh datasource description documents.
 ---
 
 ## Atmospheric Hindcast
+
+<img src="./figures/index_atmospheric_hindcast.png" alt="Atmospheric Hindcast Domains">
 
 ### CCAM Regional Hindcasts
 
