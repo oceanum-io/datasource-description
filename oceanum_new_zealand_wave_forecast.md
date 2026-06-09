@@ -24,7 +24,7 @@ title: Oceanum New Zealand GFS Wave Forecast
 
 ## Dataset description
 
-The New Zealand wave forecast dataset provides operational wave predictions across New Zealand's coastal waters and the surrounding Southwest Pacific Ocean (Figure 1). The forecast system comprises a hierarchy of nested domains: a regional 5 km parent grid covering all of New Zealand, with higher-resolution child grids for Auckland (1 km), Eastern Auckland (200 m), Taranaki (1 km), Port Taranaki (25 m), Otago (1 km), and Dunedin (250 m). Wave forecasts are produced using the SWAN (Simulating WAves Nearshore) third-generation spectral wave model, with a 7-day forecast horizon updated every 6 hours (00, 06, 12, 18 UTC).
+The New Zealand wave forecast dataset provides operational wave predictions across New Zealand's coastal waters and the surrounding Southwest Pacific Ocean (Figure 1). The forecast system comprises a hierarchy of nested domains: a regional 5 km parent grid covering all of New Zealand, with higher-resolution child grids for Auckland (1 km), Eastern Auckland (200 m), Taranaki (1 km), Port Taranaki (25 m), Otago (1 km), Dunedin (250 m), Hawke Bay (1 km), and Napier (50 m). Wave forecasts are produced using the SWAN (Simulating WAves Nearshore) third-generation spectral wave model, with a 7-day forecast horizon updated every 6 hours (00, 06, 12, 18 UTC).
 
 Wind forcing is provided by <a href="https://www.ncep.noaa.gov/products/gfs/" target="_blank">NOAA GFS</a> global atmospheric model. Spectral boundary conditions are supplied by the Oceanum Global WW3 wave model forced with GFS winds. Bathymetry is derived from the <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2021</a> global bathymetric grid.
 
@@ -76,6 +76,8 @@ The wave model physics and calibration have been validated against satellite alt
 | Port Taranaki | 0.00025° (~25 m) | 174.000–174.070°E, 39.07–39.03°S | - |
 | Otago | 0.01° (~1 km) | 169.50–171.40°E, 46.95–45.35°S | - |
 | Dunedin | 0.0025° (~250 m) | 170.50–170.90°E, 46.00–45.65°S | - |
+| Hawke Bay | 0.01° (~1 km) | 176.85–178.60°E, 39.80–38.50°S | 214 |
+| Napier | 0.0005° (~50 m) | 176.87–176.96°E, 39.49–39.41°S | 4 |
 
 ### Linked Datamesh datasources
 
@@ -119,6 +121,18 @@ The wave model physics and calibration have been validated against satellite alt
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_dnd250m_grid_nowcast" target="_blank">Oceanum Dunedin 250m GFS wave nowcast parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_dnd250m_spec_nowcast" target="_blank">Oceanum Dunedin 250m GFS wave nowcast spectra</a>
 
+**Hawke Bay 1km:**
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_hbay_grid" target="_blank">Oceanum Hawke Bay 1km GFS wave forecast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_hbay_spec" target="_blank">Oceanum Hawke Bay 1km GFS wave forecast spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_hbay_grid_nowcast" target="_blank">Oceanum Hawke Bay 1km GFS wave nowcast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_hbay_spec_nowcast" target="_blank">Oceanum Hawke Bay 1km GFS wave nowcast spectra</a>
+
+**Napier 50m:**
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_napier_grid" target="_blank">Oceanum Napier 50m GFS wave forecast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_napier_spec" target="_blank">Oceanum Napier 50m GFS wave forecast spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_napier_grid_nowcast" target="_blank">Oceanum Napier 50m GFS wave nowcast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_napier_spec_nowcast" target="_blank">Oceanum Napier 50m GFS wave nowcast spectra</a>
+
 ---
 
 ## Gridded output parameters
@@ -157,6 +171,22 @@ Integrated wave parameters are stored hourly over the domain at the native model
 | pdir3 | peak direction of partition 3 (swell) | degree |
 | xwnd | eastward component of wind velocity | m/s |
 | ywnd | northward component of wind velocity | m/s |
+
+---
+
+## Spectra output
+
+Frequency-direction wave spectra are stored hourly at selected sites across all domains with spectra output: 2390 sites in the New Zealand 5 km parent domain, 552 in the Auckland 1 km domain, 22 in the Taranaki 1 km domain, 214 in the Hawke Bay 1 km domain, and 4 in the Napier 50 m domain. Spectra are discretised into 36 directional bins (10 degree resolution) and 32 frequency bins (0.037 - 0.71 Hz at 10% logarithmic increments).
+
+**Table 3.** Spectra output parameters.
+
+| Variable | Long Name | Units |
+|---|---|---|
+| efth | sea surface wave variance spectral density | m² s / deg |
+| lat | latitude | degrees_north |
+| lon | longitude | degrees_east |
+| freq | frequency | Hz |
+| dir | direction | degree |
 
 ---
 

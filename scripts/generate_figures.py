@@ -516,6 +516,8 @@ NZ_GFS_CONFIG = FigureConfig(
         NestConfig(name="Port Taranaki",     grid_id="oceanum_wave_gfs_trkiport_grid", spec_id="oceanum_wave_gfs_trkiport_spec", color="black", site_size=0.5, linewidth=1.5),
         NestConfig(name="Otago 1km",         grid_id="oceanum_wave_gfs_otg1km_grid",  spec_id="oceanum_wave_gfs_otg1km_spec",  color="black", site_size=0.5, linewidth=1.5),
         NestConfig(name="Dunedin 250m",      grid_id="oceanum_wave_gfs_dnd250m_grid", spec_id="oceanum_wave_gfs_dnd250m_spec", color="black", site_size=0.5, linewidth=1.5),
+        NestConfig(name="Hawke Bay 1km",     grid_id="oceanum_wave_gfs_hbay_grid",    spec_id="oceanum_wave_gfs_hbay_spec_nowcast",    color="black", site_size=1.5, linewidth=1.5),
+        NestConfig(name="Napier 50m",        grid_id="oceanum_wave_gfs_napier_grid",  spec_id="oceanum_wave_gfs_napier_spec_nowcast",  color="black", site_size=5.0, linewidth=1.0),
     ],
 )
 
