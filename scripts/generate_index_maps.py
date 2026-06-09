@@ -132,7 +132,6 @@ class DomainLayer(MacroElement):
                 lyr.on({
                     mouseover: function() {
                         lyr.setStyle({fillOpacity: 0.38, weight: 3.5});
-                        lyr.bringToFront();
                     },
                     mouseout: function() { regional.resetStyle(lyr); },
                     click:    function() { window.open(p.url, "_blank"); },
@@ -150,11 +149,31 @@ class DomainLayer(MacroElement):
         global_features = []
         regional_features = []
 
+        # Sort regional domains largest-first so smaller ones are rendered last
+        # (later in SVG = on top), making them permanently accessible.
+        # Global domains are kept in original order for the background layer.
+        def area(d):
+            return (d[3] - d[1]) * abs(d[4] - d[2])
+
+        sorted_domains = (
+            [d for d in domains if (d[3] - d[1]) > 300] +          # globals first
+            sorted([d for d in domains if (d[3] - d[1]) <= 300],    # regionals by area desc
+                   key=area, reverse=True)
+        )
+
         # Track how many domains share the same bounding box so we can inset
         seen_bounds = {}  # rounded-bounds key → inset count
         color_idx = 0
 
-        for name, x0, y0, x1, y1, slug in domains:
+        # Preserve original color assignment order (by list position, not sort order)
+        color_map = {
+            name: COLORS[i % len(COLORS)]
+            for i, (name, x0, y0, x1, y1, slug) in enumerate(
+                d for d in domains if (d[3] - d[1]) <= 300
+            )
+        }
+
+        for name, x0, y0, x1, y1, slug in sorted_domains:
             is_global = (x1 - x0) > 300
             url = f"{BASE_URL}/{slug}.html"
 
@@ -168,8 +187,7 @@ class DomainLayer(MacroElement):
                     "properties": {"name": name},
                 })
             else:
-                color = COLORS[color_idx % len(COLORS)]
-                color_idx += 1
+                color = color_map[name]
 
                 # Inset overlapping domains so their borders stay distinct
                 key = f"{round(x0,1)},{round(y0,1)},{round(x1,1)},{round(y1,1)}"

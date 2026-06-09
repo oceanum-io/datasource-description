@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_c6a04df60cd2fd81360878c72aff3f3d {
+                #map_853addd3d0a8bdcb7a6d381224550498 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -55,14 +55,14 @@
 <body>
     
     
-            <div class="folium-map" id="map_c6a04df60cd2fd81360878c72aff3f3d" ></div>
+            <div class="folium-map" id="map_853addd3d0a8bdcb7a6d381224550498" ></div>
         
 </body>
 <script>
     
     
-            var map_c6a04df60cd2fd81360878c72aff3f3d = L.map(
-                "map_c6a04df60cd2fd81360878c72aff3f3d",
+            var map_853addd3d0a8bdcb7a6d381224550498 = L.map(
+                "map_853addd3d0a8bdcb7a6d381224550498",
                 {
                     center: [-43.0, 173.0],
                     crs: L.CRS.EPSG3857,
@@ -79,7 +79,7 @@
 
         
     
-            var tile_layer_627f9c275e61501169d06a42279f10a5 = L.tileLayer(
+            var tile_layer_409082496501feb559583aba4b42a275 = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -96,11 +96,11 @@
             );
         
     
-            tile_layer_627f9c275e61501169d06a42279f10a5.addTo(map_c6a04df60cd2fd81360878c72aff3f3d);
+            tile_layer_409082496501feb559583aba4b42a275.addTo(map_853addd3d0a8bdcb7a6d381224550498);
         
     
     (function() {
-        var map = map_c6a04df60cd2fd81360878c72aff3f3d;
+        var map = map_853addd3d0a8bdcb7a6d381224550498;
 
         // ── Global domains: visual indicator only, no mouse events ──────────
         L.geoJSON({"type": "FeatureCollection", "features": []}, {
@@ -114,7 +114,7 @@
         }).addTo(map);
 
         // ── Regional domains: hover + click ──────────────────────────────────
-        var regional = L.geoJSON({"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[172.08, -42.22], [175.92, -42.22], [175.92, -38.38], [172.08, -38.38], [172.08, -42.22]]]}, "properties": {"name": "Central NZ", "url": "https://datasets.oceanum.io/oceanum_central_nz_ccam_hindcast.html", "color": "#1f77b4"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[172.99, -40.15], [175.23, -40.15], [175.23, -38.43], [172.99, -38.43], [172.99, -40.15]]]}, "properties": {"name": "Marlborough Sounds", "url": "https://datasets.oceanum.io/oceanum_marlborough_sounds_ccam_hindcast.html", "color": "#ff7f0e"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[166.0, -48.44], [170.23, -48.44], [170.23, -45.56], [166.0, -45.56], [166.0, -48.44]]]}, "properties": {"name": "Southland NZ", "url": "https://datasets.oceanum.io/oceanum_southland_nz_ccam_hindcast.html", "color": "#2ca02c"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[173.23, -41.65], [174.75, -41.65], [174.75, -40.5], [173.23, -40.5], [173.23, -41.65]]]}, "properties": {"name": "Taranaki NZ", "url": "https://datasets.oceanum.io/oceanum_taranaki_nz_ccam_hindcast.html", "color": "#d62728"}}]}, {
+        var regional = L.geoJSON({"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[172.08, -42.22], [175.92, -42.22], [175.92, -38.38], [172.08, -38.38], [172.08, -42.22]]]}, "properties": {"name": "Central NZ", "url": "https://datasets.oceanum.io/oceanum_central_nz_ccam_hindcast.html", "color": "#1f77b4"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[166.0, -48.44], [170.23, -48.44], [170.23, -45.56], [166.0, -45.56], [166.0, -48.44]]]}, "properties": {"name": "Southland NZ", "url": "https://datasets.oceanum.io/oceanum_southland_nz_ccam_hindcast.html", "color": "#2ca02c"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[172.99, -40.15], [175.23, -40.15], [175.23, -38.43], [172.99, -38.43], [172.99, -40.15]]]}, "properties": {"name": "Marlborough Sounds", "url": "https://datasets.oceanum.io/oceanum_marlborough_sounds_ccam_hindcast.html", "color": "#ff7f0e"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[173.23, -41.65], [174.75, -41.65], [174.75, -40.5], [173.23, -40.5], [173.23, -41.65]]]}, "properties": {"name": "Taranaki NZ", "url": "https://datasets.oceanum.io/oceanum_taranaki_nz_ccam_hindcast.html", "color": "#d62728"}}]}, {
             style: function(feature) {
                 return {
                     fillColor:   feature.properties.color,
@@ -136,7 +136,6 @@
                 lyr.on({
                     mouseover: function() {
                         lyr.setStyle({fillOpacity: 0.38, weight: 3.5});
-                        lyr.bringToFront();
                     },
                     mouseout: function() { regional.resetStyle(lyr); },
                     click:    function() { window.open(p.url, "_blank"); },

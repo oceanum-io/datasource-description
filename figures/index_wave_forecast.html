@@ -18,7 +18,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_4ae96f15d3bebbeaa3789850dcdf1b10 {
+                #map_05acee6032f1e036ab3978211ecb9994 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -55,14 +55,14 @@
 <body>
     
     
-            <div class="folium-map" id="map_4ae96f15d3bebbeaa3789850dcdf1b10" ></div>
+            <div class="folium-map" id="map_05acee6032f1e036ab3978211ecb9994" ></div>
         
 </body>
 <script>
     
     
-            var map_4ae96f15d3bebbeaa3789850dcdf1b10 = L.map(
-                "map_4ae96f15d3bebbeaa3789850dcdf1b10",
+            var map_05acee6032f1e036ab3978211ecb9994 = L.map(
+                "map_05acee6032f1e036ab3978211ecb9994",
                 {
                     center: [20.0, 10.0],
                     crs: L.CRS.EPSG3857,
@@ -79,7 +79,7 @@
 
         
     
-            var tile_layer_8dc79319ee9ee37d0a8bccbbdfee6ad3 = L.tileLayer(
+            var tile_layer_30d9d6c99b44601aa59008c91ca496ee = L.tileLayer(
                 "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
                 {
   "minZoom": 0,
@@ -96,11 +96,11 @@
             );
         
     
-            tile_layer_8dc79319ee9ee37d0a8bccbbdfee6ad3.addTo(map_4ae96f15d3bebbeaa3789850dcdf1b10);
+            tile_layer_30d9d6c99b44601aa59008c91ca496ee.addTo(map_05acee6032f1e036ab3978211ecb9994);
         
     
     (function() {
-        var map = map_4ae96f15d3bebbeaa3789850dcdf1b10;
+        var map = map_05acee6032f1e036ab3978211ecb9994;
 
         // ── Global domains: visual indicator only, no mouse events ──────────
         L.geoJSON({"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[-180.0, -77.5], [180.0, -77.5], [180.0, 77.5], [-180.0, 77.5], [-180.0, -77.5]]]}, "properties": {"name": "Global Forecast"}}]}, {
@@ -114,7 +114,7 @@
         }).addTo(map);
 
         // ── Regional domains: hover + click ──────────────────────────────────
-        var regional = L.geoJSON({"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[112.0, -27.0], [117.5, -27.0], [117.5, -20.0], [112.0, -20.0], [112.0, -27.0]]]}, "properties": {"name": "NW Cape", "url": "https://datasets.oceanum.io/oceanum_northwest_cape_wave_forecast.html", "color": "#1f77b4"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[112.0, -34.0], [116.5, -34.0], [116.5, -27.0], [112.0, -27.0], [112.0, -34.0]]]}, "properties": {"name": "SW Western Australia", "url": "https://datasets.oceanum.io/oceanum_sw_western_australia_wave_forecast.html", "color": "#ff7f0e"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[-11.0, 48.5], [13.0, 48.5], [13.0, 61.0], [-11.0, 61.0], [-11.0, 48.5]]]}, "properties": {"name": "Western Europe", "url": "https://datasets.oceanum.io/oceanum_western_europe_wave_forecast.html", "color": "#2ca02c"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[165.0, -48.0], [180.0, -48.0], [180.0, -34.0], [165.0, -34.0], [165.0, -48.0]]]}, "properties": {"name": "New Zealand", "url": "https://datasets.oceanum.io/oceanum_new_zealand_wave_forecast.html", "color": "#d62728"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[173.5, -37.5], [176.5, -37.5], [176.5, -35.5], [173.5, -35.5], [173.5, -37.5]]]}, "properties": {"name": "Auckland", "url": "https://datasets.oceanum.io/oceanum_auckland_wave_forecast_specification.html", "color": "#9467bd"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[9.0, 53.8], [30.3, 53.8], [30.3, 66.0], [9.0, 66.0], [9.0, 53.8]]]}, "properties": {"name": "Baltic Sea", "url": "https://datasets.oceanum.io/oceanum_baltic_sea_wave_forecast.html", "color": "#8c564b"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[3.0, 51.4], [4.75, 51.4], [4.75, 53.05], [3.0, 53.05], [3.0, 51.4]]]}, "properties": {"name": "Dutch Coast", "url": "https://datasets.oceanum.io/oceanum_dutch_wave_forecast.html", "color": "#e377c2"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[5.0, -6.0], [12.5, -6.0], [12.5, 3.0], [5.0, 3.0], [5.0, -6.0]]]}, "properties": {"name": "Gabon", "url": "https://datasets.oceanum.io/oceanum_gabon_wave_forecast.html", "color": "#7f7f7f"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[2.5, -2.0], [10.0, -2.0], [10.0, 6.5], [2.5, 6.5], [2.5, -2.0]]]}, "properties": {"name": "Nigeria", "url": "https://datasets.oceanum.io/oceanum_nigeria_wave_forecast.html", "color": "#bcbd22"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[-77.5, 35.5], [-63.0, 35.5], [-63.0, 46.0], [-77.5, 46.0], [-77.5, 35.5]]]}, "properties": {"name": "US East Coast", "url": "https://datasets.oceanum.io/oceanum_us_east_coast_wave_forecast.html", "color": "#17becf"}}]}, {
+        var regional = L.geoJSON({"type": "FeatureCollection", "features": [{"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[-11.0, 48.5], [13.0, 48.5], [13.0, 61.0], [-11.0, 61.0], [-11.0, 48.5]]]}, "properties": {"name": "Western Europe", "url": "https://datasets.oceanum.io/oceanum_western_europe_wave_forecast.html", "color": "#2ca02c"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[9.0, 53.8], [30.3, 53.8], [30.3, 66.0], [9.0, 66.0], [9.0, 53.8]]]}, "properties": {"name": "Baltic Sea", "url": "https://datasets.oceanum.io/oceanum_baltic_sea_wave_forecast.html", "color": "#8c564b"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[165.0, -48.0], [180.0, -48.0], [180.0, -34.0], [165.0, -34.0], [165.0, -48.0]]]}, "properties": {"name": "New Zealand", "url": "https://datasets.oceanum.io/oceanum_new_zealand_wave_forecast.html", "color": "#d62728"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[-77.5, 35.5], [-63.0, 35.5], [-63.0, 46.0], [-77.5, 46.0], [-77.5, 35.5]]]}, "properties": {"name": "US East Coast", "url": "https://datasets.oceanum.io/oceanum_us_east_coast_wave_forecast.html", "color": "#17becf"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[5.0, -6.0], [12.5, -6.0], [12.5, 3.0], [5.0, 3.0], [5.0, -6.0]]]}, "properties": {"name": "Gabon", "url": "https://datasets.oceanum.io/oceanum_gabon_wave_forecast.html", "color": "#7f7f7f"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[2.5, -2.0], [10.0, -2.0], [10.0, 6.5], [2.5, 6.5], [2.5, -2.0]]]}, "properties": {"name": "Nigeria", "url": "https://datasets.oceanum.io/oceanum_nigeria_wave_forecast.html", "color": "#bcbd22"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[112.0, -27.0], [117.5, -27.0], [117.5, -20.0], [112.0, -20.0], [112.0, -27.0]]]}, "properties": {"name": "NW Cape", "url": "https://datasets.oceanum.io/oceanum_northwest_cape_wave_forecast.html", "color": "#1f77b4"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[112.0, -34.0], [116.5, -34.0], [116.5, -27.0], [112.0, -27.0], [112.0, -34.0]]]}, "properties": {"name": "SW Western Australia", "url": "https://datasets.oceanum.io/oceanum_sw_western_australia_wave_forecast.html", "color": "#ff7f0e"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[173.5, -37.5], [176.5, -37.5], [176.5, -35.5], [173.5, -35.5], [173.5, -37.5]]]}, "properties": {"name": "Auckland", "url": "https://datasets.oceanum.io/oceanum_auckland_wave_forecast_specification.html", "color": "#9467bd"}}, {"type": "Feature", "geometry": {"type": "Polygon", "coordinates": [[[3.0, 51.4], [4.75, 51.4], [4.75, 53.05], [3.0, 53.05], [3.0, 51.4]]]}, "properties": {"name": "Dutch Coast", "url": "https://datasets.oceanum.io/oceanum_dutch_wave_forecast.html", "color": "#e377c2"}}]}, {
             style: function(feature) {
                 return {
                     fillColor:   feature.properties.color,
@@ -136,7 +136,6 @@
                 lyr.on({
                     mouseover: function() {
                         lyr.setStyle({fillOpacity: 0.38, weight: 3.5});
-                        lyr.bringToFront();
                     },
                     mouseout: function() { regional.resetStyle(lyr); },
                     click:    function() { window.open(p.url, "_blank"); },
