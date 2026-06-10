@@ -12,6 +12,19 @@ from jinja2 import Template
 
 BASE_URL = "https://datasets.oceanum.io"
 
+# Slugs that link to PDF files rather than Jekyll HTML pages
+PDF_SLUGS = {
+    "oceanum_bass_strait_wave_hindcast",
+    "oceanum_sw_northamerica_wave_hindcast",
+    "oceanum_baltic_sea_wave_hindcast",
+    "oceanum_auckland_wave_forecast_specification",
+}
+
+
+def doc_url(slug):
+    ext = ".pdf" if slug in PDF_SLUGS else ".html"
+    return f"{BASE_URL}/{slug}{ext}"
+
 # ── Domain definitions ────────────────────────────────────────────────────────
 # Each entry: (label, x0, y0, x1, y1, document_slug)
 
@@ -98,43 +111,46 @@ class DomainLayer(MacroElement):
     (function() {
         var map = {{ this._parent.get_name() }};
 
-        // ── Global domains: visual indicator only, no mouse events ──────────
-        L.geoJSON({{ this.global_geojson }}, {
-            interactive: false,
-            style: function() {
-                return {
-                    fillColor: "#999", fillOpacity: 0.04,
-                    color: "#999", weight: 1.0, dashArray: "6 4",
-                };
-            }
-        }).addTo(map);
+        function tooltipHtml(name) {
+            return '<div style="font-family:Poppins,sans-serif;font-size:13px;'
+                 + 'font-weight:600;color:#0b2d40;line-height:1.4">'
+                 + name
+                 + '<div style="font-size:10px;font-weight:400;color:#666;'
+                 + 'margin-top:2px">Click to open dataset ↗</div></div>';
+        }
 
-        // ── Regional domains: hover + click ──────────────────────────────────
-        var regional = L.geoJSON({{ this.regional_geojson }}, {
-            style: function(feature) {
-                return {
-                    fillColor:   feature.properties.color,
-                    fillOpacity: 0.18,
-                    color:       feature.properties.color,
-                    weight:      2.0,
-                };
+        // ── Global domains: added first so they sit below regional layers ────
+        var globalLayer = L.geoJSON({{ this.global_geojson }}, {
+            style: function() {
+                return {fillColor:"#999", fillOpacity:0.04,
+                        color:"#999", weight:1.0, dashArray:"6 4"};
             },
             onEachFeature: function(feature, lyr) {
                 var p = feature.properties;
-                lyr.bindTooltip(
-                    '<div style="font-family:Poppins,sans-serif;font-size:13px;'
-                    + 'font-weight:600;color:#0b2d40;line-height:1.4">'
-                    + p.name
-                    + '<div style="font-size:10px;font-weight:400;color:#666;'
-                    + 'margin-top:2px">Click to open dataset ↗</div></div>',
-                    {sticky: true, opacity: 1}
-                );
+                lyr.bindTooltip(tooltipHtml(p.name), {sticky:true, opacity:1});
                 lyr.on({
-                    mouseover: function() {
-                        lyr.setStyle({fillOpacity: 0.38, weight: 3.5});
-                    },
-                    mouseout: function() { regional.resetStyle(lyr); },
-                    click:    function() { window.open(p.url, "_blank"); },
+                    mouseover: function() { lyr.setStyle({fillOpacity:0.12, weight:2.0, dashArray:null}); },
+                    mouseout:  function() { globalLayer.resetStyle(lyr); },
+                    click:     function() { window.open(p.url, "_blank"); },
+                });
+            }
+        }).addTo(map);
+
+        // ── Regional domains: added after global so they sit on top ──────────
+        // Within this layer, features are sorted largest-first in the GeoJSON
+        // so smaller domains are later in the SVG and permanently on top.
+        var regional = L.geoJSON({{ this.regional_geojson }}, {
+            style: function(feature) {
+                return {fillColor:feature.properties.color, fillOpacity:0.18,
+                        color:feature.properties.color, weight:2.0};
+            },
+            onEachFeature: function(feature, lyr) {
+                var p = feature.properties;
+                lyr.bindTooltip(tooltipHtml(p.name), {sticky:true, opacity:1});
+                lyr.on({
+                    mouseover: function() { lyr.setStyle({fillOpacity:0.38, weight:3.5}); },
+                    mouseout:  function() { regional.resetStyle(lyr); },
+                    click:     function() { window.open(p.url, "_blank"); },
                 });
             }
         }).addTo(map);
@@ -175,7 +191,7 @@ class DomainLayer(MacroElement):
 
         for name, x0, y0, x1, y1, slug in sorted_domains:
             is_global = (x1 - x0) > 300
-            url = f"{BASE_URL}/{slug}.html"
+            url = doc_url(slug)
 
             if is_global:
                 global_features.append({
@@ -184,7 +200,7 @@ class DomainLayer(MacroElement):
                         "type": "Polygon",
                         "coordinates": [[[x0,y0],[x1,y0],[x1,y1],[x0,y1],[x0,y0]]],
                     },
-                    "properties": {"name": name},
+                    "properties": {"name": name, "url": url},
                 })
             else:
                 color = color_map[name]
