@@ -65,11 +65,11 @@ Collection of Datamesh datasource description documents.
 - [Oceanum Northwest Cape Wave Forecast](./oceanum_northwest_cape_wave_forecast.md)
 - [Oceanum Southwest Western Australia Wave Forecast](./oceanum_sw_western_australia_wave_forecast.md)
 - [Oceanum Western Europe Wave Forecast](./oceanum_western_europe_wave_forecast.md)
+- [Oceanum New Zealand Wave Forecast](./oceanum_new_zealand_wave_forecast.md)
 
 ### GFS Forced Regional Forecasts
 
 - [Oceanum Auckland Wave Forecast](./oceanum_auckland_wave_forecast_specification.pdf)
-- [Oceanum New Zealand GFS Wave Forecast](./oceanum_new_zealand_wave_forecast.md)
 
 ### ECMWF Forced Regional Forecasts
 
