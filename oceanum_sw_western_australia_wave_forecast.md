@@ -144,6 +144,8 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 **Table 2.** Gridded output parameters.
 
+*All parameters are defined on the `time`, `latitude` and `longitude` coordinates.*
+
 | Variable | Long Name | Units |
 |---|---|---|
 | depth | depth below sea surface | m |
@@ -180,8 +182,8 @@ Integrated wave parameters are stored hourly over the domain at the native model
 | tps | peak period of wind and swell waves | s |
 | tpssea | peak period of wind waves below 8 seconds period | s |
 | tpsswe | peak period of swell waves above 8 seconds period | s |
-| uwnd | eastward wind component at 10m | m/s |
-| vwnd | northward wind component at 10m | m/s |
+| xwnd | eastward wind component at 10m | m/s |
+| ywnd | northward wind component at 10m | m/s |
 | xcur | eastward ocean current component | m/s |
 | ycur | northward ocean current component | m/s |
 
@@ -193,13 +195,16 @@ Frequency-direction wave spectra are stored hourly at selected sites across all 
 
 **Table 3.** Spectra output parameters.
 
+*Spectra are defined on the `time`, `site`, `freq` and `dir` coordinates; `lon` and `lat` are per-site data variables giving each site's location.*
+
 | Variable | Long Name | Units |
 |---|---|---|
 | efth | sea surface wave variance spectral density | m² s / deg |
+| dpt | water depth | m |
+| wspd | wind speed | m/s |
+| wdir | wind direction | degree |
 | lat | latitude | degrees_north |
 | lon | longitude | degrees_east |
-| freq | frequency | Hz |
-| dir | direction | degree |
 
 ---
 

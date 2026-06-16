@@ -87,8 +87,9 @@ Every hindcast document must include these sections in order:
 7. **Validation** - Link to satellite validation app
 8. **Data Description (Table 1)** - Metadata summary
 9. **Linked Datamesh Datasources** - Links to grid and spectra datasets
-10. **Gridded Output Parameters (Table 2)** - Variable descriptions
-11. **Footer** - www.oceanum.science
+10. **Gridded Output Parameters (Table 2)** - Variable descriptions (exact Datamesh names)
+11. **Spectra Output (Table 3)** - Spectra variable descriptions (exact Datamesh names)
+12. **Footer** - www.oceanum.science
 
 ### 2.2 Template Structure
 
@@ -150,14 +151,37 @@ The wave hindcast can be validated against satellite altimeter observations usin
 
 **Table 2.** Gridded output parameters.
 
+*All parameters are defined on the `time`, `latitude` and `longitude` coordinates.*
+
 | Variable | Long Name | Units |
 |---|---|---|
 | ... | ... | ... |
 
 ---
 
+## Spectra output
+
+Frequency-direction wave spectra are stored hourly at the spectra output sites within the domain. Table 3 describes the spectra output variables, using the exact variable names served by Datamesh.
+
+**Table 3.** Spectra output variables.
+
+*Spectra are defined on the `time`, `site`, `freq` and `dir` coordinates; `lon` and `lat` are per-site data variables giving each site's location.*
+
+| Variable | Long Name | Units |
+|---|---|---|
+| efth | sea surface wave variance spectral density | m² s / deg |
+| dpt | water depth | m |
+| wspd | wind speed | m/s |
+| wdir | wind direction | degree |
+| lat | latitude | degrees_north |
+| lon | longitude | degrees_east |
+
+---
+
 www.oceanum.science
 ```
+
+> **Variable names**: Table 2 and Table 3 must use the **exact** Datamesh variable names (e.g. `hsea`/`hswe`, not `hs_sea`/`hs_sw`; `pwlen0`, not `pwl0`; `icec`, not `aice`), taken from `conn.get_datasource(id).variables`. Table 2 is the **union** across all the document's grid datasources (nests/forcings); include `botl` and `depth` when both are served, `xcur`/`ycur` only when currents are actually output, and `icec` for ice-affected domains.
 
 ---
 
@@ -195,7 +219,7 @@ Standard format: "[nfcell] frequencies between [f0] - [f_max] Hz at [df×100-100
 ### 3.4 Partition Types
 
 Identify partition types from output variables:
-- **Sea/Swell split**: Variables like `hs_sea`, `hs_sw` (8-second period split)
+- **Sea/Swell split**: Variables like `hsea`, `hswe` (8-second period split; use the exact Datamesh variable names in Table 2)
 - **Watershed partitions**: Variables like `phs0`, `phs1`, `phs2`, `phs3`
   - `phs0` = wind-forced partition
   - `phs1`, `phs2`, `phs3` = swell partitions (up to 3)

@@ -71,11 +71,11 @@ The wave model physics and calibration have been validated against satellite alt
 |--------|------------|--------|---------------|
 | New Zealand | 0.05° (~5 km) | 165–180°E, 48–34°S | 2390 |
 | Auckland | 0.01° (~1 km) | 173.60–176.00°E, 37.25–35.75°S | 552 |
-| Eastern Auckland | 0.002° (~200 m) | 174.60–175.25°E, 36.95–36.55°S | - |
+| Eastern Auckland | 0.002° (~200 m) | 174.60–175.25°E, 36.95–36.55°S | 536 |
 | Taranaki | 0.01° (~1 km) | 173.00–175.10°E, 40.00–37.70°S | 22 |
-| Port Taranaki | 0.00025° (~25 m) | 174.000–174.070°E, 39.07–39.03°S | - |
-| Otago | 0.01° (~1 km) | 169.50–171.40°E, 46.95–45.35°S | - |
-| Dunedin | 0.0025° (~250 m) | 170.50–170.90°E, 46.00–45.65°S | - |
+| Port Taranaki | 0.00025° (~25 m) | 174.000–174.070°E, 39.07–39.03°S | 7 |
+| Otago | 0.01° (~1 km) | 169.50–171.40°E, 46.95–45.35°S | 192 |
+| Dunedin | 0.0025° (~250 m) | 170.50–170.90°E, 46.00–45.65°S | 14 |
 | Hawke Bay | 0.01° (~1 km) | 176.85–178.60°E, 39.80–38.50°S | 214 |
 | Napier | 0.0005° (~50 m) | 176.87–176.96°E, 39.49–39.41°S | 4 |
 
@@ -181,52 +181,68 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 **Table 2.** Gridded output parameters.
 
+*All parameters are defined on the `time`, `latitude` and `longitude` coordinates.*
+
 | Variable | Long Name | Units |
 |---|---|---|
+| botl | depth below mean sea level | m |
 | depth | depth below sea surface | m |
-| hs | significant height of wind and swell waves | m |
-| hs_sea | significant height of wind waves | m |
-| hs_sw | significant height of swell waves | m |
-| tps | smooth relative peak wave period of wind and swell waves | s |
-| tps_sea | smooth relative peak wave period of wind waves | s |
-| tps_sw | smooth relative peak wave period of swell waves | s |
 | dpm | mean direction at the spectral peak of wind and swell waves | degree |
-| dpm_sea | mean direction at the spectral peak of wind waves | degree |
-| dpm_sw | mean direction at the spectral peak of swell waves | degree |
-| tm01 | mean wave period based on first moment | s |
-| tm02 | mean wave period based on second moment | s |
-| dspr | directional spreading | degree |
-| fspr | frequency spreading | - |
-| phs0 | significant wave height of partition 0 (wind-forced) | m |
-| phs1 | significant wave height of partition 1 (swell) | m |
-| phs2 | significant wave height of partition 2 (swell) | m |
-| phs3 | significant wave height of partition 3 (swell) | m |
-| ptp0 | peak period of partition 0 (wind-forced) | s |
-| ptp1 | peak period of partition 1 (swell) | s |
-| ptp2 | peak period of partition 2 (swell) | s |
-| ptp3 | peak period of partition 3 (swell) | s |
-| pdir0 | peak direction of partition 0 (wind-forced) | degree |
-| pdir1 | peak direction of partition 1 (swell) | degree |
-| pdir2 | peak direction of partition 2 (swell) | degree |
-| pdir3 | peak direction of partition 3 (swell) | degree |
+| dpmsea | mean direction at the spectral peak of wind waves below 8 seconds period | degree |
+| dpmswe | mean direction at the spectral peak of swell waves above 8 seconds period | degree |
+| dspr | directional spreading of wind and swell waves | degree |
+| fspr | normalised width of the frequency spectrum of wind and swell waves | - |
+| hs | significant height of wind and swell waves | m |
+| hsea | significant height of wind waves under 8 seconds period | m |
+| hswe | significant height of swell waves above 8 seconds period | m |
+| pdir0 | mean direction of wind waves (partition 0) | degree |
+| pdir1 | mean direction of primary swell waves (partition 1) | degree |
+| pdir2 | mean direction of secondary swell waves (partition 2) | degree |
+| pdir3 | mean direction of tertiary swell waves (partition 3) | degree |
+| pdspr0 | directional spreading of wind waves (partition 0) | degree |
+| pdspr1 | directional spreading of primary swell waves (partition 1) | degree |
+| pdspr2 | directional spreading of secondary swell waves (partition 2) | degree |
+| pdspr3 | directional spreading of tertiary swell waves (partition 3) | degree |
+| phs0 | significant height of wind waves (partition 0) | m |
+| phs1 | significant height of primary swell waves (partition 1) | m |
+| phs2 | significant height of secondary swell waves (partition 2) | m |
+| phs3 | significant height of tertiary swell waves (partition 3) | m |
+| ptp0 | peak period of wind waves (partition 0) | s |
+| ptp1 | peak period of primary swell waves (partition 1) | s |
+| ptp2 | peak period of secondary swell waves (partition 2) | s |
+| ptp3 | peak period of tertiary swell waves (partition 3) | s |
+| pwlen0 | mean wavelength of wind waves (partition 0) | m |
+| pwlen1 | mean wavelength of primary swell waves (partition 1) | m |
+| pwlen2 | mean wavelength of secondary swell waves (partition 2) | m |
+| pwlen3 | mean wavelength of tertiary swell waves (partition 3) | m |
+| tm01 | mean absolute wave period of wind and swell waves from the first frequency moment | s |
+| tm02 | mean absolute wave period of wind and swell waves from the second frequency moment | s |
+| tps | smooth relative peak wave period of wind and swell waves | s |
+| tpssea | smooth relative peak wave period of wind waves below 8 seconds period | s |
+| tpsswe | smooth relative peak wave period of swell waves above 8 seconds period | s |
+| xcur | eastward component of tidal current velocity | m/s |
 | xwnd | eastward component of wind velocity | m/s |
+| ycur | northward component of tidal current velocity | m/s |
 | ywnd | northward component of wind velocity | m/s |
 
 ---
 
 ## Spectra output
 
-Frequency-direction wave spectra are stored hourly at selected sites across all domains with spectra output: 2390 sites in the New Zealand 5 km parent domain, 552 in the Auckland 1 km domain, 22 in the Taranaki 1 km domain, 214 in the Hawke Bay 1 km domain, and 4 in the Napier 50 m domain. Spectra are discretised into 36 directional bins (10 degree resolution) and 32 frequency bins (0.037 - 0.71 Hz at 10% logarithmic increments).
+Frequency-direction wave spectra are stored hourly at selected sites across all domains with spectra output: 2390 sites in the New Zealand 5 km parent domain, 552 in the Auckland 1 km domain, 536 in the Eastern Auckland 200 m domain, 22 in the Taranaki 1 km domain, 7 in the Port Taranaki 25 m domain, 192 in the Otago 1 km domain, 14 in the Dunedin 250 m domain, 214 in the Hawke Bay 1 km domain, and 4 in the Napier 50 m domain. Spectra are discretised into 36 directional bins (10 degree resolution) and 32 frequency bins (0.037 - 0.71 Hz at 10% logarithmic increments).
 
 **Table 3.** Spectra output parameters.
+
+*Spectra are defined on the `time`, `site`, `freq` and `dir` coordinates; `lon` and `lat` are per-site data variables giving each site's location.*
 
 | Variable | Long Name | Units |
 |---|---|---|
 | efth | sea surface wave variance spectral density | m² s / deg |
+| dpt | water depth | m |
+| wspd | wind speed | m/s |
+| wdir | wind direction | degree |
 | lat | latitude | degrees_north |
 | lon | longitude | degrees_east |
-| freq | frequency | Hz |
-| dir | direction | degree |
 
 ---
 

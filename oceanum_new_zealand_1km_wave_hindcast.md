@@ -143,6 +143,8 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 **Table 2.** Gridded output parameters.
 
+*All parameters are defined on the `time`, `latitude` and `longitude` coordinates.*
+
 | Variable | Long Name | Units |
 |---|---|---|
 | dpt | depth below sea surface | m |
@@ -167,10 +169,10 @@ Integrated wave parameters are stored hourly over the domain at the native model
 | ptp1 | peak period of partition 1 (primary swell) | s |
 | ptp2 | peak period of partition 2 (secondary swell) | s |
 | ptp3 | peak period of partition 3 (tertiary swell) | s |
-| pwl0 | wavelength of partition 0 (wind-sea) | m |
-| pwl1 | wavelength of partition 1 (primary swell) | m |
-| pwl2 | wavelength of partition 2 (secondary swell) | m |
-| pwl3 | wavelength of partition 3 (tertiary swell) | m |
+| pwlen0 | wavelength of partition 0 (wind-sea) | m |
+| pwlen1 | wavelength of partition 1 (primary swell) | m |
+| pwlen2 | wavelength of partition 2 (secondary swell) | m |
+| pwlen3 | wavelength of partition 3 (tertiary swell) | m |
 | pdir0 | direction of partition 0 (wind-sea) | degree |
 | pdir1 | direction of partition 1 (primary swell) | degree |
 | pdir2 | direction of partition 2 (secondary swell) | degree |
@@ -188,10 +190,13 @@ Frequency-direction wave spectra are stored hourly at selected sites across the 
 
 **Table 3.** Spectra output parameters.
 
+*Spectra are defined on the `time`, `site`, `freq` and `dir` coordinates; `lon` and `lat` are per-site data variables giving each site's location.*
+
 | Variable | Long Name | Units |
 |---|---|---|
 | efth | sea surface wave variance spectral density | m² s / deg |
+| dpt | water depth | m |
+| wspd | wind speed | m/s |
+| wdir | wind direction | degree |
 | lat | latitude | degrees_north |
 | lon | longitude | degrees_east |
-| freq | frequency | Hz |
-| dir | direction | degree |

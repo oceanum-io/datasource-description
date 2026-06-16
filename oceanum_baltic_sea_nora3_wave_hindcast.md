@@ -79,9 +79,10 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 **Table 2.** Gridded output parameters.
 
+*All parameters are defined on the `time`, `latitude` and `longitude` coordinates.*
+
 | Variable | Long Name | Units |
 |---|---|---|
-| aice | sea ice area fraction | - |
 | depth | depth below sea surface | m |
 | dpm | mean direction at the spectral peak of wind and swell waves | degree |
 | dpmsea | mean direction at the spectral peak of wind waves below 8 seconds period | degree |
@@ -91,6 +92,7 @@ Integrated wave parameters are stored hourly over the domain at the native model
 | hs | significant height of wind and swell waves | m |
 | hsea | significant height of wind waves under 8 seconds period | m |
 | hswe | significant height of swell waves above 8 seconds period | m |
+| icec | sea ice cover | - |
 | pdir0 | mean direction of wind waves (partition 0) | degree |
 | pdir1 | mean direction of primary swell waves (partition 1) | degree |
 | pdir2 | mean direction of secondary swell waves (partition 2) | degree |
@@ -115,6 +117,25 @@ Integrated wave parameters are stored hourly over the domain at the native model
 | vcur | northward component of current velocity | m/s |
 | xwnd | eastward component of wind velocity | m/s |
 | ywnd | northward component of wind velocity | m/s |
+
+---
+
+## Spectra output
+
+Frequency-direction wave spectra are stored hourly at the spectra output sites within the domain. Table 3 describes the spectra output variables, using the exact variable names served by Datamesh.
+
+**Table 3.** Spectra output variables.
+
+*Spectra are defined on the `time`, `site`, `freq` and `dir` coordinates; `lon` and `lat` are per-site data variables giving each site's location.*
+
+| Variable | Long Name | Units |
+|---|---|---|
+| efth | sea surface wave variance spectral density | m² s / deg |
+| dpt | water depth | m |
+| wspd | wind speed | m/s |
+| wdir | wind direction | degree |
+| lat | latitude | degrees_north |
+| lon | longitude | degrees_east |
 
 ---
 

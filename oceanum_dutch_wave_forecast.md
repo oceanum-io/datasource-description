@@ -86,38 +86,65 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 **Table 2.** Gridded output parameters.
 
+*All parameters are defined on the `time`, `latitude` and `longitude` coordinates.*
+
 | Variable | Long Name | Units |
 |---|---|---|
 | depth | depth below sea surface | m |
-| hs | significant height of wind and swell waves | m |
-| hs_sea | significant height of wind waves | m |
-| hs_sw | significant height of swell waves | m |
-| tps | smooth relative peak wave period of wind and swell waves | s |
-| tps_sea | smooth relative peak wave period of wind waves | s |
-| tps_sw | smooth relative peak wave period of swell waves | s |
 | dpm | mean direction at the spectral peak of wind and swell waves | degree |
-| dpm_sea | mean direction at the spectral peak of wind waves | degree |
-| dpm_sw | mean direction at the spectral peak of swell waves | degree |
-| tm01 | mean wave period based on first moment | s |
-| tm02 | mean wave period based on second moment | s |
-| dspr | directional spreading | degree |
-| fspr | frequency spreading | - |
-| phs0 | significant wave height of partition 0 (wind-forced) | m |
-| phs1 | significant wave height of partition 1 (swell) | m |
-| phs2 | significant wave height of partition 2 (swell) | m |
-| phs3 | significant wave height of partition 3 (swell) | m |
-| ptp0 | peak period of partition 0 (wind-forced) | s |
-| ptp1 | peak period of partition 1 (swell) | s |
-| ptp2 | peak period of partition 2 (swell) | s |
-| ptp3 | peak period of partition 3 (swell) | s |
-| pdir0 | peak direction of partition 0 (wind-forced) | degree |
-| pdir1 | peak direction of partition 1 (swell) | degree |
-| pdir2 | peak direction of partition 2 (swell) | degree |
-| pdir3 | peak direction of partition 3 (swell) | degree |
+| dpmsea | mean direction at the spectral peak of wind waves below 8 seconds period | degree |
+| dpmswe | mean direction at the spectral peak of swell waves above 8 seconds period | degree |
+| dspr | directional spreading of wind and swell waves | degree |
+| fspr | normalised width of the frequency spectrum of wind and swell waves | - |
+| hs | significant height of wind and swell waves | m |
+| hsea | significant height of wind waves under 8 seconds period | m |
+| hswe | significant height of swell waves above 8 seconds period | m |
+| pdir0 | mean direction of wind waves (partition 0) | degree |
+| pdir1 | mean direction of primary swell waves (partition 1) | degree |
+| pdir2 | mean direction of secondary swell waves (partition 2) | degree |
+| pdir3 | mean direction of tertiary swell waves (partition 3) | degree |
+| pdspr0 | directional spreading of wind waves (partition 0) | degree |
+| pdspr1 | directional spreading of primary swell waves (partition 1) | degree |
+| pdspr2 | directional spreading of secondary swell waves (partition 2) | degree |
+| pdspr3 | directional spreading of tertiary swell waves (partition 3) | degree |
+| phs0 | significant height of wind waves (partition 0) | m |
+| phs1 | significant height of primary swell waves (partition 1) | m |
+| phs2 | significant height of secondary swell waves (partition 2) | m |
+| phs3 | significant height of tertiary swell waves (partition 3) | m |
+| ptp0 | peak period of wind waves (partition 0) | s |
+| ptp1 | peak period of primary swell waves (partition 1) | s |
+| ptp2 | peak period of secondary swell waves (partition 2) | s |
+| ptp3 | peak period of tertiary swell waves (partition 3) | s |
+| pwlen0 | mean wavelength of wind waves (partition 0) | m |
+| pwlen1 | mean wavelength of primary swell waves (partition 1) | m |
+| pwlen2 | mean wavelength of secondary swell waves (partition 2) | m |
+| pwlen3 | mean wavelength of tertiary swell waves (partition 3) | m |
+| tm01 | mean absolute wave period of wind and swell waves from the first frequency moment | s |
+| tm02 | mean absolute wave period of wind and swell waves from the second frequency moment | s |
+| tps | smooth relative peak wave period of wind and swell waves | s |
+| tpssea | smooth relative peak wave period of wind waves below 8 seconds period | s |
+| tpsswe | smooth relative peak wave period of swell waves above 8 seconds period | s |
 | xwnd | eastward component of wind velocity | m/s |
 | ywnd | northward component of wind velocity | m/s |
-| xcur | eastward component of tidal current velocity | m/s |
-| ycur | northward component of tidal current velocity | m/s |
+
+---
+
+## Spectra output
+
+Frequency-direction wave spectra are stored hourly at the spectra output sites within the domain. Table 3 describes the spectra output variables, using the exact variable names served by Datamesh.
+
+**Table 3.** Spectra output variables.
+
+*Spectra are defined on the `time`, `site`, `freq` and `dir` coordinates; `lon` and `lat` are per-site data variables giving each site's location.*
+
+| Variable | Long Name | Units |
+|---|---|---|
+| efth | sea surface wave variance spectral density | m² s / deg |
+| dpt | water depth | m |
+| wspd | wind speed | m/s |
+| wdir | wind direction | degree |
+| lat | latitude | degrees_north |
+| lon | longitude | degrees_east |
 
 ---
 

@@ -76,6 +76,8 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 **Table 2.** Gridded output parameters.
 
+*All parameters are defined on the `time`, `latitude` and `longitude` coordinates.*
+
 | Variable | Long Name | Units |
 |---|---|---|
 | depth | depth below sea surface | m |
@@ -114,6 +116,25 @@ Integrated wave parameters are stored hourly over the domain at the native model
 | tpsswe | smooth relative peak wave period of swell waves above 8 seconds period | s |
 | xwnd | eastward component of wind velocity | m/s |
 | ywnd | northward component of wind velocity | m/s |
+
+---
+
+## Spectra output
+
+Frequency-direction wave spectra are stored hourly at the spectra output sites within the domain. Table 3 describes the spectra output variables, using the exact variable names served by Datamesh.
+
+**Table 3.** Spectra output variables.
+
+*Spectra are defined on the `time`, `site`, `freq` and `dir` coordinates; `lon` and `lat` are per-site data variables giving each site's location.*
+
+| Variable | Long Name | Units |
+|---|---|---|
+| efth | sea surface wave variance spectral density | m² s / deg |
+| dpt | water depth | m |
+| wspd | wind speed | m/s |
+| wdir | wind direction | degree |
+| lat | latitude | degrees_north |
+| lon | longitude | degrees_east |
 
 ---
 

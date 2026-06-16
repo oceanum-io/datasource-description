@@ -152,6 +152,8 @@ Integrated wave parameters are stored hourly over each domain at the native mode
 
 **Table 3.** Gridded output parameters.
 
+*All parameters are defined on the `time`, `latitude` and `longitude` coordinates.*
+
 | Variable | Long Name | Units |
 |---|---|---|
 | depth | depth below sea surface | m |
@@ -201,13 +203,16 @@ Frequency-direction wave spectra are stored hourly at selected sites across all 
 
 **Table 4.** Spectra output parameters.
 
+*Spectra are defined on the `time`, `site`, `freq` and `dir` coordinates; `lon` and `lat` are per-site data variables giving each site's location.*
+
 | Variable | Long Name | Units |
 |---|---|---|
 | efth | sea surface wave variance spectral density | m² s / deg |
+| dpt | water depth | m |
+| wspd | wind speed | m/s |
+| wdir | wind direction | degree |
 | lat | latitude | degrees_north |
 | lon | longitude | degrees_east |
-| freq | frequency | Hz |
-| dir | direction | degree |
 
 ---
 

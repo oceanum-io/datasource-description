@@ -67,10 +67,6 @@ Collection of Datamesh datasource description documents.
 - [Oceanum Western Europe Wave Forecast](./oceanum_western_europe_wave_forecast.md)
 - [Oceanum New Zealand Wave Forecast](./oceanum_new_zealand_wave_forecast.md)
 
-### GFS Forced Regional Forecasts
-
-- [Oceanum Auckland Wave Forecast](./oceanum_auckland_wave_forecast_specification.pdf)
-
 ### ECMWF Forced Regional Forecasts
 
 - [Oceanum Baltic Sea ECMWF Wave Forecast](./oceanum_baltic_sea_wave_forecast.md)

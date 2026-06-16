@@ -155,9 +155,48 @@ print("n freqs:", len(ds.freq.values), "f0:", ds.freq.values[0], "fmax:", ds.fre
 
 **Directional resolution:** dd degrees (e.g. dd=10 → 36 directional bins; dd=360/ndirs)
 
-**Partition types** — inspect the variable list:
-- `hs_sea` / `hs_sw` present → sea/swell split at 8-second period
-- `phs0`, `phs1`, `phs2`, `phs3` present → watershed partitions (phs0 = wind-forced, phs1-3 = swell)
+**Partition types** — inspect the variable list (use the exact Datamesh names, not friendly aliases):
+- `hsea` / `hswe` present → sea/swell split at 8-second period
+- `phs0`, `phs1`, `phs2`, `phs3` present → watershed partitions (phs0 = wind-forced, phs1-3 = swell). Partition count varies by deployment: 3 partitions → `*0`–`*2`, 4 partitions → `*0`–`*3`. Each partition has a full set: `phs*` (height), `ptp*` (period), `pdir*` (direction), `pdspr*` (directional spread), `pwlen*` (wavelength).
+
+**Always derive Table 2 from the live variable list** (`conn.get_datasource(grid_id).variables`), taking the **union across all the document's grid datasources** (nests/forcings), and use the **exact Datamesh variable names**. Notes:
+- Include **both** `botl` (depth below mean sea level) **and** `depth` (depth below sea surface) when both are served — coarser/parent nests often have `botl`, reduced nests may have only `depth`.
+- Include `xcur` / `ycur` only when the grid actually **outputs** currents (some domains force with currents but do not output them — verify against the served variable list, not the prose).
+- Include `icec` (sea ice cover) for ice-affected domains (e.g. Baltic).
+- Wind components are `xwnd` / `ywnd` in most deployments (some older ones use `uwnd` / `vwnd`) — use whatever the datasource serves.
+
+**Canonical long names / units** (Table 2 — use these exact strings for common variables; list rows alphabetically by variable name):
+
+| Variable | Long Name | Units |
+|---|---|---|
+| botl | depth below mean sea level | m |
+| depth | depth below sea surface | m |
+| dpm | mean direction at the spectral peak of wind and swell waves | degree |
+| dpmsea | mean direction at the spectral peak of wind waves below 8 seconds period | degree |
+| dpmswe | mean direction at the spectral peak of swell waves above 8 seconds period | degree |
+| dspr | directional spreading of wind and swell waves | degree |
+| fspr | normalised width of the frequency spectrum of wind and swell waves | - |
+| hs | significant height of wind and swell waves | m |
+| hsea | significant height of wind waves under 8 seconds period | m |
+| hswe | significant height of swell waves above 8 seconds period | m |
+| icec | sea ice cover | - |
+| pdir{N} | mean direction of {wind waves \| primary \| secondary \| tertiary swell waves} (partition N) | degree |
+| pdspr{N} | directional spreading of {…} (partition N) | degree |
+| phs{N} | significant height of {…} (partition N) | m |
+| ptp{N} | peak period of {…} (partition N) | s |
+| pwlen{N} | mean wavelength of {…} (partition N) | m |
+| tm01 | mean absolute wave period of wind and swell waves from the first frequency moment | s |
+| tm02 | mean absolute wave period of wind and swell waves from the second frequency moment | s |
+| tps | smooth relative peak wave period of wind and swell waves | s |
+| tpssea | smooth relative peak wave period of wind waves below 8 seconds period | s |
+| tpsswe | smooth relative peak wave period of swell waves above 8 seconds period | s |
+| qb | fraction of breaking waves | - |
+| xcur | eastward component of tidal current velocity | m/s |
+| ycur | northward component of tidal current velocity | m/s |
+| xwnd | eastward component of wind velocity | m/s |
+| ywnd | northward component of wind velocity | m/s |
+
+Partition labels: 0 = wind waves, 1 = primary swell waves, 2 = secondary swell waves, 3 = tertiary swell waves.
 
 ---
 
@@ -373,9 +412,30 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 **Table 2.** Gridded output parameters.
 
+*All parameters are defined on the `time`, `latitude` and `longitude` coordinates.*
+
 | Variable | Long Name | Units |
 |---|---|---|
-[one row per variable from ds.variables — use exact names from Datamesh, match long names and units to those in existing documents for common variables]
+[one row per variable — use the EXACT Datamesh variable names (e.g. `hsea` not `hs_sea`, `pwlen0` not `pwl0`, `icec` not `aice`), taken from the union of `conn.get_datasource(grid_id).variables` across all the document's grid datasources. List alphabetically. Match the canonical long names/units below for common variables.]
+
+---
+
+## Spectra output
+
+Frequency-direction wave spectra are stored hourly at the spectra output sites within the domain. Table 3 describes the spectra output variables, using the exact variable names served by Datamesh.
+
+**Table 3.** Spectra output variables.
+
+*Spectra are defined on the `time`, `site`, `freq` and `dir` coordinates; `lon` and `lat` are per-site data variables giving each site's location.*
+
+| Variable | Long Name | Units |
+|---|---|---|
+| efth | sea surface wave variance spectral density | m² s / deg |
+| dpt | water depth | m |
+| wspd | wind speed | m/s |
+| wdir | wind direction | degree |
+| lat | latitude | degrees_north |
+| lon | longitude | degrees_east |
 
 ---
 
@@ -485,9 +545,30 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 **Table 2.** Gridded output parameters.
 
+*All parameters are defined on the `time`, `latitude` and `longitude` coordinates.*
+
 | Variable | Long Name | Units |
 |---|---|---|
-[one row per variable]
+[one row per variable — EXACT Datamesh names, union across all GFS and ECMWF grid datasources (nests included), alphabetical. See the Table 2 notes in the hindcast template and the canonical variable reference below.]
+
+---
+
+## Spectra output
+
+Frequency-direction wave spectra are stored hourly at the spectra output sites within the domain. Table 3 describes the spectra output variables, using the exact variable names served by Datamesh.
+
+**Table 3.** Spectra output variables.
+
+*Spectra are defined on the `time`, `site`, `freq` and `dir` coordinates; `lon` and `lat` are per-site data variables giving each site's location.*
+
+| Variable | Long Name | Units |
+|---|---|---|
+| efth | sea surface wave variance spectral density | m² s / deg |
+| dpt | water depth | m |
+| wspd | wind speed | m/s |
+| wdir | wind direction | degree |
+| lat | latitude | degrees_north |
+| lon | longitude | degrees_east |
 
 ---
 
@@ -621,6 +702,8 @@ Before finishing, verify each item:
 - [ ] Frequency range calculated correctly: f_max = f0 × df^(nfcell−1)
 - [ ] Number of spectra sites verified via Datamesh query
 - [ ] Partition types correctly identified from actual variable names
+- [ ] Table 2 uses EXACT Datamesh variable names (union across all grid datasources), verified via `get_datasource(...).variables`
+- [ ] Table 3 (spectra output variables) present
 - [ ] Figure generated and saved to `figures/`
 - [ ] All Datamesh datasource IDs confirmed against intake catalog (don't guess)
 - [ ] README.md updated
