@@ -30,7 +30,7 @@ Wind forcing is provided by either the <a href="https://www.ncep.noaa.gov/produc
 
 The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 32 frequency bins, covering a frequency range from 0.037 to 0.71 Hz with 10% logarithmic increments. The parent grid features a 5 km (0.05 degree) resolution spanning New Zealand's Exclusive Economic Zone, with progressively finer nested grids for coastal applications.
 
-The dataset provides hourly forecast estimates for key ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. GFS-forced forecasts are archived for 30 days and ECMWF-forced forecasts for 7 days, and frequency-direction wave spectra are available at selected sites across all domains. Nowcast datasets are also available for both forcing configurations, constructed by retaining the most recent data from each forecast cycle to provide a continuous near-real-time historical record.
+The dataset provides hourly forecast estimates for key ocean wave parameters (Table 3) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. GFS-forced forecasts are archived for 30 days and ECMWF-forced forecasts for 7 days, and frequency-direction wave spectra are available at selected sites across all domains. Nowcast datasets are also available for both forcing configurations, constructed by retaining the most recent data from each forecast cycle to provide a continuous near-real-time historical record.
 
 <img src="./figures/nz_gfs_figure1_hs_mean.png" alt="Figure 1" width="600">
 
@@ -66,6 +66,8 @@ The wave model physics and calibration have been validated against satellite alt
 | **Boundary** | Oceanum Global WW3 wave forecast (GFS or ECMWF forced) |
 
 ### Nested domains
+
+**Table 2.** Nested domain overview.
 
 | Domain | Resolution | Bounds | Spectra sites |
 |--------|------------|--------|---------------|
@@ -177,9 +179,9 @@ Each domain is available in both GFS-forced (6-hourly updates) and ECMWF-forced 
 
 ## Gridded output parameters
 
-Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 2 describes the gridded output parameters.
+Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 3 describes the gridded output parameters.
 
-**Table 2.** Gridded output parameters.
+**Table 3.** Gridded output parameters.
 
 *All parameters are defined on the `time`, `latitude` and `longitude` coordinates.*
 
@@ -231,7 +233,7 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 Frequency-direction wave spectra are stored hourly at selected sites across all domains with spectra output: 2390 sites in the New Zealand 5 km parent domain, 552 in the Auckland 1 km domain, 536 in the Eastern Auckland 200 m domain, 22 in the Taranaki 1 km domain, 7 in the Port Taranaki 25 m domain, 192 in the Otago 1 km domain, 14 in the Dunedin 250 m domain, 214 in the Hawke Bay 1 km domain, and 4 in the Napier 50 m domain. Spectra are discretised into 36 directional bins (10 degree resolution) and 32 frequency bins (0.037 - 0.71 Hz at 10% logarithmic increments).
 
-**Table 3.** Spectra output parameters.
+**Table 4.** Spectra output parameters.
 
 *Spectra are defined on the `time`, `site`, `freq` and `dir` coordinates; `lon` and `lat` are per-site data variables giving each site's location.*
 

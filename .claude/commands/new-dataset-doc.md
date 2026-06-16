@@ -322,6 +322,10 @@ Reuse the hindcast figure. No new figure needed.
 
 Create the file `oceanum_[region]_wave_hindcast.md` (or `_forecast.md`, `_ccam_hindcast.md`). Use the exact template for the document type below.
 
+**Every table must have a `**Table N.**` caption, numbered sequentially in order of appearance.** The templates below are for single-domain deployments (Table 1 = Data description, Table 2 = Gridded output, Table 3 = Spectra output).
+
+**Multi-nest deployments** additionally include a **Nested domain overview** table (one row per nest, with a `Spectra sites` column). Give it the caption `**Table 2.** Nested domain overview.` placed under the `### Nested domains` heading, and **renumber the following tables accordingly** (Gridded output → Table 3, Spectra output → Table 4, Gridstats → Table 5), updating every in-text `(Table N)` reference to match. Fill the `Spectra sites` column for **every** nest that outputs spectra (query each nest's `_spec` datasource: `len(conn.query(datasource=spec_id, variables=["lon"]).lon)`); use `-` only for nests that genuinely produce no spectra.
+
 ### Wave hindcast template
 
 ```markdown
@@ -704,6 +708,8 @@ Before finishing, verify each item:
 - [ ] Partition types correctly identified from actual variable names
 - [ ] Table 2 uses EXACT Datamesh variable names (union across all grid datasources), verified via `get_datasource(...).variables`
 - [ ] Table 3 (spectra output variables) present
+- [ ] Every table has a `**Table N.**` caption, numbered sequentially; for multi-nest docs the nested-domain table is captioned and following tables renumbered (with in-text references updated)
+- [ ] `Spectra sites` filled for every nest that outputs spectra (verified via Datamesh)
 - [ ] Figure generated and saved to `figures/`
 - [ ] All Datamesh datasource IDs confirmed against intake catalog (don't guess)
 - [ ] README.md updated

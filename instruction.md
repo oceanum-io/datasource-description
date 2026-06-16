@@ -86,10 +86,13 @@ Every hindcast document must include these sections in order:
 6. **Figure 1** - Mean significant wave height map with spectra sites
 7. **Validation** - Link to satellite validation app
 8. **Data Description (Table 1)** - Metadata summary
-9. **Linked Datamesh Datasources** - Links to grid and spectra datasets
-10. **Gridded Output Parameters (Table 2)** - Variable descriptions (exact Datamesh names)
-11. **Spectra Output (Table 3)** - Spectra variable descriptions (exact Datamesh names)
-12. **Footer** - www.oceanum.science
+9. **Nested domain overview (Table 2)** - *multi-nest deployments only* — one row per nest with a `Spectra sites` column; shifts the following table numbers
+10. **Linked Datamesh Datasources** - Links to grid and spectra datasets
+11. **Gridded Output Parameters (Table 2, or Table 3 if a nested-domain table is present)** - Variable descriptions (exact Datamesh names)
+12. **Spectra Output (Table 3, or Table 4 if a nested-domain table is present)** - Spectra variable descriptions (exact Datamesh names)
+13. **Footer** - www.oceanum.science
+
+> **Table captions & numbering**: every table needs a `**Table N.**` caption, numbered sequentially in order of appearance. Multi-nest documents include a **Nested domain overview** table — caption it `**Table 2.** Nested domain overview.`, then renumber the gridded/spectra/gridstats tables (Table 3/4/5) and update every in-text `(Table N)` reference. Fill the `Spectra sites` column for every nest that outputs spectra (verify counts via Datamesh; use `-` only where a nest genuinely has no spectra output).
 
 ### 2.2 Template Structure
 

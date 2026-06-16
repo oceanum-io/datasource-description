@@ -34,7 +34,7 @@ The modelling setup employs the <a href="https://journals.ametsoc.org/view/journ
 - **Abrolhos Islands 500 m** (0.005°): High-resolution nest covering 113.5–114.9°E, 29.1–28.1°S
 - **Perth 500 m** (0.005°): High-resolution nest covering 115.3–115.8°E, 32.5–31.8°S
 
-The dataset provides hourly forecast estimates for key ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. Forecasts are archived for 30 days, and frequency-direction wave spectra are available at selected sites across all domains. Nowcast datasets are also available, constructed by retaining the most recent data from each forecast cycle to provide a continuous near-real-time historical record.
+The dataset provides hourly forecast estimates for key ocean wave parameters (Table 3) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. Forecasts are archived for 30 days, and frequency-direction wave spectra are available at selected sites across all domains. Nowcast datasets are also available, constructed by retaining the most recent data from each forecast cycle to provide a continuous near-real-time historical record.
 
 <img src="./figures/swwa_figure1_domain.png" alt="Figure 1" width="600">
 
@@ -88,6 +88,8 @@ Figure 3 shows the spatial distribution of validation statistics across the doma
 
 ### Nested domains
 
+**Table 2.** Nested domain overview.
+
 | Domain | Resolution | Bounds | Spectra sites |
 |--------|------------|--------|---------------|
 | Southwest Western Australia | 0.05° (~5 km) | 112–116.5°E, 34–27°S | 281 |
@@ -140,9 +142,9 @@ Figure 3 shows the spatial distribution of validation statistics across the doma
 
 ## Integrated parameters gridded output
 
-Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 2 describes long names and units of the 38 gridded output parameters, including one wind-forced partition and up to three swell partitions from the Watershed method.
+Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 3 describes long names and units of the 38 gridded output parameters, including one wind-forced partition and up to three swell partitions from the Watershed method.
 
-**Table 2.** Gridded output parameters.
+**Table 3.** Gridded output parameters.
 
 *All parameters are defined on the `time`, `latitude` and `longitude` coordinates.*
 
@@ -193,7 +195,7 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 Frequency-direction wave spectra are stored hourly at selected sites across all domains: 281 sites in the Southwest Western Australia 5 km parent domain, 159 sites in the Abrolhos Islands 500 m domain, and 110 sites in the Perth 500 m domain. Spectra are discretised into 36 directional bins (10 degree resolution) and 32 frequency bins (0.037 - 0.71 Hz at 10% logarithmic increments).
 
-**Table 3.** Spectra output parameters.
+**Table 4.** Spectra output parameters.
 
 *Spectra are defined on the `time`, `site`, `freq` and `dir` coordinates; `lon` and `lat` are per-site data variables giving each site's location.*
 

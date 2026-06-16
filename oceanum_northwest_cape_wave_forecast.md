@@ -34,7 +34,7 @@ The modelling setup employs the <a href="https://journals.ametsoc.org/view/journ
 - **Gascoyne 500 m** (0.005°): Intermediate nest covering 113E-113.9E, 25.3S-24S
 - **Cape Cuvier 50 m** (0.0005°): Ultra-high resolution nest covering 113.36E-113.435E, 24.25S-24.2S
 
-The dataset provides hourly forecast estimates for key ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to two swell partitions. Forecasts are archived for 30 days, and frequency-direction wave spectra are available at selected sites in the Cape Cuvier 50 m domain. Nowcast datasets are also available for the Cape Cuvier domain, constructed by retaining the most recent data from each forecast cycle to provide a continuous near-real-time historical record.
+The dataset provides hourly forecast estimates for key ocean wave parameters (Table 3) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to two swell partitions. Forecasts are archived for 30 days, and frequency-direction wave spectra are available at selected sites in the Cape Cuvier 50 m domain. Nowcast datasets are also available for the Cape Cuvier domain, constructed by retaining the most recent data from each forecast cycle to provide a continuous near-real-time historical record.
 
 <img src="./figures/nwcape_figure1_domain.png" alt="Figure 1" width="600">
 
@@ -74,6 +74,8 @@ The wave model physics and calibration follow the same approach validated agains
 | **Boundary** | Oceanum Global WW3 wave forecast (GFS or ECMWF forced) |
 
 ### Nested domains
+
+**Table 2.** Nested domain overview.
 
 | Domain | Resolution | Bounds | Spectra sites |
 |--------|------------|--------|---------------|
@@ -121,9 +123,9 @@ The wave model physics and calibration follow the same approach validated agains
 
 ## Integrated parameters gridded output
 
-Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 2 describes long names and units of the 21 gridded output parameters, including one wind-forced partition and two swell partitions from the Watershed method.
+Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 3 describes long names and units of the 21 gridded output parameters, including one wind-forced partition and two swell partitions from the Watershed method.
 
-**Table 2.** Gridded output parameters.
+**Table 3.** Gridded output parameters.
 
 *All parameters are defined on the `time`, `latitude` and `longitude` coordinates.*
 
@@ -167,7 +169,7 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 Frequency-direction wave spectra are stored hourly at 1 selected site in the Cape Cuvier 50 m domain. Spectra are discretised into 36 directional bins (10 degree resolution) and 32 frequency bins (0.037 - 0.71 Hz at 10% logarithmic increments).
 
-**Table 3.** Spectra output parameters.
+**Table 4.** Spectra output parameters.
 
 *Spectra are defined on the `time`, `site`, `freq` and `dir` coordinates; `lon` and `lat` are per-site data variables giving each site's location.*
 
