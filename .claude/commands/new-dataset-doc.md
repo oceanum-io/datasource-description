@@ -206,7 +206,15 @@ In **Table 2 and Table 3**, hyperlink each variable name (first column) to its N
 | <a href="https://vocab.nerc.ac.uk/standard_name/<standard_name>/" target="_blank">hs</a> | significant height of wind and swell waves | m |
 ```
 
-**Do not trust the `standard_name` attribute stored in the datasource** — many are Oceanum-adapted and 404 on NERC (e.g. `sea_surface_below_8s_period_wave_significant_height`, `..._at_10m_above_ground_level`). Always **verify each URL resolves (HTTP 200)** before linking; correct adapted names to canonical CF (`below_8s_period`→`wind_wave`, `above_8s_period`→`swell_wave`, drop `_at_10m_above_ground_level`, `..._mean_from_direction`→`..._from_direction`). Leave a variable **unlinked** (plain text) if no NERC page exists.
+Add an italic note under each variable-table caption stating that variables are linked (and naming the coordinate axes), e.g.:
+
+```markdown
+**Table 2.** Gridded output parameters.
+
+*Variable names link to the corresponding <a href="https://vocab.nerc.ac.uk/standard_name/" target="_blank">NERC Vocabulary Server</a> standard name where available. All parameters are defined on the `time`, `latitude` and `longitude` coordinates.*
+```
+
+**Do not trust the `standard_name` attribute stored in the datasource** — many are Oceanum-adapted and 404 on NERC (e.g. `sea_surface_below_8s_period_wave_significant_height`, `..._at_10m_above_ground_level`). Always **verify each URL resolves (HTTP 200)** before linking; correct adapted names to canonical CF (`below_8s_period`→`wind_wave`, `above_8s_period`→`swell_wave`, drop `_at_10m_above_ground_level`, `..._mean_from_direction`→`..._from_direction`). Leave a variable **unlinked** (plain text) if no NERC page exists. This applies to **all** variable tables, including the CCAM atmospheric output table.
 
 Verified `variable → standard_name` (all confirmed 200):
 
@@ -247,6 +255,44 @@ Verified `variable → standard_name` (all confirmed 200):
 | lon | longitude |
 
 **No NERC standard name exists** (leave unlinked): `fspr`, `qb`, `lm`, `pwlen0-3`, `plp0-4`, `pdp0-4` (partition peak direction), `pws0-4`, `pt021-024`, and all **partition-4 / quaternary** variables (`phs4`, `ptp4`, `pdir4`, `pspr4`). Gridstats variables (`hs_mean`, `tp_quantile`, …) also have no standard name.
+
+**CCAM atmospheric** `variable → standard_name` (all confirmed 200):
+
+| Variables | standard_name |
+|---|---|
+| ta | air_temperature |
+| ts | surface_temperature |
+| tsea | sea_surface_temperature |
+| td | dew_point_temperature |
+| theta | air_potential_temperature |
+| ps | surface_air_pressure |
+| psl | air_pressure_at_mean_sea_level |
+| press | air_pressure |
+| pr, prmax, prhmax | precipitation_flux |
+| prc | convective_precipitation_flux |
+| hus | specific_humidity |
+| huss | humidity_mixing_ratio |
+| rh | relative_humidity |
+| ua, uas | eastward_wind |
+| va, vas | northward_wind |
+| wspd, wspdsfc | wind_speed |
+| u10max | wind_speed_of_gust |
+| tauu | surface_downward_eastward_stress |
+| tauv | surface_downward_northward_stress |
+| cfrac, clt | cloud_area_fraction |
+| clh, cll, clm | cloud_area_fraction_in_atmosphere_layer |
+| cbas_ave | cloud_base_altitude |
+| ctop_ave | cloud_top_altitude |
+| rsds | surface_downwelling_shortwave_flux_in_air |
+| rlds | surface_downwelling_longwave_flux_in_air |
+| dni | surface_direct_downwelling_shortwave_flux_in_air |
+| sgn_ave | surface_net_downward_shortwave_flux |
+| rgn_ave | surface_net_upward_longwave_flux |
+| rnet | surface_net_downward_radiative_flux |
+| orog | surface_altitude |
+| zg | geopotential_height |
+| zmla | atmosphere_boundary_layer_thickness |
+| zolnd | surface_roughness_length |
 
 ---
 
@@ -705,9 +751,11 @@ Atmospheric variables are stored hourly over the domain at the native model reso
 
 **Table 2.** Output parameters.
 
+*Variable names link to the corresponding <a href="https://vocab.nerc.ac.uk/standard_name/" target="_blank">NERC Vocabulary Server</a> standard name where available.*
+
 | Variable | Long Name | Units |
 |---|---|---|
-[one row per variable from ds.variables]
+[one row per variable from ds.variables — hyperlink each variable name to its NERC standard-name page (see the CCAM map in Step 5); verify each URL returns 200]
 
 ---
 

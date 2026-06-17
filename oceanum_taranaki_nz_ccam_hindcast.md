@@ -65,39 +65,41 @@ Atmospheric variables are stored hourly over the domain at the native model reso
 
 **Table 2.** Output parameters.
 
+*Variable names link to the corresponding <a href="https://vocab.nerc.ac.uk/standard_name/" target="_blank">NERC Vocabulary Server</a> standard name where available.*
+
 | Variable | Long Name | Units |
 |---|---|---|
-| cfrac | cloud fraction | - |
-| clh | high cloud cover | % |
-| cll | low cloud cover | % |
-| clm | mid cloud cover | % |
-| clt | total cloud cover | % |
-| dni | direct normal irradiance | W/m² |
-| hus | water vapour mixing ratio | kg/kg |
-| huss | screen mixing ratio | kg/kg |
-| orog | surface height | m |
-| pr | precipitation | kg/m²/s |
-| prc | convective precipitation | kg/m²/s |
-| press | air pressure | hPa |
-| prmax | maximum precipitation rate in a timestep | kg/m²/s |
-| ps | surface pressure | Pa |
-| psl | mean sea level pressure | Pa |
-| rlds | LW downwelling at ground | W/m² |
-| rnet | net radiation at surface | W/m² |
-| rsds | SW downwelling at ground | W/m² |
-| sgn_ave | SW net at ground | W/m² |
-| ta | air temperature | K |
-| td | dew point temperature | K |
-| ts | surface temperature | K |
-| tsea | sea surface temperature | K |
-| u10max | x-component max 10m wind | m/s |
-| ua | zonal wind | m/s |
-| uas | x-component 10m wind | m/s |
-| va | meridional wind | m/s |
-| vas | y-component 10m wind | m/s |
-| zg | geopotential height | m |
-| zmla | PBL depth | m |
-| zolnd | surface roughness | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/cloud_area_fraction/" target="_blank">cfrac</a> | cloud fraction | - |
+| <a href="https://vocab.nerc.ac.uk/standard_name/cloud_area_fraction_in_atmosphere_layer/" target="_blank">clh</a> | high cloud cover | % |
+| <a href="https://vocab.nerc.ac.uk/standard_name/cloud_area_fraction_in_atmosphere_layer/" target="_blank">cll</a> | low cloud cover | % |
+| <a href="https://vocab.nerc.ac.uk/standard_name/cloud_area_fraction_in_atmosphere_layer/" target="_blank">clm</a> | mid cloud cover | % |
+| <a href="https://vocab.nerc.ac.uk/standard_name/cloud_area_fraction/" target="_blank">clt</a> | total cloud cover | % |
+| <a href="https://vocab.nerc.ac.uk/standard_name/surface_direct_downwelling_shortwave_flux_in_air/" target="_blank">dni</a> | direct normal irradiance | W/m² |
+| <a href="https://vocab.nerc.ac.uk/standard_name/specific_humidity/" target="_blank">hus</a> | water vapour mixing ratio | kg/kg |
+| <a href="https://vocab.nerc.ac.uk/standard_name/humidity_mixing_ratio/" target="_blank">huss</a> | screen mixing ratio | kg/kg |
+| <a href="https://vocab.nerc.ac.uk/standard_name/surface_altitude/" target="_blank">orog</a> | surface height | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/precipitation_flux/" target="_blank">pr</a> | precipitation | kg/m²/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/convective_precipitation_flux/" target="_blank">prc</a> | convective precipitation | kg/m²/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/air_pressure/" target="_blank">press</a> | air pressure | hPa |
+| <a href="https://vocab.nerc.ac.uk/standard_name/precipitation_flux/" target="_blank">prmax</a> | maximum precipitation rate in a timestep | kg/m²/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/surface_air_pressure/" target="_blank">ps</a> | surface pressure | Pa |
+| <a href="https://vocab.nerc.ac.uk/standard_name/air_pressure_at_mean_sea_level/" target="_blank">psl</a> | mean sea level pressure | Pa |
+| <a href="https://vocab.nerc.ac.uk/standard_name/surface_downwelling_longwave_flux_in_air/" target="_blank">rlds</a> | LW downwelling at ground | W/m² |
+| <a href="https://vocab.nerc.ac.uk/standard_name/surface_net_downward_radiative_flux/" target="_blank">rnet</a> | net radiation at surface | W/m² |
+| <a href="https://vocab.nerc.ac.uk/standard_name/surface_downwelling_shortwave_flux_in_air/" target="_blank">rsds</a> | SW downwelling at ground | W/m² |
+| <a href="https://vocab.nerc.ac.uk/standard_name/surface_net_downward_shortwave_flux/" target="_blank">sgn_ave</a> | SW net at ground | W/m² |
+| <a href="https://vocab.nerc.ac.uk/standard_name/air_temperature/" target="_blank">ta</a> | air temperature | K |
+| <a href="https://vocab.nerc.ac.uk/standard_name/dew_point_temperature/" target="_blank">td</a> | dew point temperature | K |
+| <a href="https://vocab.nerc.ac.uk/standard_name/surface_temperature/" target="_blank">ts</a> | surface temperature | K |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_temperature/" target="_blank">tsea</a> | sea surface temperature | K |
+| <a href="https://vocab.nerc.ac.uk/standard_name/wind_speed_of_gust/" target="_blank">u10max</a> | x-component max 10m wind | m/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/eastward_wind/" target="_blank">ua</a> | zonal wind | m/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/eastward_wind/" target="_blank">uas</a> | x-component 10m wind | m/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/northward_wind/" target="_blank">va</a> | meridional wind | m/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/northward_wind/" target="_blank">vas</a> | y-component 10m wind | m/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/geopotential_height/" target="_blank">zg</a> | geopotential height | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/atmosphere_boundary_layer_thickness/" target="_blank">zmla</a> | PBL depth | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/surface_roughness_length/" target="_blank">zolnd</a> | surface roughness | m |
 
 ---
 

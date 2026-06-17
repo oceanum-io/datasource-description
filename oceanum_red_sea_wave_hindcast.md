@@ -76,7 +76,7 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 **Table 2.** Gridded output parameters.
 
-*All parameters are defined on the `time`, `latitude` and `longitude` coordinates.*
+*Variable names link to the corresponding <a href="https://vocab.nerc.ac.uk/standard_name/" target="_blank">NERC Vocabulary Server</a> standard name where available. All parameters are defined on the `time`, `latitude` and `longitude` coordinates.*
 
 | Variable | Long Name | Units |
 |---|---|---|
@@ -125,7 +125,7 @@ Frequency-direction wave spectra are stored hourly at the spectra output sites w
 
 **Table 3.** Spectra output variables.
 
-*Spectra are defined on the `time`, `site`, `freq` and `dir` coordinates; `lon` and `lat` are per-site data variables giving each site's location.*
+*Variable names link to the corresponding <a href="https://vocab.nerc.ac.uk/standard_name/" target="_blank">NERC Vocabulary Server</a> standard name where available. Spectra are defined on the `time`, `site`, `freq` and `dir` coordinates; `lon` and `lat` are per-site data variables giving each site's location.*
 
 | Variable | Long Name | Units |
 |---|---|---|
