@@ -74,14 +74,14 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 | Variable | Long Name | Units |
 |---|---|---|
-| depth | depth below sea surface | m |
-| hs | significant height of wind and swell waves | m |
-| tps | smooth relative peak wave period of wind and swell waves | s |
-| dpm | mean direction at the spectral peak of wind and swell waves | degree |
-| xwnd | eastward component of wind velocity | m/s |
-| ywnd | northward component of wind velocity | m/s |
-| xcur | eastward component of tidal current velocity | m/s |
-| ycur | northward component of tidal current velocity | m/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_floor_depth_below_sea_surface/" target="_blank">depth</a> | depth below sea surface | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_significant_height/" target="_blank">hs</a> | significant height of wind and swell waves | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_period_at_variance_spectral_density_maximum/" target="_blank">tps</a> | smooth relative peak wave period of wind and swell waves | s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_from_direction_at_variance_spectral_density_maximum/" target="_blank">dpm</a> | mean direction at the spectral peak of wind and swell waves | degree |
+| <a href="https://vocab.nerc.ac.uk/standard_name/eastward_wind/" target="_blank">xwnd</a> | eastward component of wind velocity | m/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/northward_wind/" target="_blank">ywnd</a> | northward component of wind velocity | m/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/eastward_sea_water_velocity/" target="_blank">xcur</a> | eastward component of tidal current velocity | m/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/northward_sea_water_velocity/" target="_blank">ycur</a> | northward component of tidal current velocity | m/s |
 
 ---
 
@@ -95,12 +95,12 @@ Frequency-direction wave spectra are stored hourly at the spectra output sites w
 
 | Variable | Long Name | Units |
 |---|---|---|
-| efth | sea surface wave variance spectral density | m² s / deg |
-| dpt | water depth | m |
-| wspd | wind speed | m/s |
-| wdir | wind direction | degree |
-| lat | latitude | degrees_north |
-| lon | longitude | degrees_east |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_directional_variance_spectral_density/" target="_blank">efth</a> | sea surface wave variance spectral density | m² s / deg |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_floor_depth_below_sea_surface/" target="_blank">dpt</a> | water depth | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/wind_speed/" target="_blank">wspd</a> | wind speed | m/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/wind_from_direction/" target="_blank">wdir</a> | wind direction | degree |
+| <a href="https://vocab.nerc.ac.uk/standard_name/latitude/" target="_blank">lat</a> | latitude | degrees_north |
+| <a href="https://vocab.nerc.ac.uk/standard_name/longitude/" target="_blank">lon</a> | longitude | degrees_east |
 
 ---
 

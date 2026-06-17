@@ -198,6 +198,56 @@ print("n freqs:", len(ds.freq.values), "f0:", ds.freq.values[0], "fmax:", ds.fre
 
 Partition labels: 0 = wind waves, 1 = primary swell waves, 2 = secondary swell waves, 3 = tertiary swell waves.
 
+### NERC vocabulary links
+
+In **Table 2 and Table 3**, hyperlink each variable name (first column) to its NERC Vocabulary Server standard-name page, opening in a new tab:
+
+```html
+| <a href="https://vocab.nerc.ac.uk/standard_name/<standard_name>/" target="_blank">hs</a> | significant height of wind and swell waves | m |
+```
+
+**Do not trust the `standard_name` attribute stored in the datasource** — many are Oceanum-adapted and 404 on NERC (e.g. `sea_surface_below_8s_period_wave_significant_height`, `..._at_10m_above_ground_level`). Always **verify each URL resolves (HTTP 200)** before linking; correct adapted names to canonical CF (`below_8s_period`→`wind_wave`, `above_8s_period`→`swell_wave`, drop `_at_10m_above_ground_level`, `..._mean_from_direction`→`..._from_direction`). Leave a variable **unlinked** (plain text) if no NERC page exists.
+
+Verified `variable → standard_name` (all confirmed 200):
+
+| Variables | standard_name |
+|---|---|
+| hs | sea_surface_wave_significant_height |
+| hsea, phs0 | sea_surface_wind_wave_significant_height |
+| hswe, hswell, phs1 / phs2 / phs3 | sea_surface_swell_wave_significant_height *(use primary/secondary/tertiary for phs1/2/3)* |
+| tps | sea_surface_wave_period_at_variance_spectral_density_maximum |
+| tpssea, ptp0 | sea_surface_wind_wave_period_at_variance_spectral_density_maximum |
+| tpsswe, ptp1/2/3 | sea_surface_{primary,secondary,tertiary}_swell_wave_period_at_variance_spectral_density_maximum |
+| tm01 / t01 | sea_surface_wave_mean_period_from_variance_spectral_density_first_frequency_moment |
+| tm02 / t02 | sea_surface_wave_mean_period_from_variance_spectral_density_second_frequency_moment |
+| t0m1 | sea_surface_wave_mean_period_from_variance_spectral_density_inverse_frequency_moment |
+| pt020 | sea_surface_wind_wave_mean_period_from_variance_spectral_density_second_frequency_moment |
+| dpm / dp | sea_surface_wave_from_direction_at_variance_spectral_density_maximum |
+| dpmsea | sea_surface_wind_wave_from_direction_at_variance_spectral_density_maximum |
+| dpmswe | sea_surface_swell_wave_from_direction_at_variance_spectral_density_maximum |
+| dir | sea_surface_wave_from_direction |
+| pdir0 | sea_surface_wind_wave_from_direction |
+| pdir1/2/3 | sea_surface_{primary,secondary,tertiary}_swell_wave_from_direction |
+| dspr / spr | sea_surface_wave_directional_spread |
+| pdspr0 / pspr0 | sea_surface_wind_wave_directional_spread |
+| pdspr1/2/3, pspr1/2/3 | sea_surface_{primary,secondary,tertiary}_swell_wave_directional_spread |
+| fp | sea_surface_wave_frequency_at_variance_spectral_density_maximum |
+| depth, dpt | sea_floor_depth_below_sea_surface |
+| botl, botlev | sea_floor_depth_below_mean_sea_level |
+| efth | sea_surface_wave_directional_variance_spectral_density |
+| xcur / ucur | eastward_sea_water_velocity |
+| ycur / vcur | northward_sea_water_velocity |
+| xwnd / uwnd | eastward_wind |
+| ywnd / vwnd | northward_wind |
+| wspd / wnd | wind_speed |
+| wdir | wind_from_direction |
+| uss | sea_surface_wave_stokes_drift_speed |
+| icec / ice | sea_ice_area_fraction |
+| lat | latitude |
+| lon | longitude |
+
+**No NERC standard name exists** (leave unlinked): `fspr`, `qb`, `lm`, `pwlen0-3`, `plp0-4`, `pdp0-4` (partition peak direction), `pws0-4`, `pt021-024`, and all **partition-4 / quaternary** variables (`phs4`, `ptp4`, `pdir4`, `pspr4`). Gridstats variables (`hs_mean`, `tp_quantile`, …) also have no standard name.
+
 ---
 
 ## Step 6 — Generate the figure
@@ -420,7 +470,7 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 | Variable | Long Name | Units |
 |---|---|---|
-[one row per variable — use the EXACT Datamesh variable names (e.g. `hsea` not `hs_sea`, `pwlen0` not `pwl0`, `icec` not `aice`), taken from the union of `conn.get_datasource(grid_id).variables` across all the document's grid datasources. List alphabetically. Match the canonical long names/units below for common variables.]
+[one row per variable — use the EXACT Datamesh variable names (e.g. `hsea` not `hs_sea`, `pwlen0` not `pwl0`, `icec` not `aice`), taken from the union of `conn.get_datasource(grid_id).variables` across all the document's grid datasources. List alphabetically. Match the canonical long names/units below for common variables. Hyperlink each variable name to its NERC standard-name page (see "NERC vocabulary links" in Step 5).]
 
 ---
 
@@ -434,12 +484,12 @@ Frequency-direction wave spectra are stored hourly at the spectra output sites w
 
 | Variable | Long Name | Units |
 |---|---|---|
-| efth | sea surface wave variance spectral density | m² s / deg |
-| dpt | water depth | m |
-| wspd | wind speed | m/s |
-| wdir | wind direction | degree |
-| lat | latitude | degrees_north |
-| lon | longitude | degrees_east |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_directional_variance_spectral_density/" target="_blank">efth</a> | sea surface wave variance spectral density | m² s / deg |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_floor_depth_below_sea_surface/" target="_blank">dpt</a> | water depth | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/wind_speed/" target="_blank">wspd</a> | wind speed | m/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/wind_from_direction/" target="_blank">wdir</a> | wind direction | degree |
+| <a href="https://vocab.nerc.ac.uk/standard_name/latitude/" target="_blank">lat</a> | latitude | degrees_north |
+| <a href="https://vocab.nerc.ac.uk/standard_name/longitude/" target="_blank">lon</a> | longitude | degrees_east |
 
 ---
 
@@ -553,7 +603,7 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 | Variable | Long Name | Units |
 |---|---|---|
-[one row per variable — EXACT Datamesh names, union across all GFS and ECMWF grid datasources (nests included), alphabetical. See the Table 2 notes in the hindcast template and the canonical variable reference below.]
+[one row per variable — EXACT Datamesh names, union across all GFS and ECMWF grid datasources (nests included), alphabetical. Hyperlink each variable name to its NERC standard-name page (see Step 5). See the Table 2 notes in the hindcast template and the canonical variable reference below.]
 
 ---
 
@@ -567,12 +617,12 @@ Frequency-direction wave spectra are stored hourly at the spectra output sites w
 
 | Variable | Long Name | Units |
 |---|---|---|
-| efth | sea surface wave variance spectral density | m² s / deg |
-| dpt | water depth | m |
-| wspd | wind speed | m/s |
-| wdir | wind direction | degree |
-| lat | latitude | degrees_north |
-| lon | longitude | degrees_east |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_directional_variance_spectral_density/" target="_blank">efth</a> | sea surface wave variance spectral density | m² s / deg |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_floor_depth_below_sea_surface/" target="_blank">dpt</a> | water depth | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/wind_speed/" target="_blank">wspd</a> | wind speed | m/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/wind_from_direction/" target="_blank">wdir</a> | wind direction | degree |
+| <a href="https://vocab.nerc.ac.uk/standard_name/latitude/" target="_blank">lat</a> | latitude | degrees_north |
+| <a href="https://vocab.nerc.ac.uk/standard_name/longitude/" target="_blank">lon</a> | longitude | degrees_east |
 
 ---
 
@@ -708,6 +758,7 @@ Before finishing, verify each item:
 - [ ] Partition types correctly identified from actual variable names
 - [ ] Table 2 uses EXACT Datamesh variable names (union across all grid datasources), verified via `get_datasource(...).variables`
 - [ ] Table 3 (spectra output variables) present
+- [ ] Each Table 2/Table 3 variable name hyperlinked to its NERC standard-name page (verified HTTP 200, `target="_blank"`); variables without a valid standard name left as plain text
 - [ ] Every table has a `**Table N.**` caption, numbered sequentially; for multi-nest docs the nested-domain table is captioned and following tables renumbered (with in-text references updated)
 - [ ] `Spectra sites` filled for every nest that outputs spectra (verified via Datamesh)
 - [ ] Figure generated and saved to `figures/`

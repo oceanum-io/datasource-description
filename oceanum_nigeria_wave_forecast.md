@@ -100,21 +100,21 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 | Variable | Long Name | Units |
 |---|---|---|
-| depth | depth below sea surface | m |
-| dpm | mean direction at the spectral peak of wind and swell waves | degree |
-| dpmsea | mean direction at the spectral peak of wind waves below 8 seconds period | degree |
-| dpmswe | mean direction at the spectral peak of swell waves above 8 seconds period | degree |
-| dspr | directional spreading of wind and swell waves | degree |
-| hs | significant height of wind and swell waves | m |
-| hsea | significant height of wind waves under 8 seconds period | m |
-| hswe | significant height of swell waves above 8 seconds period | m |
-| tm01 | mean wave period based on first moment | s |
-| tm02 | mean wave period based on second moment | s |
-| tps | peak period of wind and swell waves | s |
-| tpssea | peak period of wind waves below 8 seconds period | s |
-| tpsswe | peak period of swell waves above 8 seconds period | s |
-| xwnd | eastward wind component at 10m | m/s |
-| ywnd | northward wind component at 10m | m/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_floor_depth_below_sea_surface/" target="_blank">depth</a> | depth below sea surface | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_from_direction_at_variance_spectral_density_maximum/" target="_blank">dpm</a> | mean direction at the spectral peak of wind and swell waves | degree |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wind_wave_from_direction_at_variance_spectral_density_maximum/" target="_blank">dpmsea</a> | mean direction at the spectral peak of wind waves below 8 seconds period | degree |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_swell_wave_from_direction_at_variance_spectral_density_maximum/" target="_blank">dpmswe</a> | mean direction at the spectral peak of swell waves above 8 seconds period | degree |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_directional_spread/" target="_blank">dspr</a> | directional spreading of wind and swell waves | degree |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_significant_height/" target="_blank">hs</a> | significant height of wind and swell waves | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wind_wave_significant_height/" target="_blank">hsea</a> | significant height of wind waves under 8 seconds period | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_swell_wave_significant_height/" target="_blank">hswe</a> | significant height of swell waves above 8 seconds period | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_mean_period_from_variance_spectral_density_first_frequency_moment/" target="_blank">tm01</a> | mean wave period based on first moment | s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_mean_period_from_variance_spectral_density_second_frequency_moment/" target="_blank">tm02</a> | mean wave period based on second moment | s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_period_at_variance_spectral_density_maximum/" target="_blank">tps</a> | peak period of wind and swell waves | s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wind_wave_period_at_variance_spectral_density_maximum/" target="_blank">tpssea</a> | peak period of wind waves below 8 seconds period | s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_swell_wave_period_at_variance_spectral_density_maximum/" target="_blank">tpsswe</a> | peak period of swell waves above 8 seconds period | s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/eastward_wind/" target="_blank">xwnd</a> | eastward wind component at 10m | m/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/northward_wind/" target="_blank">ywnd</a> | northward wind component at 10m | m/s |
 
 ---
 
@@ -128,12 +128,12 @@ Frequency-direction wave spectra are stored hourly at the spectra output sites w
 
 | Variable | Long Name | Units |
 |---|---|---|
-| efth | sea surface wave variance spectral density | m² s / deg |
-| dpt | water depth | m |
-| wspd | wind speed | m/s |
-| wdir | wind direction | degree |
-| lat | latitude | degrees_north |
-| lon | longitude | degrees_east |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_directional_variance_spectral_density/" target="_blank">efth</a> | sea surface wave variance spectral density | m² s / deg |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_floor_depth_below_sea_surface/" target="_blank">dpt</a> | water depth | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/wind_speed/" target="_blank">wspd</a> | wind speed | m/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/wind_from_direction/" target="_blank">wdir</a> | wind direction | degree |
+| <a href="https://vocab.nerc.ac.uk/standard_name/latitude/" target="_blank">lat</a> | latitude | degrees_north |
+| <a href="https://vocab.nerc.ac.uk/standard_name/longitude/" target="_blank">lon</a> | longitude | degrees_east |
 
 ---
 
