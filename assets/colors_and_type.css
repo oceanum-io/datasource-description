@@ -185,8 +185,8 @@
 }
 .oc-display-xl { font-size: var(--fs-display-xl); font-weight: var(--fw-light); line-height: var(--lh-tight); letter-spacing: -0.02em; }
 .oc-display    { font-size: var(--fs-display);    font-weight: var(--fw-light); line-height: var(--lh-tight); letter-spacing: -0.015em; }
-.oc-h1 { font-size: var(--fs-h1); font-weight: var(--fw-bold);     line-height: 1.20; }
-.oc-h2 { font-size: var(--fs-h2); font-weight: var(--fw-bold);     line-height: 1.25; }
+.oc-h1 { font-size: var(--fs-h1); font-weight: var(--fw-light);     line-height: 1.20; }
+.oc-h2 { font-size: var(--fs-h2); font-weight: var(--fw-light);     line-height: 1.25; }
 .oc-h3 { font-size: var(--fs-h3); font-weight: var(--fw-semibold); line-height: 1.30; }
 .oc-h4 { font-size: var(--fs-h4); font-weight: var(--fw-semibold); line-height: 1.35; }
 .oc-h5 { font-size: var(--fs-h5); font-weight: var(--fw-medium);   line-height: 1.40; }
