@@ -42,6 +42,7 @@ Collection of Datamesh datasource description documents.
 ### NORA3 Forced Regional Hindcasts
 
 - [Oceanum Baltic Sea NORA3 Wave Hindcast](./oceanum_baltic_sea_wave_hindcast.pdf)
+- [Oceanum Penly NORA3 Wave Hindcast](./oceanum_penly_nora3_wave_hindcast.md)
 - [Oceanum Waddenzee NORA3 Wave Hindcast](./oceanum_waddenzee_nora3_wave_hindcast.md)
 - [Oceanum Western Europe NORA3 Wave Hindcast](./oceanum_western_europe_nora3_wave_hindcast.md)
 
