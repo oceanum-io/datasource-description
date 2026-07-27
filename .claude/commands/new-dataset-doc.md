@@ -794,6 +794,54 @@ details: https://datasets.oceanum.io/oceanum_[region]_wave_hindcast.html
 
 Update both the hindcast grid catalog and the wavespectra catalog. For forecasts, update the forecast catalog (and nowcast catalog if applicable).
 
+### 8.3 Add the domain to the README index map
+
+The README embeds an interactive Leaflet map per section, showing every domain as a clickable bounding box. These are **generated files** — edit the generator, never the HTML:
+
+| Section | Domain list in `scripts/generate_index_maps.py` | Output |
+|---|---|---|
+| Wave Hindcast | `HINDCAST_DOMAINS` | `figures/index_wave_hindcast.html` |
+| Wave Forecast | `FORECAST_DOMAINS` | `figures/index_wave_forecast.html` |
+| Atmospheric Hindcast | `CCAM_DOMAINS` | `figures/index_atmospheric_hindcast.html` |
+
+Add one entry — `(label, x0, y0, x1, y1, document_slug)` — to the right list, placed in its forcing group (the lists are grouped by comment: ERA5 / CFSR / NORA3 / Specialised Coastal) and alphabetical within the group. Use the **same bounds as the document**, and a slug with **no extension** (add the slug to `PDF_SLUGS` only if the document is a PDF):
+
+```python
+("Penly NORA3",   0.4, 49.75,   1.7,  50.3,  "oceanum_penly_nora3_wave_hindcast"),
+```
+
+**Check the colour palette has room.** `COLORS` is indexed by list position, so a domain beyond the end of the palette silently wraps and reuses an existing colour. If the number of regional domains (those spanning ≤ 300° of longitude) now exceeds `len(COLORS)`, append a new distinct hex colour. Verify:
+
+```python
+regionals = [d for d in HINDCAST_DOMAINS if (d[3] - d[1]) <= 300]
+assert len(regionals) <= len(COLORS)
+```
+
+Note that inserting mid-list shifts the colours of every domain after it — this is cosmetic and expected.
+
+Regenerate **only the map you changed**. Running the script's `__main__` rebuilds all three, and Folium assigns fresh random element IDs each run, so untouched maps would churn for no content change:
+
+```bash
+python -c "
+import sys; sys.path.insert(0, 'scripts')
+import generate_index_maps as g
+g.make_map(g.HINDCAST_DOMAINS, center=[20,10], zoom=2,
+           output_path='figures/index_wave_hindcast.html')
+"
+```
+
+Then confirm the new domain is present with the right bounds, URL and a unique colour:
+
+```python
+import re, json
+html = open("figures/index_wave_hindcast.html").read()
+fc = json.loads(re.search(r"var regional = L\.geoJSON\((\{.*?\}\]\}), \{", html, re.S).group(1))
+cols = [f["properties"]["color"] for f in fc["features"]]
+print("features:", len(fc["features"]), "| duplicate colours:", len(cols) - len(set(cols)))
+```
+
+Folium lives in the `prax` virtualenv (`/home/rguedes/.virtualenvs/prax/bin/python`), not the default environment.
+
 ---
 
 ## Quality checklist
@@ -813,3 +861,4 @@ Before finishing, verify each item:
 - [ ] All Datamesh datasource IDs confirmed against intake catalog (don't guess)
 - [ ] README.md updated
 - [ ] Intake catalog `details` field updated with `.html` URL
+- [ ] Domain bbox + document link added to `scripts/generate_index_maps.py` and the affected index map regenerated (only that one), with the new box verified present, uniquely coloured and linking to the right URL

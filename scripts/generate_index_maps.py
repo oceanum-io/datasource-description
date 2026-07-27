@@ -50,6 +50,7 @@ HINDCAST_DOMAINS = [
     ("Black Sea CFSR",             27.3,  40.8,   41.9,  46.7,  "oceanum_black_sea_wave_hindcast"),
     # NORA3
     ("Baltic Sea NORA3",            8.0,  53.0,   30.0,  66.0,  "oceanum_baltic_sea_wave_hindcast"),
+    ("Penly NORA3",                 0.4,  49.75,   1.7,  50.3,  "oceanum_penly_nora3_wave_hindcast"),
     ("Waddenzee NORA3",             4.5,  52.85,   6.4,  53.6,  "oceanum_waddenzee_nora3_wave_hindcast"),
     ("Western Europe NORA3",      -11.0,  48.5,   13.0,  61.0,  "oceanum_western_europe_nora3_wave_hindcast"),
     # Specialised Coastal
@@ -88,6 +89,7 @@ COLORS = [
     "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf",
     "#aec7e8", "#ffbb78", "#98df8a", "#ff9896", "#c5b0d5",
     "#c49c94", "#f7b6d2", "#c7c7c7", "#dbdb8d", "#9edae5",
+    "#393b79",
 ]
 GLOBAL_COLOR = "#999999"
 
