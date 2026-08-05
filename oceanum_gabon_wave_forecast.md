@@ -83,7 +83,7 @@ The wave model physics and calibration follow the same approach validated agains
 
 ## Integrated parameters gridded output
 
-Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 2 describes long names and units of the 21 gridded output parameters, including one wind-forced partition and two swell partitions from the Watershed method.
+Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 2 describes long names and units of the 33 gridded output parameters, including one wind-forced partition and two swell partitions from the Watershed method.
 
 **Table 2.** Gridded output parameters.
 
@@ -120,6 +120,8 @@ Integrated wave parameters are stored hourly over the domain at the native model
 | <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_period_at_variance_spectral_density_maximum/" target="_blank">tps</a> | peak period of wind and swell waves | s |
 | <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wind_wave_period_at_variance_spectral_density_maximum/" target="_blank">tpssea</a> | peak period of wind waves below 8 seconds period | s |
 | <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_swell_wave_period_at_variance_spectral_density_maximum/" target="_blank">tpsswe</a> | peak period of swell waves above 8 seconds period | s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/eastward_sea_water_velocity/" target="_blank">xcur</a> | eastward component of current velocity | m/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/northward_sea_water_velocity/" target="_blank">ycur</a> | northward component of current velocity | m/s |
 | <a href="https://vocab.nerc.ac.uk/standard_name/eastward_wind/" target="_blank">xwnd</a> | eastward wind component at 10m | m/s |
 | <a href="https://vocab.nerc.ac.uk/standard_name/northward_wind/" target="_blank">ywnd</a> | northward wind component at 10m | m/s |
 

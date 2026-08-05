@@ -85,50 +85,71 @@ Integrated wave parameters are stored 3-hourly over the domain at the native mod
 
 | Variable | Long Name | Units |
 |---|---|---|
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_floor_depth_below_sea_surface/" target="_blank">dpt</a> | depth below sea surface | m |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_significant_height/" target="_blank">hs</a> | significant height of wind and swell waves | m |
-| lm | mean wave length | m |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_mean_period_from_variance_spectral_density_second_frequency_moment/" target="_blank">t02</a> | mean wave period (Tm0,2) | s |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_mean_period_from_variance_spectral_density_inverse_frequency_moment/" target="_blank">t0m1</a> | mean wave period (Tm0,-1) | s |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_mean_period_from_variance_spectral_density_first_frequency_moment/" target="_blank">t01</a> | mean wave period (Tm0,1) | s |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_frequency_at_variance_spectral_density_maximum/" target="_blank">fp</a> | peak frequency | Hz |
 | <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_from_direction/" target="_blank">dir</a> | mean wave direction | degree |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_directional_spread/" target="_blank">spr</a> | mean directional spread | degree |
 | <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_from_direction_at_variance_spectral_density_maximum/" target="_blank">dp</a> | peak wave direction | degree |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wind_wave_significant_height/" target="_blank">phs0</a> | significant height of wind waves (partition 0) | m |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_primary_swell_wave_significant_height/" target="_blank">phs1</a> | significant height of primary swell waves (partition 1) | m |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_secondary_swell_wave_significant_height/" target="_blank">phs2</a> | significant height of secondary swell waves (partition 2) | m |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_tertiary_swell_wave_significant_height/" target="_blank">phs3</a> | significant height of tertiary swell waves (partition 3) | m |
-| phs4 | significant height of quaternary swell waves (partition 4) | m |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wind_wave_period_at_variance_spectral_density_maximum/" target="_blank">ptp0</a> | peak period of wind waves (partition 0) | s |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_primary_swell_wave_period_at_variance_spectral_density_maximum/" target="_blank">ptp1</a> | peak period of primary swell waves (partition 1) | s |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_secondary_swell_wave_period_at_variance_spectral_density_maximum/" target="_blank">ptp2</a> | peak period of secondary swell waves (partition 2) | s |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_tertiary_swell_wave_period_at_variance_spectral_density_maximum/" target="_blank">ptp3</a> | peak period of tertiary swell waves (partition 3) | s |
-| ptp4 | peak period of quaternary swell waves (partition 4) | s |
-| plp0 | peak wave length of wind waves (partition 0) | m |
-| plp1 | peak wave length of primary swell waves (partition 1) | m |
-| plp2 | peak wave length of secondary swell waves (partition 2) | m |
-| plp3 | peak wave length of tertiary swell waves (partition 3) | m |
-| plp4 | peak wave length of quaternary swell waves (partition 4) | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_floor_depth_below_sea_surface/" target="_blank">dpt</a> | depth below sea surface | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_frequency_at_variance_spectral_density_maximum/" target="_blank">fp</a> | peak frequency | Hz |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_significant_height/" target="_blank">hs</a> | significant height of wind and swell waves | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_ice_area_fraction/" target="_blank">ice</a> | sea ice concentration | - |
+| lm | mean wave length | m |
+| MAPSTA | status map | - |
 | <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wind_wave_from_direction/" target="_blank">pdir0</a> | mean direction of wind waves (partition 0) | degree |
 | <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_primary_swell_wave_from_direction/" target="_blank">pdir1</a> | mean direction of primary swell waves (partition 1) | degree |
 | <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_secondary_swell_wave_from_direction/" target="_blank">pdir2</a> | mean direction of secondary swell waves (partition 2) | degree |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_tertiary_swell_wave_from_direction/" target="_blank">pdir3</a> | mean direction of tertiary swell waves (partition 3) | degree |
-| pdir4 | mean direction of quaternary swell waves (partition 4) | degree |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wind_wave_directional_spread/" target="_blank">pspr0</a> | directional spreading of wind waves (partition 0) | degree |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_primary_swell_wave_directional_spread/" target="_blank">pspr1</a> | directional spreading of primary swell waves (partition 1) | degree |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_secondary_swell_wave_directional_spread/" target="_blank">pspr2</a> | directional spreading of secondary swell waves (partition 2) | degree |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_tertiary_swell_wave_directional_spread/" target="_blank">pspr3</a> | directional spreading of tertiary swell waves (partition 3) | degree |
-| pspr4 | directional spreading of quaternary swell waves (partition 4) | degree |
 | pdp0 | peak direction of wind waves (partition 0) | degree |
 | pdp1 | peak direction of primary swell waves (partition 1) | degree |
 | pdp2 | peak direction of secondary swell waves (partition 2) | degree |
-| pdp3 | peak direction of tertiary swell waves (partition 3) | degree |
-| pdp4 | peak direction of quaternary swell waves (partition 4) | degree |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_stokes_drift_speed/" target="_blank">uss</a> | surface Stokes drift | m/s |
+| pep0 | energy at peak frequency partition 0 | m2 s/rad |
+| pep1 | energy at peak frequency partition 1 | m2 s/rad |
+| pep2 | energy at peak frequency partition 2 | m2 s/rad |
+| pgw0 | frequency width partition 0 | 1/s |
+| pgw1 | frequency width partition 1 | 1/s |
+| pgw2 | frequency width partition 2 | 1/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wind_wave_significant_height/" target="_blank">phs0</a> | significant height of wind waves (partition 0) | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_primary_swell_wave_significant_height/" target="_blank">phs1</a> | significant height of primary swell waves (partition 1) | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_secondary_swell_wave_significant_height/" target="_blank">phs2</a> | significant height of secondary swell waves (partition 2) | m |
+| plp0 | peak wave length of wind waves (partition 0) | m |
+| plp1 | peak wave length of primary swell waves (partition 1) | m |
+| plp2 | peak wave length of secondary swell waves (partition 2) | m |
+| pnr | number of wave partitions | - |
+| ppe0 | peak enhancement factor partition 0 | - |
+| ppe1 | peak enhancement factor partition 1 | - |
+| ppe2 | peak enhancement factor partition 2 | - |
+| pqp0 | peakedness partition 0 | - |
+| pqp1 | peakedness partition 1 | - |
+| pqp2 | peakedness partition 2 | - |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wind_wave_directional_spread/" target="_blank">pspr0</a> | directional spreading of wind waves (partition 0) | degree |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_primary_swell_wave_directional_spread/" target="_blank">pspr1</a> | directional spreading of primary swell waves (partition 1) | degree |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_secondary_swell_wave_directional_spread/" target="_blank">pspr2</a> | directional spreading of secondary swell waves (partition 2) | degree |
+| psw0 | spectral width partition 0 | - |
+| psw1 | spectral width partition 1 | - |
+| psw2 | spectral width partition 2 | - |
+| pt01c0 | mean period T01 partition 0 | s |
+| pt01c1 | mean period T01 partition 1 | s |
+| pt01c2 | mean period T01 partition 2 | s |
+| pt02c0 | mean period T02 partition 0 | s |
+| pt02c1 | mean period T02 partition 1 | s |
+| pt02c2 | mean period T02 partition 2 | s |
+| ptm10c0 | mean period Tm10 partition 0 | s |
+| ptm10c1 | mean period Tm10 partition 1 | s |
+| ptm10c2 | mean period Tm10 partition 2 | s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wind_wave_period_at_variance_spectral_density_maximum/" target="_blank">ptp0</a> | peak period of wind waves (partition 0) | s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_primary_swell_wave_period_at_variance_spectral_density_maximum/" target="_blank">ptp1</a> | peak period of primary swell waves (partition 1) | s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_secondary_swell_wave_period_at_variance_spectral_density_maximum/" target="_blank">ptp2</a> | peak period of secondary swell waves (partition 2) | s |
+| pws0 | wind sea fraction of partition 0 | - |
+| pws1 | wind sea fraction of partition 1 | - |
+| pws2 | wind sea fraction of partition 2 | - |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_directional_spread/" target="_blank">spr</a> | mean directional spread | degree |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_mean_period_from_variance_spectral_density_inverse_frequency_moment/" target="_blank">t0m1</a> | mean wave period (Tm0,-1) | s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_mean_period_from_variance_spectral_density_first_frequency_moment/" target="_blank">t01</a> | mean wave period (Tm0,1) | s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_mean_period_from_variance_spectral_density_second_frequency_moment/" target="_blank">t02</a> | mean wave period (Tm0,2) | s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_period_at_variance_spectral_density_maximum/" target="_blank">tp</a> | peak wave period | s |
+| tws | wind sea fraction | - |
+| uuss | eastward surface stokes drift | m/s |
+| vuss | northward surface stokes drift | m/s |
+| <a href="https://vocab.nerc.ac.uk/standard_name/wind_speed/" target="_blank">wspd</a> | wind speed | m/s |
 | <a href="https://vocab.nerc.ac.uk/standard_name/eastward_wind/" target="_blank">uwnd</a> | eastward wind component at 10m | m/s |
 | <a href="https://vocab.nerc.ac.uk/standard_name/northward_wind/" target="_blank">vwnd</a> | northward wind component at 10m | m/s |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_ice_area_fraction/" target="_blank">ice</a> | sea ice concentration | - |
 
 ---
 
