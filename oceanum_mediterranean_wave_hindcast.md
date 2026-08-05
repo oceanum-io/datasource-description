@@ -15,7 +15,7 @@ title: Oceanum Mediterranean ERA5 Wave Hindcast
 | **Model** | SWAN 41.31 |
 | **Period** | Feb 1979 - Updating |
 | **Spatial resolution** | 0.1 degree (~10 km) |
-| **Temporal resolution** | 3 hourly |
+| **Temporal resolution** | Hourly |
 | **Region** | 5.5W - 36.2E, 30.3N - 45.85N |
 | **Forcings** | ERA5 winds and Oceanum spectra |
 
@@ -27,7 +27,7 @@ The Mediterranean wave hindcast dataset provides a detailed account of ocean wav
 
 The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 37 frequency bins, covering a frequency range from 0.049 to 1.52 Hz with 10% logarithmic increments. The model features a regular grid with a 10 km (0.1 degree) resolution, spanning the entire Mediterranean Sea from the Strait of Gibraltar to the Levantine Basin.
 
-The dataset provides 3-hourly estimates for an extensive array of ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. These data are stored over the entire grid at native resolution. Additionally, frequency-direction wave spectra are available at 2584 sites distributed across the domain (see Figure 1).
+The dataset provides hourly estimates for an extensive array of ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. These data are stored over the entire grid at native resolution. Additionally, frequency-direction wave spectra are available at 2584 sites distributed across the domain (see Figure 1).
 
 <img src="./figures/mediterranean_figure1_hs_mean.png" alt="Figure 1" width="700">
 
@@ -53,7 +53,7 @@ The wave hindcast can be validated against satellite altimeter observations usin
 | **Source** | <a href="https://swanmodel.sourceforge.io/" target="_blank">SWAN 41.31A</a> |
 | **Source terms** | <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> |
 | **Temporal coverage** | 1979-02-01 to present (updating) |
-| **Temporal resolution** | 3 hourly |
+| **Temporal resolution** | Hourly |
 | **Spatial coverage** | [5.5W, 30.3N, 36.2E, 45.85N] at 0.1 degree |
 | **Spectra output sites** | 2584 |
 | **Frequency discretisation** | 37 frequencies between 0.049 - 1.52 Hz at 10% logarithmic increments |
@@ -64,15 +64,15 @@ The wave hindcast can be validated against satellite altimeter observations usin
 
 ### Linked Datamesh datasources
 
-- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_mediterranean_era5_v1_grid" target="_blank">Oceanum Mediterranean 10 km 3-hourly wave parameters</a>
-- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_mediterranean_era5_v1_spec" target="_blank">Oceanum Mediterranean 10 km 3-hourly wave spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_mediterranean_era5_v1_grid" target="_blank">Oceanum Mediterranean 10 km hourly wave parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_mediterranean_era5_v1_spec" target="_blank">Oceanum Mediterranean 10 km hourly wave spectra</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_mediterranean_era5_v1_gridstats" target="_blank">Oceanum Mediterranean 10 km gridded wave statistics</a>
 
 ---
 
 ## Integrated parameters gridded output
 
-Integrated wave parameters are stored 3-hourly over the domain at the native model resolution. Table 2 describes long names and units of the 39 gridded output parameters, including one wind-forced partition and three swell partitions from the Watershed method.
+Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 2 describes long names and units of the 39 gridded output parameters, including one wind-forced partition and three swell partitions from the Watershed method.
 
 **Table 2.** Gridded output parameters.
 
