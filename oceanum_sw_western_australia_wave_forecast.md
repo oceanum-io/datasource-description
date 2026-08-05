@@ -16,7 +16,7 @@ title: Oceanum Southwest Western Australia Wave Forecast
 | **Forecast horizon** | 7 days |
 | **Spatial resolution** | 0.05 degree (~5 km) to 0.005 degree (~500 m) |
 | **Temporal resolution** | 1 hourly |
-| **Region** | 112E - 116.5E, 34S - 27S |
+| **Region** | 112E - 116.5E, 35S - 27S |
 | **Forcings** | GFS/ECMWF winds, Mercator/TPXO9 currents, and Oceanum spectra |
 | **Update frequency** | 6-hourly (GFS) / 12-hourly (ECMWF) |
 
@@ -30,7 +30,7 @@ Two forcing configurations are available: <a href="https://www.ncep.noaa.gov/pro
 
 The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 32 frequency bins, covering a frequency range from 0.037 to 0.71 Hz with 10% logarithmic increments. The model features a two-level nesting structure:
 
-- **Southwest Western Australia 5 km** (0.05°): Regional parent domain covering 112–116.5°E, 34–27°S
+- **Southwest Western Australia 5 km** (0.05°): Regional parent domain covering 112–116.5°E, 35–27°S
 - **Abrolhos Islands 500 m** (0.005°): High-resolution nest covering 113.5–114.9°E, 29.1–28.1°S
 - **Perth 500 m** (0.005°): High-resolution nest covering 115.3–115.8°E, 32.5–31.8°S
 
@@ -38,7 +38,7 @@ The dataset provides hourly forecast estimates for key ocean wave parameters (Ta
 
 <img src="./figures/swwa_figure1_domain.png" alt="Figure 1" width="600">
 
-**Figure 1.** Southwest Western Australia wave forecast domain extent. The bounding boxes of the Abrolhos Islands 500 m and Perth 500 m nested domains are outlined in black. Spectra output site locations are shown by black dots (281 sites in the parent domain, 159 sites in the Abrolhos Islands domain, and 110 sites in the Perth domain). Depth contours are shown at 200 m, 1000 m, 2000 m, and 4000 m.
+**Figure 1.** Southwest Western Australia wave forecast domain extent. The bounding boxes of the Abrolhos Islands 500 m and Perth 500 m nested domains are outlined in black. Spectra output site locations are shown by black dots (337 sites in the parent domain, 159 sites in the Abrolhos Islands domain, and 110 sites in the Perth domain). Depth contours are shown at 200 m, 1000 m, 2000 m, and 4000 m.
 
 ---
 
@@ -73,10 +73,10 @@ Figure 3 shows the spatial distribution of validation statistics across the doma
 | **Update frequency** | 6-hourly (GFS) / 12-hourly (ECMWF) |
 | **Archive period** | 30 days |
 | **Temporal resolution** | 1 hourly |
-| **Spatial coverage (5km)** | [112E, 34S, 116.5E, 27S] at 0.05 degree |
+| **Spatial coverage (5km)** | [112E, 35S, 116.5E, 27S] at 0.05 degree |
 | **Spatial coverage (500m Abrolhos)** | [113.5E, 29.1S, 114.9E, 28.1S] at 0.005 degree |
 | **Spatial coverage (500m Perth)** | [115.3E, 32.5S, 115.8E, 31.8S] at 0.005 degree |
-| **Spectra sites (5km)** | 281 |
+| **Spectra sites (5km)** | 337 |
 | **Spectra sites (500m Abrolhos)** | 159 |
 | **Spectra sites (500m Perth)** | 110 |
 | **Frequency discretisation** | 32 frequencies between 0.037 - 0.71 Hz at 10% logarithmic increments |
@@ -92,7 +92,7 @@ Figure 3 shows the spatial distribution of validation statistics across the doma
 
 | Domain | Resolution | Bounds | Spectra sites |
 |--------|------------|--------|---------------|
-| Southwest Western Australia | 0.05° (~5 km) | 112–116.5°E, 34–27°S | 281 |
+| Southwest Western Australia | 0.05° (~5 km) | 112–116.5°E, 35–27°S | 337 |
 | Abrolhos Islands | 0.005° (~500 m) | 113.5–114.9°E, 29.1–28.1°S | 159 |
 | Perth | 0.005° (~500 m) | 115.3–115.8°E, 32.5–31.8°S | 110 |
 
@@ -193,7 +193,7 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 ## Spectra output
 
-Frequency-direction wave spectra are stored hourly at selected sites across all domains: 281 sites in the Southwest Western Australia 5 km parent domain, 159 sites in the Abrolhos Islands 500 m domain, and 110 sites in the Perth 500 m domain. Spectra are discretised into 36 directional bins (10 degree resolution) and 32 frequency bins (0.037 - 0.71 Hz at 10% logarithmic increments).
+Frequency-direction wave spectra are stored hourly at selected sites across all domains: 337 sites in the Southwest Western Australia 5 km parent domain, 159 sites in the Abrolhos Islands 500 m domain, and 110 sites in the Perth 500 m domain. Spectra are discretised into 36 directional bins (10 degree resolution) and 32 frequency bins (0.037 - 0.71 Hz at 10% logarithmic increments).
 
 **Table 4.** Spectra output parameters.
 

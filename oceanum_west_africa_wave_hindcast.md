@@ -62,7 +62,7 @@ The wave hindcast can be validated against satellite altimeter observations usin
 | **Direction resolution** | 10 deg |
 | **Bathymetry** | <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2024 Grid</a> |
 | **Winds** | <a href="https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5" target="_blank">ERA5 Reanalysis</a> |
-| **Boundary** | <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_glob05_era5_v1_spec" target="_blank">Oceanum Global WW3 ERA5 hourly wave spectra</a> |
+| **Boundary** | <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_glob05_era5_v1_spec" target="_blank">Oceanum Global WW3 ERA5 3-hourly wave spectra</a> |
 
 ### Linked Datamesh datasources
 
@@ -81,7 +81,7 @@ The wave hindcast can be validated against satellite altimeter observations usin
 
 ## Integrated parameters gridded output
 
-Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 2 describes long names and units of all 37 gridded output parameters, including one wind-forced partition and three swell partitions from the Watershed method.
+Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 2 describes long names and units of all 36 gridded output parameters, including one wind-forced partition and three swell partitions from the Watershed method.
 
 **Table 2.** Gridded output parameters.
 

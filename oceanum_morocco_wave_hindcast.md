@@ -61,7 +61,7 @@ The wave hindcast can be validated against satellite altimeter observations usin
 | **Bathymetry** | <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2025 Grid</a> |
 | **Winds** | <a href="https://data.marine.copernicus.eu/product/WIND_GLO_PHY_L4_MY_012_006/description" target="_blank">Reprocessed ERA5</a> |
 | **Currents** | <a href="https://data.marine.copernicus.eu/product/GLOBAL_MULTIYEAR_PHY_001_030/description" target="_blank">Glorys Reanalysis</a> |
-| **Boundary** | <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_glob05_era5_v1_spec" target="_blank">Oceanum Global WW3 ERA5 hourly wave spectra</a> |
+| **Boundary** | <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_glob05_era5_v1_spec" target="_blank">Oceanum Global WW3 ERA5 3-hourly wave spectra</a> |
 
 ### Linked Datamesh datasources
 

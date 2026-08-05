@@ -25,7 +25,7 @@ title: Oceanum Black Sea CFSR Wave Hindcast
 
 The Black Sea wave hindcast dataset provides a detailed account of ocean wave parameters across the entire Black Sea basin (Figure 1). The domain encompasses the complete Black Sea from the Bosphorus Strait in the southwest to the Sea of Azov connection in the northeast, including the coastal waters of Turkey, Bulgaria, Romania, Ukraine, Russia, and Georgia. Wave spectra are computed over a 45+ year period between 1979 and present using the SWAN (Simulating WAves Nearshore) third-generation spectral wave model. The model is driven by inputs from the Oceanum Global Wave Model for spectral boundaries and <a href="https://cfs.ncep.noaa.gov/" target="_blank">CFSR reanalysis winds</a> from the National Oceanic and Atmospheric Administration (NOAA). The wind forcing transitions from CFSv1 (1979-2010) to CFSv2 (2011-present) to maintain consistency with the available reanalysis products. The hindcast is calibrated against the satellite altimeter dataset of <a href="https://www.nature.com/articles/s41597-019-0083-9" target="_blank">Ribal and Young (2019)</a>. Bathymetry is derived from the <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2024</a> global bathymetric grid.
 
-The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 35 frequency bins, covering a frequency range from 0.0407 to 1.15 Hz with 10% logarithmic increments. The model features a regular grid with a 5 km (0.05 degree) resolution, spanning the entire Black Sea basin.
+The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 36 frequency bins, covering a frequency range from 0.0407 to 1.14 Hz with 10% logarithmic increments. The model features a regular grid with a 5 km (0.05 degree) resolution, spanning the entire Black Sea basin.
 
 The dataset provides hourly estimates for an extensive array of ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. These data are stored over the entire grid at native resolution. Additionally, frequency-direction wave spectra are available at 591 sites distributed across the domain (see Figure 1).
 
@@ -56,11 +56,11 @@ The wave hindcast can be validated against satellite altimeter observations usin
 | **Temporal resolution** | 1 hourly |
 | **Spatial coverage** | [27.3E, 40.8N, 41.9E, 46.7N] at 0.05 degree |
 | **Spectra output sites** | 591 |
-| **Frequency discretisation** | 35 frequencies between 0.0407 - 1.15 Hz at 10% logarithmic increments |
+| **Frequency discretisation** | 36 frequencies between 0.0407 - 1.14 Hz at 10% logarithmic increments |
 | **Direction resolution** | 10 deg |
 | **Bathymetry** | <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2024 Grid</a> |
 | **Winds** | <a href="https://cfs.ncep.noaa.gov/" target="_blank">CFSR Reanalysis</a> (CFSv1 1979-2010, CFSv2 2011-present) |
-| **Boundary** | <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_glob05_era5_v1_spec" target="_blank">Oceanum Global WW3 ERA5 hourly wave spectra</a> |
+| **Boundary** | <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_glob05_era5_v1_spec" target="_blank">Oceanum Global WW3 ERA5 3-hourly wave spectra</a> |
 
 ### Linked Datamesh datasources
 
@@ -80,7 +80,7 @@ Integrated wave parameters are stored hourly over the domain at the native model
 | Variable | Long Name | Units |
 |---|---|---|
 | <a href="https://vocab.nerc.ac.uk/standard_name/sea_floor_depth_below_sea_surface/" target="_blank">depth</a> | depth below sea surface | m |
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_floor_depth_below_mean_sea_level/" target="_blank">botlev</a> | bottom level | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_floor_depth_below_mean_sea_level/" target="_blank">botl</a> | bottom level | m |
 | <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_from_direction_at_variance_spectral_density_maximum/" target="_blank">dpm</a> | mean direction at the spectral peak of wind and swell waves | degree |
 | <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wind_wave_from_direction_at_variance_spectral_density_maximum/" target="_blank">dpmsea</a> | mean direction at the spectral peak of wind waves below 8 seconds period | degree |
 | <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_swell_wave_from_direction_at_variance_spectral_density_maximum/" target="_blank">dpmswe</a> | mean direction at the spectral peak of swell waves above 8 seconds period | degree |

@@ -15,7 +15,7 @@ title: Oceanum Western Europe ERA5 Wave Hindcast
 | **Model** | SWAN 41.31 |
 | **Period** | Feb 1979 - Updating |
 | **Spatial resolution** | 5 km / 1 km |
-| **Temporal resolution** | 3 hourly |
+| **Temporal resolution** | 3 hourly (Western Europe 5 km); hourly (Dutch Coast 1 km) |
 | **Region** | 11W - 13E, 48.5N - 61N |
 | **Forcings** | ERA5 winds and Oceanum spectra |
 
@@ -56,7 +56,7 @@ The wave hindcast can be validated against satellite altimeter observations usin
 | **Source** | <a href="https://swanmodel.sourceforge.io/" target="_blank">SWAN 41.31A</a> |
 | **Source terms** | <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> |
 | **Temporal coverage** | 1979-02-01 to present (updating) |
-| **Temporal resolution** | 3 hourly |
+| **Temporal resolution** | 3 hourly (Western Europe 5 km); hourly (Dutch Coast 1 km) |
 | **Spatial coverage (5km)** | [11W, 48.5N, 13E, 61N] at 0.05 degree |
 | **Spatial coverage (Dutch Coast 1km)** | [3E, 51.4N, 4.75E, 53.05N] at 0.01 degree |
 | **Spectra output sites** | 16613 (5km) + 456 (Dutch Coast) |
@@ -64,7 +64,7 @@ The wave hindcast can be validated against satellite altimeter observations usin
 | **Direction resolution** | 10 deg |
 | **Bathymetry** | <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2020 Grid</a> |
 | **Winds** | <a href="https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5" target="_blank">ERA5 Reanalysis</a> |
-| **Boundary** | <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_glob05_era5_v1_spec" target="_blank">Oceanum Global WW3 ERA5 hourly wave spectra</a> |
+| **Boundary** | <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_glob05_era5_v1_spec" target="_blank">Oceanum Global WW3 ERA5 3-hourly wave spectra</a> |
 
 ### Linked Datamesh datasources
 
@@ -84,7 +84,7 @@ The wave hindcast can be validated against satellite altimeter observations usin
 
 ## Integrated parameters gridded output
 
-Integrated wave parameters are stored 3-hourly over the domain at the native model resolution. Table 2 describes long names and units of the 39 gridded output parameters, including one wind-forced partition and three swell partitions from the Watershed method.
+Integrated wave parameters are stored 3-hourly over the domain at the native model resolution. Table 2 describes long names and units of the 38 gridded output parameters, including one wind-forced partition and three swell partitions from the Watershed method.
 
 **Table 2.** Gridded output parameters.
 
@@ -92,7 +92,7 @@ Integrated wave parameters are stored 3-hourly over the domain at the native mod
 
 | Variable | Long Name | Units |
 |---|---|---|
-| <a href="https://vocab.nerc.ac.uk/standard_name/sea_floor_depth_below_mean_sea_level/" target="_blank">botlev</a> | bottom level below mean sea level | m |
+| <a href="https://vocab.nerc.ac.uk/standard_name/sea_floor_depth_below_mean_sea_level/" target="_blank">botl</a> | bottom level below mean sea level | m |
 | <a href="https://vocab.nerc.ac.uk/standard_name/sea_floor_depth_below_sea_surface/" target="_blank">depth</a> | depth below sea surface | m |
 | <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wave_from_direction_at_variance_spectral_density_maximum/" target="_blank">dpm</a> | mean direction at the spectral peak of wind and swell waves | degree |
 | <a href="https://vocab.nerc.ac.uk/standard_name/sea_surface_wind_wave_from_direction_at_variance_spectral_density_maximum/" target="_blank">dpmsea</a> | mean direction at the spectral peak of wind waves below 8 seconds period | degree |

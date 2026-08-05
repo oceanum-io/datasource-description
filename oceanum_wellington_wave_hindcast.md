@@ -56,7 +56,7 @@ The dataset provides hourly estimates for key ocean wave parameters (Table 2) in
 | **Bathymetry** | <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2022</a> + local LiDAR surveys |
 | **Winds** | <a href="https://cliflo.niwa.co.nz/" target="_blank">NIWA CLIFLO</a> homogenised and gap-filled observations |
 | **Tides** | Oceanum Wellington 50m tidal constituents |
-| **Boundary** | <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_nz_era5_v1_spec" target="_blank">Oceanum New Zealand ERA5 hourly wave spectra</a> |
+| **Boundary** | <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_nz_era5_v1_spec" target="_blank">Oceanum New Zealand ERA5 3-hourly wave spectra</a> |
 
 ### Linked Datamesh datasources
 

@@ -27,7 +27,7 @@ The Oceanum global wave hindcast provides a continuous multi-decadal record of w
 
 Wind forcing and sea ice concentration are provided by <a href="https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5" target="_blank">ERA5</a> reanalysis from the European Centre for Medium-Range Weather Forecasts. The model includes sea ice effects through coupling with ice concentration data, with wave attenuation applied in ice-covered regions. Bathymetry is derived from <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2020</a>.
 
-The modelling setup employs the ST4 source term parameterisations with calibrated parameters for global wave climate representation. Spectra are discretised into 24 directional bins and 32 frequency bins, covering a frequency range from 0.037 to 0.71 Hz with 10% logarithmic increments.
+The modelling setup employs the ST4 source term parameterisations with calibrated parameters for global wave climate representation. Spectra are discretised into 24 directional bins and 31 frequency bins, covering a frequency range from 0.037 to 0.65 Hz with 10% logarithmic increments.
 
 The dataset provides 3-hourly estimates for key ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-sea partition and up to four swell partitions. Frequency-direction wave spectra are available at 26,962 strategically selected sites worldwide (black dots in Figure 1).
 
@@ -61,7 +61,7 @@ Interactive validation results are available through the <a href="https://valida
 | **Temporal coverage** | 1979 - present |
 | **Temporal resolution** | 3 hourly |
 | **Spatial coverage** | Global (0E - 359.5E, 77.5S - 77.5N) at 0.5 degree |
-| **Frequency discretisation** | 32 frequencies between 0.037 - 0.71 Hz at 10% logarithmic increments |
+| **Frequency discretisation** | 31 frequencies between 0.037 - 0.65 Hz at 10% logarithmic increments |
 | **Direction resolution** | 15 deg |
 | **Bathymetry** | <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2020</a> |
 | **Winds** | <a href="https://www.ecmwf.int/en/forecasts/dataset/ecmwf-reanalysis-v5" target="_blank">ERA5</a> |

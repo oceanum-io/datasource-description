@@ -30,7 +30,7 @@ Two forcing configurations are available: <a href="https://www.ncep.noaa.gov/pro
 
 The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 32 frequency bins, covering a frequency range from 0.037 to 0.71 Hz with 10% logarithmic increments. The model features a regular grid with a 5 km (0.05 degree) resolution, spanning Western European waters from the Atlantic approaches to the North Sea and Baltic entrance.
 
-The dataset provides hourly forecast estimates for an extensive array of ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. Forecasts are archived for 30 days, and frequency-direction wave spectra are available at 5144 sites distributed across the domain (see Figure 1). Nowcast datasets are also available, constructed by retaining the most recent data from each forecast cycle to provide a continuous near-real-time historical record.
+The dataset provides hourly forecast estimates for an extensive array of ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. Forecasts are archived for 30 days, and frequency-direction wave spectra are available at 5044 sites distributed across the domain (see Figure 1). Nowcast datasets are also available, constructed by retaining the most recent data from each forecast cycle to provide a continuous near-real-time historical record.
 
 <img src="./figures/weuro_figure1_hs_mean.png" alt="Figure 1" width="600">
 
@@ -60,7 +60,7 @@ The wave model physics and calibration have been validated against satellite alt
 | **Archive period** | 30 days |
 | **Temporal resolution** | 1 hourly |
 | **Spatial coverage** | [11W, 48.5N, 13E, 61N] at 0.05 degree |
-| **Spectra output sites** | 5144 |
+| **Spectra output sites** | 5044 |
 | **Frequency discretisation** | 32 frequencies between 0.037 - 0.71 Hz at 10% logarithmic increments |
 | **Direction resolution** | 10 deg |
 | **Bathymetry** | <a href="https://www.gebco.net/data_and_products/gridded_bathymetry_data/" target="_blank">GEBCO 2023 Grid</a> |
