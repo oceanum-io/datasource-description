@@ -539,6 +539,7 @@ SWWA_GFS_CONFIG = FigureConfig(
     nests=[
         NestConfig(name="Abrolhos Islands 500m", grid_id="oceanum_wave_gfs_abrol500m_grid", spec_id="oceanum_wave_gfs_abrol500m_spec_nowcast", color="black", site_size=3.0, linewidth=1.5),
         NestConfig(name="Perth 500m",            grid_id="oceanum_wave_gfs_perth500m_grid", spec_id="oceanum_wave_gfs_perth500m_spec_nowcast", color="black", site_size=3.0, linewidth=1.5),
+        NestConfig(name="Geraldton 100m",        grid_id="oceanum_wave_gfs_gero100m_grid",  spec_id="oceanum_wave_gfs_gero100m_spec_nowcast",  color="black", site_size=3.0, linewidth=1.5),
     ],
 )
 

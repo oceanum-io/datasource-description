@@ -14,7 +14,7 @@ title: Oceanum Southwest Western Australia Wave Forecast
 |---|---|
 | **Model** | SWAN 41.31 |
 | **Forecast horizon** | 7 days |
-| **Spatial resolution** | 0.05 degree (~5 km) to 0.005 degree (~500 m) |
+| **Spatial resolution** | 0.05 degree (~5 km) to 0.001 degree (~100 m) |
 | **Temporal resolution** | 1 hourly |
 | **Region** | 112E - 116.5E, 35S - 27S |
 | **Forcings** | GFS/ECMWF winds, Mercator/TPXO9 currents, and Oceanum spectra |
@@ -26,19 +26,22 @@ title: Oceanum Southwest Western Australia Wave Forecast
 
 The Southwest Western Australia wave forecast dataset provides operational wave predictions across the southwestern and west coast of Western Australia (Figure 1). The domain extends from south of Cape Leeuwin and the Southern Ocean in the south, northward past the Margaret River region, Perth, Geraldton, the Abrolhos Islands, and into the waters of Shark Bay, encompassing some of Western Australia's most dynamic coastal environments. Wave forecasts are produced using the SWAN (Simulating WAves Nearshore) third-generation spectral wave model, with a 7-day forecast horizon.
 
-Two forcing configurations are available: <a href="https://www.ncep.noaa.gov/products/gfs/" target="_blank">NOAA GFS</a> updated every 6 hours (00, 06, 12, 18 UTC) and <a href="https://www.ecmwf.int/en/forecasts/datasets/open-data" target="_blank">ECMWF IFS</a> updated every 12 hours (00, 12 UTC). Ocean currents are prescribed from a combination of Mercator global ocean analysis and TPXO9 tidal atlas to capture both mesoscale circulation and tidal currents. Spectral boundary conditions are supplied by the Oceanum Global WW3 wave forecast forced with the respective wind source. Bathymetry is derived from the Australian Bathymetry and Topography 2024 250m grid.
+Two forcing configurations are available: <a href="https://www.ncep.noaa.gov/products/gfs/" target="_blank">NOAA GFS</a> updated every 6 hours (00, 06, 12, 18 UTC) and <a href="https://www.ecmwf.int/en/forecasts/datasets/open-data" target="_blank">ECMWF IFS</a> updated every 12 hours (00, 12 UTC). Ocean currents are prescribed from a combination of Mercator global ocean analysis and TPXO9 tidal atlas to capture both mesoscale circulation and tidal currents. Spectral boundary conditions are supplied by the Oceanum Global WW3 wave forecast forced with the respective wind source. Bathymetry is derived from the Australian Bathymetry and Topography 2026 250m grid.
 
-The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 32 frequency bins, covering a frequency range from 0.037 to 0.71 Hz with 10% logarithmic increments. The model features a two-level nesting structure:
+The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 32 frequency bins, covering a frequency range from 0.037 to 0.71 Hz with 10% logarithmic increments. The model features a three-level nesting structure:
 
 - **Southwest Western Australia 5 km** (0.05°): Regional parent domain covering 112–116.5°E, 35–27°S
-- **Abrolhos Islands 500 m** (0.005°): High-resolution nest covering 113.5–114.9°E, 29.1–28.1°S
-- **Perth 500 m** (0.005°): High-resolution nest covering 115.3–115.8°E, 32.5–31.8°S
+- **Abrolhos Islands 500 m** (0.005°): High-resolution nest covering 113.5–114.9°E, 29.1–28.1°S, nested within the 5 km parent
+- **Perth 500 m** (0.005°): High-resolution nest covering 115.3–115.8°E, 32.5–31.8°S, nested within the 5 km parent
+- **Geraldton 100 m** (0.001°): Ultra-high-resolution nest covering 114.5–114.65°E, 28.85–28.7°S, nested within the Abrolhos Islands 500 m domain
+
+The Geraldton 100 m domain resolves the port of Geraldton and its approaches, capturing nearshore wave transformation and refraction over the limestone reef platform fringing this section of coast, which exerts a strong dissipative control on nearshore wave heights. This nest is forced by winds and boundary spectra only; ocean currents are not applied at 100 m resolution.
 
 The dataset provides hourly forecast estimates for key ocean wave parameters (Table 3) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. Forecasts are archived for 30 days, and frequency-direction wave spectra are available at selected sites across all domains. Nowcast datasets are also available, constructed by retaining the most recent data from each forecast cycle to provide a continuous near-real-time historical record.
 
 <img src="./figures/swwa_figure1_domain.png" alt="Figure 1" width="600">
 
-**Figure 1.** Southwest Western Australia wave forecast domain extent. The bounding boxes of the Abrolhos Islands 500 m and Perth 500 m nested domains are outlined in black. Spectra output site locations are shown by black dots (337 sites in the parent domain, 159 sites in the Abrolhos Islands domain, and 110 sites in the Perth domain). Depth contours are shown at 200 m, 1000 m, 2000 m, and 4000 m.
+**Figure 1.** Southwest Western Australia wave forecast domain extent. The bounding boxes of the Abrolhos Islands 500 m, Perth 500 m, and Geraldton 100 m nested domains are outlined in black; the Geraldton 100 m domain sits within the Abrolhos Islands 500 m domain. Spectra output site locations are shown by black dots (337 sites in the parent domain, 159 sites in the Abrolhos Islands domain, 110 sites in the Perth domain, and 4 sites in the Geraldton domain). Depth contours are shown at 200 m, 1000 m, 2000 m, and 4000 m.
 
 ---
 
@@ -76,25 +79,28 @@ Figure 3 shows the spatial distribution of validation statistics across the doma
 | **Spatial coverage (5km)** | [112E, 35S, 116.5E, 27S] at 0.05 degree |
 | **Spatial coverage (500m Abrolhos)** | [113.5E, 29.1S, 114.9E, 28.1S] at 0.005 degree |
 | **Spatial coverage (500m Perth)** | [115.3E, 32.5S, 115.8E, 31.8S] at 0.005 degree |
+| **Spatial coverage (100m Geraldton)** | [114.5E, 28.85S, 114.65E, 28.7S] at 0.001 degree |
 | **Spectra sites (5km)** | 337 |
 | **Spectra sites (500m Abrolhos)** | 159 |
 | **Spectra sites (500m Perth)** | 110 |
+| **Spectra sites (100m Geraldton)** | 4 |
 | **Frequency discretisation** | 32 frequencies between 0.037 - 0.71 Hz at 10% logarithmic increments |
 | **Direction resolution** | 10 deg |
-| **Bathymetry** | Australian Bathymetry and Topography 2024 250m Grid |
+| **Bathymetry** | Australian Bathymetry and Topography 2026 250m Grid |
 | **Winds** | <a href="https://www.ncep.noaa.gov/products/gfs/" target="_blank">NOAA GFS</a> / <a href="https://www.ecmwf.int/en/forecasts/datasets/open-data" target="_blank">ECMWF IFS</a> |
-| **Currents** | <a href="https://data.marine.copernicus.eu/" target="_blank">Mercator Global Ocean Analysis</a> + <a href="https://www.tpxo.net/" target="_blank">TPXO9 Atlas</a> |
+| **Currents** | <a href="https://data.marine.copernicus.eu/" target="_blank">Mercator Global Ocean Analysis</a> + <a href="https://www.tpxo.net/" target="_blank">TPXO9 Atlas</a> (not applied in the 100 m Geraldton nest) |
 | **Boundary** | Oceanum Global WW3 wave forecast (GFS or ECMWF forced) |
 
 ### Nested domains
 
 **Table 2.** Nested domain overview.
 
-| Domain | Resolution | Bounds | Spectra sites |
-|--------|------------|--------|---------------|
-| Southwest Western Australia | 0.05° (~5 km) | 112–116.5°E, 35–27°S | 337 |
-| Abrolhos Islands | 0.005° (~500 m) | 113.5–114.9°E, 29.1–28.1°S | 159 |
-| Perth | 0.005° (~500 m) | 115.3–115.8°E, 32.5–31.8°S | 110 |
+| Domain | Resolution | Bounds | Spectra sites | Nested within |
+|--------|------------|--------|---------------|---------------|
+| Southwest Western Australia | 0.05° (~5 km) | 112–116.5°E, 35–27°S | 337 | Oceanum Global WW3 |
+| Abrolhos Islands | 0.005° (~500 m) | 113.5–114.9°E, 29.1–28.1°S | 159 | Southwest Western Australia 5 km |
+| Perth | 0.005° (~500 m) | 115.3–115.8°E, 32.5–31.8°S | 110 | Southwest Western Australia 5 km |
+| Geraldton | 0.001° (~100 m) | 114.5–114.65°E, 28.85–28.7°S | 4 | Abrolhos Islands 500 m |
 
 ### Linked Datamesh datasources
 
@@ -118,6 +124,12 @@ Figure 3 shows the spatial distribution of validation statistics across the doma
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_perth500m_grid_nowcast" target="_blank">Oceanum Perth 500 m GFS wave nowcast parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_perth500m_spec_nowcast" target="_blank">Oceanum Perth 500 m GFS wave nowcast spectra</a>
 
+**Geraldton 100 m:**
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_gero100m_grid" target="_blank">Oceanum Geraldton 100 m GFS wave forecast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_gero100m_spec" target="_blank">Oceanum Geraldton 100 m GFS wave forecast spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_gero100m_grid_nowcast" target="_blank">Oceanum Geraldton 100 m GFS wave nowcast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_gero100m_spec_nowcast" target="_blank">Oceanum Geraldton 100 m GFS wave nowcast spectra</a>
+
 #### ECMWF-forced (12-hourly updates)
 
 **Southwest Western Australia 5 km:**
@@ -137,6 +149,12 @@ Figure 3 shows the spatial distribution of validation statistics across the doma
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ec_perth500m_spec" target="_blank">Oceanum Perth 500 m ECMWF wave forecast spectra</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ec_perth500m_grid_nowcast" target="_blank">Oceanum Perth 500 m ECMWF wave nowcast parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ec_perth500m_spec_nowcast" target="_blank">Oceanum Perth 500 m ECMWF wave nowcast spectra</a>
+
+**Geraldton 100 m:**
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ec_gero100m_grid" target="_blank">Oceanum Geraldton 100 m ECMWF wave forecast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ec_gero100m_spec" target="_blank">Oceanum Geraldton 100 m ECMWF wave forecast spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ec_gero100m_grid_nowcast" target="_blank">Oceanum Geraldton 100 m ECMWF wave nowcast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ec_gero100m_spec_nowcast" target="_blank">Oceanum Geraldton 100 m ECMWF wave nowcast spectra</a>
 
 ---
 
@@ -193,7 +211,7 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 ## Spectra output
 
-Frequency-direction wave spectra are stored hourly at selected sites across all domains: 337 sites in the Southwest Western Australia 5 km parent domain, 159 sites in the Abrolhos Islands 500 m domain, and 110 sites in the Perth 500 m domain. Spectra are discretised into 36 directional bins (10 degree resolution) and 32 frequency bins (0.037 - 0.71 Hz at 10% logarithmic increments).
+Frequency-direction wave spectra are stored hourly at selected sites across all domains: 337 sites in the Southwest Western Australia 5 km parent domain, 159 sites in the Abrolhos Islands 500 m domain, 110 sites in the Perth 500 m domain, and 4 sites in the Geraldton 100 m domain. Spectra are discretised into 36 directional bins (10 degree resolution) and 32 frequency bins (0.037 - 0.71 Hz at 10% logarithmic increments).
 
 **Table 4.** Spectra output parameters.
 
