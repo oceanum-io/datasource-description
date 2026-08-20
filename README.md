@@ -63,6 +63,7 @@ Collection of Datamesh datasource description documents.
 
 ### GFS/ECMWF Forced Regional Forecasts
 
+- [Oceanum Bass Strait Wave Forecast](./oceanum_bass_strait_wave_forecast.md)
 - [Oceanum Northwest Cape Wave Forecast](./oceanum_northwest_cape_wave_forecast.md)
 - [Oceanum Southwest Western Australia Wave Forecast](./oceanum_sw_western_australia_wave_forecast.md)
 - [Oceanum Western Europe Wave Forecast](./oceanum_western_europe_wave_forecast.md)
