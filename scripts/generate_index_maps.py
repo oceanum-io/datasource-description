@@ -234,7 +234,18 @@ def make_map(domains, center, zoom, output_path):
     m = folium.Map(
         location=center,
         zoom_start=zoom,
-        tiles="CartoDB positron",
+        # CARTO began requiring an API key for their basemap CDN in 2026 and now
+        # stamps "API KEY REQUIRED" across every anonymous tile, so the previous
+        # "CartoDB positron" basemap can no longer be used without an account.
+        # Esri's World Light Gray Base is the closest keyless equivalent.
+        tiles=(
+            "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/"
+            "World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
+        ),
+        attr=(
+            'Tiles &copy; <a href="https://www.esri.com/">Esri</a> &mdash; '
+            "Esri, DeLorme, NAVTEQ"
+        ),
         prefer_canvas=True,
     )
     m.get_root().header.add_child(folium.Element(
