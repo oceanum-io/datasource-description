@@ -89,3 +89,11 @@ Collection of Datamesh datasource description documents.
 - [Oceanum Marlborough Sounds CCAM Atmospheric Hindcast](./oceanum_marlborough_sounds_ccam_hindcast.md)
 - [Oceanum Southland New Zealand CCAM Atmospheric Hindcast](./oceanum_southland_nz_ccam_hindcast.md)
 - [Oceanum Taranaki New Zealand CCAM Atmospheric Hindcast](./oceanum_taranaki_nz_ccam_hindcast.md)
+
+---
+
+## Tide
+
+### Global
+
+- [Oceanum Global Multiscale Tide Model](./oceanum_global_tide.md)
