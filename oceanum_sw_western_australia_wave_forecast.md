@@ -37,7 +37,7 @@ The modelling setup employs the <a href="https://journals.ametsoc.org/view/journ
 
 The Geraldton 100 m domain resolves the port of Geraldton and its approaches, capturing nearshore wave transformation and refraction over the limestone reef platform fringing this section of coast, which exerts a strong dissipative control on nearshore wave heights. This nest is forced by winds and boundary spectra only; ocean currents are not applied at 100 m resolution.
 
-The dataset provides hourly forecast estimates for key ocean wave parameters (Table 3) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. Forecasts are archived for 30 days, and frequency-direction wave spectra are available at selected sites across all domains. Nowcast datasets are also available, constructed by retaining the most recent data from each forecast cycle to provide a continuous near-real-time historical record.
+The dataset provides hourly forecast estimates for key ocean wave parameters (Table 3) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. Forecasts are archived for 7 days, and frequency-direction wave spectra are available at selected sites across all domains. Nowcast datasets are also available, constructed by retaining the most recent data from each forecast cycle to provide a continuous near-real-time historical record.
 
 <img src="./figures/swwa_figure1_domain.png" alt="Figure 1" width="600">
 
@@ -74,7 +74,7 @@ Figure 3 shows the spatial distribution of validation statistics across the doma
 | **Source terms** | <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> |
 | **Forecast horizon** | 7 days |
 | **Update frequency** | 6-hourly (GFS) / 12-hourly (ECMWF) |
-| **Archive period** | 30 days |
+| **Archive period** | 7 days |
 | **Temporal resolution** | 1 hourly |
 | **Spatial coverage (5km)** | [112E, 35S, 116.5E, 27S] at 0.05 degree |
 | **Spatial coverage (500m Abrolhos)** | [113.5E, 29.1S, 114.9E, 28.1S] at 0.005 degree |

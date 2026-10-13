@@ -71,10 +71,7 @@ FORECAST_DOMAINS = [
     ("Auckland",                  173.5, -37.5,  176.5, -35.5,  "oceanum_auckland_wave_forecast_specification"),
     # ECMWF
     ("Baltic Sea",                  9.0,  53.8,   30.3,  66.0,  "oceanum_baltic_sea_wave_forecast"),
-    ("Dutch Coast",                 3.0,  51.4,    4.75, 53.05, "oceanum_dutch_wave_forecast"),
     ("Gabon",                       5.0,  -6.0,   12.5,   3.0,  "oceanum_gabon_wave_forecast"),
-    ("Nigeria",                     2.5,  -2.0,   10.0,   6.5,  "oceanum_nigeria_wave_forecast"),
-    ("US East Coast",             -77.5,  35.5,  -63.0,  46.0,  "oceanum_us_east_coast_wave_forecast"),
 ]
 
 CCAM_DOMAINS = [

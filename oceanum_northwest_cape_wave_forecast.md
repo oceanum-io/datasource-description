@@ -8,7 +8,7 @@ title: Oceanum Northwest Cape Wave Forecast
 
 # Oceanum Northwest Cape Wave Forecast
 
-**February 2025**
+**October 2026**
 
 | | |
 |---|---|
@@ -34,7 +34,7 @@ The modelling setup employs the <a href="https://journals.ametsoc.org/view/journ
 - **Gascoyne 500 m** (0.005°): Intermediate nest covering 113E-113.9E, 25.3S-24S
 - **Cape Cuvier 50 m** (0.0005°): Ultra-high resolution nest covering 113.36E-113.435E, 24.25S-24.2S
 
-The dataset provides hourly forecast estimates for key ocean wave parameters (Table 3) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to two swell partitions. Forecasts are archived for 30 days, and frequency-direction wave spectra are available at selected sites in the Cape Cuvier 50 m domain. Nowcast datasets are also available for the Cape Cuvier domain, constructed by retaining the most recent data from each forecast cycle to provide a continuous near-real-time historical record.
+The dataset provides hourly forecast estimates for key ocean wave parameters (Table 3) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. Forecasts are archived for 7 days, and frequency-direction wave spectra are available at 126 sites in the Northwest Cape 5 km domain and at 1 site in the Cape Cuvier 50 m domain. Nowcast datasets are also available for the Northwest Cape 5 km and Cape Cuvier 50 m domains, constructed by retaining the most recent data from each forecast cycle to provide a continuous near-real-time historical record.
 
 <img src="./figures/nwcape_figure1_domain.png" alt="Figure 1" width="600">
 
@@ -61,11 +61,13 @@ The wave model physics and calibration follow the same approach validated agains
 | **Source terms** | <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> |
 | **Forecast horizon** | 7 days |
 | **Update frequency** | 6-hourly (GFS) / 12-hourly (ECMWF) |
-| **Archive period** | 30 days |
+| **Archive period** | 7 days |
 | **Temporal resolution** | 1 hourly |
 | **Spatial coverage (5km)** | [112E, 27S, 117.5E, 20S] at 0.05 degree |
 | **Spatial coverage (500m)** | [113E, 25.3S, 113.9E, 24S] at 0.005 degree |
 | **Spatial coverage (50m)** | [113.36E, 24.25S, 113.435E, 24.2S] at 0.0005 degree |
+| **Spectra sites (5km)** | 126 |
+| **Spectra sites (50m)** | 1 |
 | **Frequency discretisation** | 32 frequencies between 0.037 - 0.71 Hz at 10% logarithmic increments |
 | **Direction resolution** | 10 deg |
 | **Bathymetry** | Australian Bathymetry and Topography 2026 250m Grid |
@@ -77,11 +79,11 @@ The wave model physics and calibration follow the same approach validated agains
 
 **Table 2.** Nested domain overview.
 
-| Domain | Resolution | Bounds | Spectra sites |
-|--------|------------|--------|---------------|
-| Northwest Cape | 0.05° (~5 km) | 112–117.5°E, 27–20°S | - |
-| Gascoyne | 0.005° (~500 m) | 113–113.9°E, 25.3–24°S | - |
-| Cape Cuvier | 0.0005° (~50 m) | 113.36–113.435°E, 24.25–24.2°S | 1 |
+| Domain | Resolution | Bounds | Spectra sites | Nested within |
+|--------|------------|--------|---------------|---------------|
+| Northwest Cape | 0.05° (~5 km) | 112–117.5°E, 27–20°S | 126 | Oceanum Global WW3 |
+| Gascoyne | 0.005° (~500 m) | 113–113.9°E, 25.3–24°S | - | Northwest Cape 5 km |
+| Cape Cuvier | 0.0005° (~50 m) | 113.36–113.435°E, 24.25–24.2°S | 1 | Gascoyne 500 m |
 
 ### Linked Datamesh datasources
 
@@ -89,6 +91,9 @@ The wave model physics and calibration follow the same approach validated agains
 
 **Northwest Cape 5 km:**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_nwcape5km_grid" target="_blank">Oceanum Northwest Cape 5 km GFS wave forecast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_nwcape5km_spec" target="_blank">Oceanum Northwest Cape 5 km GFS wave forecast spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_nwcape5km_grid_nowcast" target="_blank">Oceanum Northwest Cape 5 km GFS wave nowcast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_nwcape5km_spec_nowcast" target="_blank">Oceanum Northwest Cape 5 km GFS wave nowcast spectra</a>
 
 **Gascoyne 500 m:**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_gascoy500m_grid" target="_blank">Oceanum Gascoyne 500 m GFS wave forecast parameters</a>
@@ -96,11 +101,16 @@ The wave model physics and calibration follow the same approach validated agains
 **Cape Cuvier 50 m:**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_cuvier50m_grid" target="_blank">Oceanum Cape Cuvier 50 m GFS wave forecast parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_cuvier50m_spec" target="_blank">Oceanum Cape Cuvier 50 m GFS wave forecast spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_cuvier50m_grid_nowcast" target="_blank">Oceanum Cape Cuvier 50 m GFS wave nowcast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_cuvier50m_spec_nowcast" target="_blank">Oceanum Cape Cuvier 50 m GFS wave nowcast spectra</a>
 
 #### ECMWF-forced (12-hourly updates)
 
 **Northwest Cape 5 km:**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ec_nwcape5km_grid" target="_blank">Oceanum Northwest Cape 5 km ECMWF wave forecast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ec_nwcape5km_spec" target="_blank">Oceanum Northwest Cape 5 km ECMWF wave forecast spectra</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ec_nwcape5km_grid_nowcast" target="_blank">Oceanum Northwest Cape 5 km ECMWF wave nowcast parameters</a>
+- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ec_nwcape5km_spec_nowcast" target="_blank">Oceanum Northwest Cape 5 km ECMWF wave nowcast spectra</a>
 
 **Gascoyne 500 m:**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ec_gascoy500m_grid" target="_blank">Oceanum Gascoyne 500 m ECMWF wave forecast parameters</a>
@@ -108,14 +118,6 @@ The wave model physics and calibration follow the same approach validated agains
 **Cape Cuvier 50 m:**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ec_cuvier50m_grid" target="_blank">Oceanum Cape Cuvier 50 m ECMWF wave forecast parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ec_cuvier50m_spec" target="_blank">Oceanum Cape Cuvier 50 m ECMWF wave forecast spectra</a>
-
-#### Nowcasts (continuous near-real-time archive)
-
-**Cape Cuvier 50 m GFS:**
-- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_cuvier50m_grid_nowcast" target="_blank">Oceanum Cape Cuvier 50 m GFS wave nowcast parameters</a>
-- <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_gfs_cuvier50m_spec_nowcast" target="_blank">Oceanum Cape Cuvier 50 m GFS wave nowcast spectra</a>
-
-**Cape Cuvier 50 m ECMWF:**
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ec_cuvier50m_grid_nowcast" target="_blank">Oceanum Cape Cuvier 50 m ECMWF wave nowcast parameters</a>
 - <a href="https://ui.datamesh.oceanum.io/datasource/oceanum_wave_ec_cuvier50m_spec_nowcast" target="_blank">Oceanum Cape Cuvier 50 m ECMWF wave nowcast spectra</a>
 
@@ -123,7 +125,7 @@ The wave model physics and calibration follow the same approach validated agains
 
 ## Integrated parameters gridded output
 
-Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 3 describes long names and units of the 38 gridded output parameters, including one wind-forced partition and two swell partitions from the Watershed method.
+Integrated wave parameters are stored hourly over the domain at the native model resolution. Table 3 describes long names and units of the 38 gridded output parameters, including one wind-forced partition and up to three swell partitions from the Watershed method. The full parameter set is served for all forecast datasources and for the Cape Cuvier 50 m nowcasts. The Northwest Cape 5 km nowcasts provide a subset of 8 parameters: `depth`, `dpm`, `hs`, `tps`, `xwnd`, `ywnd`, `xcur` and `ycur`.
 
 **Table 3.** Gridded output parameters.
 
@@ -174,7 +176,7 @@ Integrated wave parameters are stored hourly over the domain at the native model
 
 ## Spectra output
 
-Frequency-direction wave spectra are stored hourly at 1 selected site in the Cape Cuvier 50 m domain. Spectra are discretised into 36 directional bins (10 degree resolution) and 32 frequency bins (0.037 - 0.71 Hz at 10% logarithmic increments).
+Frequency-direction wave spectra are stored hourly at 126 sites in the Northwest Cape 5 km parent domain and at 1 site in the Cape Cuvier 50 m domain, located at the Cape Cuvier wave buoy. Spectra nowcasts are available for both domains. Spectra are discretised into 36 directional bins (10 degree resolution) and 32 frequency bins (0.037 - 0.71 Hz at 10% logarithmic increments).
 
 **Table 4.** Spectra output parameters.
 

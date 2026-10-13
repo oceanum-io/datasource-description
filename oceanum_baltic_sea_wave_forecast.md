@@ -30,7 +30,7 @@ Wind forcing is provided by <a href="https://www.ecmwf.int/en/forecasts/datasets
 
 The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 43 frequency bins, covering a frequency range from 0.037 to 1.98 Hz with 10% logarithmic increments, extending to higher frequencies to capture the short-period wind waves characteristic of the enclosed Baltic Sea. The model features a regular grid with a 5 km (0.05 degree) resolution.
 
-The dataset provides hourly forecast estimates for key ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to two swell partitions. Forecasts are archived for 30 days, and frequency-direction wave spectra are available at 1610 sites distributed across the domain. Nowcast datasets are also available, constructed by retaining the most recent data from each forecast cycle to provide a continuous near-real-time historical record.
+The dataset provides hourly forecast estimates for key ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to two swell partitions. Forecasts are archived for 7 days, and frequency-direction wave spectra are available at 1610 sites distributed across the domain. Nowcast datasets are also available, constructed by retaining the most recent data from each forecast cycle to provide a continuous near-real-time historical record.
 
 <img src="./figures/baltic_nora3_figure1_hs_mean.png" alt="Figure 1" width="600">
 
@@ -57,7 +57,7 @@ The wave model physics and calibration have been validated against satellite alt
 | **Source terms** | <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> |
 | **Forecast horizon** | 7 days |
 | **Update frequency** | 12-hourly (ECMWF) |
-| **Archive period** | 30 days |
+| **Archive period** | 7 days |
 | **Temporal resolution** | 1 hourly |
 | **Spatial coverage** | [9E, 53.8N, 30.3E, 66N] at 0.05 degree |
 | **Spectra output sites** | 1610 |

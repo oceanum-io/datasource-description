@@ -30,7 +30,7 @@ Wind forcing is provided by <a href="https://www.ecmwf.int/en/forecasts/datasets
 
 The modelling setup employs the <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> source term parameterisations. Spectra are discretised into 36 directional bins and 32 frequency bins, covering a frequency range from 0.037 to 0.71 Hz with 10% logarithmic increments. The parent domain features a regular grid with a 5 km (0.05 degree) resolution, with a nested 500 m (0.005 degree) domain covering the Western Gabon coastal region for detailed nearshore wave predictions.
 
-The dataset provides hourly forecast estimates for key ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to two swell partitions. Forecasts are archived for 30 days, and frequency-direction wave spectra are available at selected sites in the nested Western Gabon domain.
+The dataset provides hourly forecast estimates for key ocean wave parameters (Table 2) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to two swell partitions. Forecasts are archived for 7 days, and frequency-direction wave spectra are available at selected sites in the nested Western Gabon domain.
 
 <img src="./figures/gabon_figure1_domain.png" alt="Figure 1" width="600">
 
@@ -57,7 +57,7 @@ The wave model physics and calibration follow the same approach validated agains
 | **Source terms** | <a href="https://journals.ametsoc.org/view/journals/atot/29/9/jtech-d-11-00092_1.xml" target="_blank">ST6</a> |
 | **Forecast horizon** | 7 days |
 | **Update frequency** | 12-hourly (ECMWF) |
-| **Archive period** | 30 days |
+| **Archive period** | 7 days |
 | **Temporal resolution** | 1 hourly |
 | **Spatial coverage (5km)** | [5E, 6S, 12.5E, 3N] at 0.05 degree |
 | **Spatial coverage (500m)** | [8.8E, 2.4S, 9.65E, 1.3S] at 0.005 degree |
