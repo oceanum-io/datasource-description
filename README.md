@@ -72,7 +72,6 @@ Collection of Datamesh datasource description documents.
 ### ECMWF Forced Regional Forecasts
 
 - [Oceanum Baltic Sea ECMWF Wave Forecast](./oceanum_baltic_sea_wave_forecast.md)
-- [Oceanum Gabon ECMWF Wave Forecast](./oceanum_gabon_wave_forecast.md)
 
 ---
 
