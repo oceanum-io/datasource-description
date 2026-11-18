@@ -43,7 +43,7 @@ The dataset provides hourly forecast estimates for key ocean wave parameters (Ta
 
 <img src="./figures/peru_forecast_figure1_hs_mean.png" alt="Figure 1" width="900">
 
-**Figure 1.** Peru wave forecast domains. (a) Lima 5 km parent domain, with the mean significant wave height from the corresponding Peru ERA5 hindcast in the background and depth contours at 50m, 100m, 200m, 500m, 1000m, and 2000m; the blue box indicates the Chancay 400 m nest. The locations of 2D spectra hourly output are shown by the black dots (Lima 5 km, 123 sites) and the blue dots (Chancay 400 m, 118 sites). (b) Chancay 400 m nest, with the model bathymetry in the background and depth contours at 10m, 20m, 50m, 100m, 150m, and 200m. The blue dots show the 118 spectra output sites of the nest and the red star marks the location of the ADCP used for validation.
+**Figure 1.** Peru wave forecast domains. (a) Lima 5 km parent domain, with the mean significant wave height from the corresponding Peru ERA5 hindcast in the background and depth contours at 50m, 100m, 200m, 500m, 1000m, and 2000m; the blue box indicates the Chancay 400 m nest. The locations of 2D spectra hourly output are shown by the black dots (Lima 5 km, 123 sites) and the blue dots (Chancay 400 m, 118 sites). (b) Chancay 400 m nest, with the significant wave height averaged over a single 7-day forecast cycle in the background, shown for illustration on its own colour scale, and depth contours at 10m, 20m, 50m, 100m, 150m, and 200m. The black dots show the 118 spectra output sites of the nest and the red star marks the location of the ADCP used for validation.
 
 ---
 

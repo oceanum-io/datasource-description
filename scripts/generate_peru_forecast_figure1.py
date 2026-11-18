@@ -6,8 +6,10 @@ Left panel: mean significant wave height from the Lima ERA5 hindcast gridstats
 (same grid as the forecast parent domain) with depth contours, the Chancay
 400 m nest box and the spectra output sites of both forecast domains.
 
-Right panel: the Chancay 400 m nest only, showing the model bathymetry, the
-nest spectra output sites and the location of the validation ADCP.
+Right panel: the Chancay 400 m nest only, showing the mean significant wave
+height averaged over the latest GFS forecast cycle (no gridstats exist for
+the nest, so this is illustrative only), the nest spectra output sites and the
+location of the validation ADCP.
 
 Usage:
     python scripts/generate_peru_forecast_figure1.py
@@ -21,8 +23,7 @@ from oceanum.datamesh import Connector
 
 OUTPUT = "figures/peru_forecast_figure1_hs_mean.png"
 GRIDSTATS = "oceanum_wave_lima_era5_gridstats"
-CHANCAY_GRID = "oceanum_wave_gfs_chancay400m_grid_nowcast"
-DEPTH_TIME = "2026-11-17T12:00:00"  # any single time step, depth is static
+CHANCAY_GRID = "oceanum_wave_gfs_chancay400m_grid"
 LIMA_SPEC = "oceanum_wave_gfs_lima5km_spec"
 CHANCAY_SPEC = "oceanum_wave_gfs_chancay400m_spec"
 EXTENT = [-79.0, -76.0, -13.0, -10.0]
@@ -49,11 +50,11 @@ def add_gridlines(ax) -> None:
 def main() -> None:
     conn = Connector()
     stats = conn.query(datasource=GRIDSTATS, variables=["hs_mean", "depth_mean"])
-    nest = conn.query(
-        datasource=CHANCAY_GRID, variables=["depth"],
-        timefilter={"times": [DEPTH_TIME, DEPTH_TIME]},
-    )
+    nest = conn.query(datasource=CHANCAY_GRID, variables=["depth", "hs"])
+    print(f"Chancay cycle: {nest.time.values[0]} to {nest.time.values[-1]}")
     depth = nest.depth.isel(time=0)
+    nest_hs = nest.hs.mean("time")
+    print(f"Chancay cycle-mean Hs: {np.nanpercentile(nest_hs, [0, 1, 5, 25, 50, 75, 95, 100])}")
     lima_lon, lima_lat = site_coords(conn, LIMA_SPEC)
     chan_lon, chan_lat = site_coords(conn, CHANCAY_SPEC)
     x0, x1, y0, y1 = CHANCAY
@@ -96,11 +97,13 @@ def main() -> None:
     add_gridlines(ax1)
     ax1.legend(loc="lower left", fontsize=8, title="Spectra output sites", title_fontsize=8)
 
-    # Right panel: Chancay 400 m nest (land is where the model depth is masked)
+    # Right panel: Chancay 400 m nest (land is where the model output is masked).
+    # Colour limits are set from the nest's own range so nearshore gradients show.
     ax2.set_facecolor("lightgray")
-    depth.plot(
-        ax=ax2, transform=PC, cmap="Blues", vmin=0,
-        cbar_kwargs={"label": "Model depth (m)", **cbar_kwargs},
+    vmin, vmax = np.round(np.nanpercentile(nest_hs, [3, 99.5]), 1)
+    nest_hs.plot(
+        ax=ax2, transform=PC, cmap="turbo", vmin=vmin, vmax=vmax, extend="both",
+        cbar_kwargs={"label": "Mean Significant Wave Height (m)", **cbar_kwargs},
     )
     cs = ax2.contour(
         depth.longitude, depth.latitude, depth.values, levels=CHANCAY_CONTOURS,
@@ -108,7 +111,7 @@ def main() -> None:
     )
     ax2.clabel(cs, inline=True, fontsize=8, fmt="%d m")
     ax2.scatter(
-        chan_lon, chan_lat, s=40, c="blue", marker=".", linewidths=0,
+        chan_lon, chan_lat, s=40, c="black", marker=".", linewidths=0,
         transform=PC, zorder=5, label=f"Spectra output sites (n={chan_lon.size})",
     )
     ax2.scatter(
