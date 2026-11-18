@@ -64,6 +64,7 @@ FORECAST_DOMAINS = [
     # GFS + ECMWF
     ("Bass Strait",               140.0, -42.0,  151.0, -37.0,  "oceanum_bass_strait_wave_forecast"),
     ("NW Cape",                   112.0, -27.0,  117.5, -20.0,  "oceanum_northwest_cape_wave_forecast"),
+    ("Peru",                      -79.0, -13.0,  -76.0, -10.0,  "oceanum_peru_wave_forecast"),
     ("SW Western Australia",      112.0, -34.0,  116.5, -27.0,  "oceanum_sw_western_australia_wave_forecast"),
     ("Western Europe",            -11.0,  48.5,   13.0,  61.0,  "oceanum_western_europe_wave_forecast"),
     # GFS

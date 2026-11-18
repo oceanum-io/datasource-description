@@ -38,7 +38,7 @@ The dataset provides hourly forecast estimates for key ocean wave parameters (Ta
 
 <img src="./figures/nwcape_figure1_domain.png" alt="Figure 1" width="600">
 
-**Figure 1.** Northwest Cape wave forecast domain extent showing the parent 5 km domain, intermediate Gascoyne 500 m domain, and nested Cape Cuvier 50 m domain.
+**Figure 1.** Northwest Cape wave forecast domain extent. The bounding box of the Gascoyne 500 m nested domain is outlined in black; the Cape Cuvier 50 m domain is too small to resolve at this scale and sits around the red star, which marks its single spectra output site at the Cape Cuvier wave buoy. Spectra output sites in the Northwest Cape 5 km parent domain are shown by black dots (126 sites). Depth contours are shown at 200 m, 1000 m, 2000 m, and 4000 m.
 
 ---
 
