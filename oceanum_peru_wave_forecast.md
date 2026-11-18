@@ -41,15 +41,41 @@ The modelling setup employs the <a href="https://journals.ametsoc.org/view/journ
 
 The dataset provides hourly forecast estimates for key ocean wave parameters (Table 3) including spectral quantities integrated over the full spectrum and for spectral partitions. Partitions are defined from an 8-second split (sea/swell) and from the Watershed method, which identifies one wind-forced partition and up to three swell partitions. Forecasts are archived for 7 days, and frequency-direction wave spectra are available at 123 sites in the Lima 5 km domain and at 118 sites in the Chancay 400 m domain. Nowcast datasets are also available for both domains, constructed by retaining the most recent data from each forecast cycle to provide a continuous near-real-time historical record starting in November 2026.
 
-<img src="./figures/peru_forecast_figure1_hs_mean.png" alt="Figure 1" width="500">
+<img src="./figures/peru_forecast_figure1_hs_mean.png" alt="Figure 1" width="900">
 
-**Figure 1.** Peru wave forecast domain. The background shows the mean significant wave height from the corresponding Peru ERA5 hindcast over the Lima 5 km domain, and the blue box indicates the Chancay 400 m nest. The locations of 2D spectra hourly output are shown by the black dots (Lima 5 km, 123 sites) and the blue dots (Chancay 400 m, 118 sites). Depth contours are shown at 50m, 100m, 200m, 500m, 1000m, and 2000m.
+**Figure 1.** Peru wave forecast domains. (a) Lima 5 km parent domain, with the mean significant wave height from the corresponding Peru ERA5 hindcast in the background and depth contours at 50m, 100m, 200m, 500m, 1000m, and 2000m; the blue box indicates the Chancay 400 m nest. The locations of 2D spectra hourly output are shown by the black dots (Lima 5 km, 123 sites) and the blue dots (Chancay 400 m, 118 sites). (b) Chancay 400 m nest, with the model bathymetry in the background and depth contours at 10m, 20m, 50m, 100m, 150m, and 200m. The blue dots show the 118 spectra output sites of the nest and the red star marks the location of the ADCP used for validation.
 
 ---
 
 ## Validation
 
-The wave model physics and calibration have been validated against satellite altimeter observations for the corresponding hindcast domain. Validation results are available through the <a href="https://hindcast-satellite-validation-main-prod.apps.oceanum.io/" target="_blank">Oceanum Hindcast Satellite Validation App</a>, which provides density scatter plots, quantile comparisons, and statistical metrics for the central Peru region.
+The model setup was validated against wave measurements from an Acoustic Doppler Current Profiler (ADCP) deployed off Chancay at 77.2990W, 11.5977S, within the Chancay 400 m domain (Figure 1b). The instrument recorded between late May and early September 2024, a period characterised by a succession of South Pacific swell events with significant wave heights between 0.7 and 2.4 m and peak periods mostly between 8 and 18 s (Figure 2).
+
+<img src="./figures/peru/C01_adcp_hs_tp.png" alt="Figure 2" width="800">
+
+**Figure 2.** Wave conditions measured by the ADCP off Chancay. Top: significant wave height of the full spectrum, wind sea and swell. Bottom: peak wave period.
+
+Modelled and measured wave parameters at the ADCP location are compared in Figures 3 to 6 for the period between late May and the end of July 2024. The model reproduces the timing and magnitude of the individual swell events and the evolution of the peak period as each swell arrives and decays (Figure 3). For the significant wave height of the full spectrum the bias is 0.002 m, the root-mean-square difference (RMSD) is 0.136 m, the mean absolute difference (MAD) is 0.108 m and the scatter index (SI) is 0.094 from 1637 collocated records, with the modelled quantiles closely following the measured ones over the whole range of observed wave heights (Figure 4).
+
+<img src="./figures/peru/C03b_timeseries_obs_model_final.png" alt="Figure 3" width="800">
+
+**Figure 3.** Time series of measured (black) and modelled (orange) significant wave height and peak period of the full spectrum at the ADCP location, and modelled peak direction.
+
+<img src="./figures/peru/C03b_scatter_obs_model_final.png" alt="Figure 4" width="600">
+
+**Figure 4.** Modelled against measured significant wave height of the full spectrum at the ADCP location. Dots are coloured by the modelled peak period, black circles show the quantile-quantile comparison, the red line is the linear regression and the dashed line indicates perfect agreement.
+
+A similar level of agreement is obtained for the swell component, which dominates the wave energy at the site (Figures 5 and 6). The swell significant wave height has a bias of 0.019 m, RMSD of 0.144 m, MAD of 0.115 m and SI of 0.118 from 1620 collocated records.
+
+<img src="./figures/peru/C03b_timeseries_obs_model_final_swell.png" alt="Figure 5" width="800">
+
+**Figure 5.** Time series of measured (black) and modelled (orange) significant wave height and peak period of the swell component at the ADCP location, and modelled peak direction.
+
+<img src="./figures/peru/C03b_scatter_obs_model_final_swell.png" alt="Figure 6" width="600">
+
+**Figure 6.** Modelled against measured significant wave height of the swell component at the ADCP location. Dots are coloured by the modelled peak period, black circles show the quantile-quantile comparison, the red line is the linear regression and the dashed line indicates perfect agreement.
+
+The model can also be compared against satellite altimeter observations for the corresponding hindcast domain through the <a href="https://hindcast-satellite-validation-main-prod.apps.oceanum.io/" target="_blank">Oceanum Hindcast Satellite Validation App</a>, which provides density scatter plots, quantile comparisons, and statistical metrics.
 
 ---
 
